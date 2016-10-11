@@ -1,0 +1,40 @@
+/**
+ * @section Mashery Manage Account
+ * Styling specific to the "Manage My Account" page.
+ */
+
+
+// When additional specificity is needed.
+// Use with care and avoid whenever possible.
+.page-member {
+	.section-menu.navigation ul {
+		@extend .list-inline;
+		@extend .list-inline-divided;
+		@extend .link-plain;
+	}
+
+	.section-menu.actions {
+		@extend .link-plain;
+
+		.change-email:before {
+			content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#808080" d="M15 2H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h14c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 2v.72L8 8.254 2 4.72V4h12zM2 12V6.46l6 3.536 6-3.536V12H2z"/></svg>');
+			margin-right: calc-em(4px);
+		}
+
+		.change-password:before {
+			content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#808080" d="M11 0C8.24 0 6 2.24 6 5c0 .313.03.62.084.916L0 12v3c0 .552.448 1 1 1h1v-1h2v-2h2v-2h2l1.298-1.298c.53.192 1.105.298 1.702.298 2.76 0 5-2.24 5-5s-2.24-5-5-5zm1.498 5.002c-.828 0-1.5-.672-1.5-1.5s.672-1.5 1.5-1.5 1.5.672 1.5 1.5-.672 1.5-1.5 1.5z"/></svg>');
+			margin-right: calc-em(4px);
+		}
+
+		.public-profile:before {
+			content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#808080" d="M4 5c0-2.21 1.79-4 4-4s4 1.79 4 4-1.79 4-4 4-4-1.79-4-4zm8 5H4c-2.21 0-4 1.79-4 4v1h16v-1c0-2.21-1.79-4-4-4z"/></svg>');
+			margin-right: calc-em(4px);
+		}
+
+		.delete-self:before {
+			content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#808080" d="M8 0C3.582 0 0 3.582 0 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm0 14.5c-3.59 0-6.5-2.91-6.5-6.5S4.41 1.5 8 1.5s6.5 2.91 6.5 6.5-2.91 6.5-6.5 6.5zM10.5 4L8 6.5 5.5 4 4 5.5 6.5 8 4 10.5 5.5 12 8 9.5l2.5 2.5 1.5-1.5L9.5 8 12 5.5z"/></svg>');
+			margin-right: calc-em(4px);
+		}
+
+	}
+}
