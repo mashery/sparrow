@@ -65,9 +65,15 @@ var paths = {
 		input: 'src/static/**',
 		output: 'dist/'
 	},
+	templates: {
+		input: 'src/templates/*.{html,md,markdown}',
+		output: 'dist/templates/',
+		templates: 'src/templates/_templates/',
+		assets: 'src/templates/assets/**'
+	},
 	docs: {
 		input: 'src/docs/*.{html,md,markdown}',
-		output: 'dist/docs/',
+		output: 'docs/',
 		templates: 'src/docs/_templates/',
 		assets: 'src/docs/assets/**'
 	}
@@ -155,19 +161,6 @@ gulp.task('build:styles', ['clean:dist'], function() {
 gulp.task('build:svgs', ['clean:dist'], function () {
 	return gulp.src(paths.svgs.input)
 		.pipe(plumber())
-		.pipe(tap(function (file, t) {
-			if ( file.isDirectory() ) {
-				var name = file.relative + '.svg';
-				return gulp.src(file.path + '/*.svg')
-					.pipe(svgmin())
-					.pipe(svgstore({
-						fileName: name,
-						prefix: 'icon-',
-						inlineSvg: true
-					}))
-					.pipe(gulp.dest(paths.svgs.output));
-			}
-		}))
 		.pipe(svgmin())
 		.pipe(gulp.dest(paths.svgs.output));
 });
@@ -201,8 +194,26 @@ gulp.task('clean:dist', function () {
 	]);
 });
 
+// Generate templates
+gulp.task('build:templates', function() {
+	return gulp.src(paths.templates.input)
+		.pipe(plumber())
+		.pipe(fileinclude({
+			prefix: '@@',
+			basepath: '@file'
+		}))
+		.pipe(tap(function (file, t) {
+			if ( /\.md|\.markdown/.test(file.path) ) {
+				return t.through(markdown);
+			}
+		}))
+		.pipe(header(fs.readFileSync(paths.templates.templates + '/_header.html', 'utf8')))
+		.pipe(footer(fs.readFileSync(paths.templates.templates + '/_footer.html', 'utf8')))
+		.pipe(gulp.dest(paths.templates.output));
+});
+
 // Generate documentation
-gulp.task('build:docs', ['compile'], function() {
+gulp.task('build:docs', ['compile', 'clean:docs'], function() {
 	return gulp.src(paths.docs.input)
 		.pipe(plumber())
 		.pipe(fileinclude({
@@ -217,6 +228,25 @@ gulp.task('build:docs', ['compile'], function() {
 		.pipe(header(fs.readFileSync(paths.docs.templates + '/_header.html', 'utf8')))
 		.pipe(footer(fs.readFileSync(paths.docs.templates + '/_footer.html', 'utf8')))
 		.pipe(gulp.dest(paths.docs.output));
+});
+
+// Copy distribution files to docs
+gulp.task('copy:dist', ['compile', 'clean:docs'], function() {
+	return gulp.src(paths.output + '/**')
+		.pipe(plumber())
+		.pipe(gulp.dest(paths.docs.output + '/dist'));
+});
+
+// Copy documentation assets to docs
+gulp.task('copy:assets', ['clean:docs'], function() {
+	return gulp.src(paths.docs.assets)
+		.pipe(plumber())
+		.pipe(gulp.dest(paths.docs.output + '/assets'));
+});
+
+// Remove prexisting content from docs folder
+gulp.task('clean:docs', function () {
+	return del.sync(paths.docs.output);
 });
 
 // Spin up livereload server and listen for file changes
@@ -246,12 +276,16 @@ gulp.task('compile', [
 	'build:styles',
 	'build:images',
 	'build:static',
-	'build:svgs'
+	'build:svgs',
+	'build:templates'
 ]);
 
 // Generate documentation
 gulp.task('docs', [
-	'build:docs'
+	'clean:docs',
+	'build:docs',
+	'copy:dist',
+	'copy:assets'
 ]);
 
 // Compile files and generate docs (default)
