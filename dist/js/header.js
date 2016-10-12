@@ -638,7 +638,9 @@ var wrapElem = function ( elem, wrap, innerHTML, cb) {
 				'<span class="icon-fallback-text">Search</span>' +
 			'</button>';
 
+		// Create skipnav
 		var skipNav = '<a class="screen-reader screen-reader-focusable" href="#content">Skip Navigation</a>';
+		var content = document.querySelector( '#content' );
 
 
 		// Load nav
@@ -654,6 +656,11 @@ var wrapElem = function ( elem, wrap, innerHTML, cb) {
 
 		// Load skip nav link at the top of the <body> element
 		loadHTML( skipNav, document.body.firstChild );
+		if ( content ) {
+			content.classList.add( 'tabindex' );
+			content.setAttribute( 'tabindex', '-1' );
+		}
+
 
 	}));
 
