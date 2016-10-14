@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://stash.mashery.com/stash/users/cferdinandi/repos/sparrow/browse"
+    "url": "https://github.com/mashery/sparrow"
   },
   "devDependencies": {
     "del": "^1.2.0",
