@@ -11,7 +11,7 @@
 	@extend [hidden];
 
 	@media (min-width: $bp-medium) {
-		display: inline-block;
+		display: inline;
 		visibility: visible;
 	}
 }

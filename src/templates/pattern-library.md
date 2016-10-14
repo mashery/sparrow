@@ -244,18 +244,18 @@ Flip the display order of a grid on bigger viewports by adding the `.grid-flip` 
 Create grids that vary in size based on screen width using the `.grid-dynamic` class.
 
 <div class="row">
-	<div class="grid-dynamic"><p><img src="http://placehold.it/350x350"></p></div>
-	<div class="grid-dynamic"><p><img src="http://placehold.it/350x350"></p></div>
-	<div class="grid-dynamic"><p><img src="http://placehold.it/350x350"></p></div>
-	<div class="grid-dynamic"><p><img src="http://placehold.it/350x350"></p></div>
-	<div class="grid-dynamic"><p><img src="http://placehold.it/350x350"></p></div>
-	<div class="grid-dynamic"><p><img src="http://placehold.it/350x350"></p></div>
-	<div class="grid-dynamic"><p><img src="http://placehold.it/350x350"></p></div>
-	<div class="grid-dynamic"><p><img src="http://placehold.it/350x350"></p></div>
-	<div class="grid-dynamic"><p><img src="http://placehold.it/350x350"></p></div>
-	<div class="grid-dynamic"><p><img src="http://placehold.it/350x350"></p></div>
-	<div class="grid-dynamic"><p><img src="http://placehold.it/350x350"></p></div>
-	<div class="grid-dynamic"><p><img src="http://placehold.it/350x350"></p></div>
+	<div class="grid-dynamic"><p><img src="https://source.unsplash.com/random/350x350"></p></div>
+	<div class="grid-dynamic"><p><img src="https://source.unsplash.com/random/350x350"></p></div>
+	<div class="grid-dynamic"><p><img src="https://source.unsplash.com/random/350x350"></p></div>
+	<div class="grid-dynamic"><p><img src="https://source.unsplash.com/random/350x350"></p></div>
+	<div class="grid-dynamic"><p><img src="https://source.unsplash.com/random/350x350"></p></div>
+	<div class="grid-dynamic"><p><img src="https://source.unsplash.com/random/350x350"></p></div>
+	<div class="grid-dynamic"><p><img src="https://source.unsplash.com/random/350x350"></p></div>
+	<div class="grid-dynamic"><p><img src="https://source.unsplash.com/random/350x350"></p></div>
+	<div class="grid-dynamic"><p><img src="https://source.unsplash.com/random/350x350"></p></div>
+	<div class="grid-dynamic"><p><img src="https://source.unsplash.com/random/350x350"></p></div>
+	<div class="grid-dynamic"><p><img src="https://source.unsplash.com/random/350x350"></p></div>
+	<div class="grid-dynamic"><p><img src="https://source.unsplash.com/random/350x350"></p></div>
 </div>
 
 ```markup
@@ -614,14 +614,14 @@ Use the `.bg-hero` class with one of the above background colors to create a bac
 
 You will need to specify a background image (using either the inline CSS feature in the Dashboard or by adding inline CSS to the element directly). You may also wish to add a minimum height (or heights at different breakpoints) depending on the image.
 
-<div class="bg-primary bg-hero margin-bottom" style="background-image: url('//download.unsplash.com/7/color-correct-coffee.JPG'); min-height: 15em;">
+<div class="bg-primary bg-hero margin-bottom" style="background-image: url('https://source.unsplash.com/random/740x320'); min-height: 15em;">
 	<div class="padding-top-large padding-bottom-large text-center">
 		<span class="text-large">This is a hero image with text.</span>
 	</div>
 </div>
 
 ```markup
-<div class="bg-primary bg-hero" style="background-image: url('//download.unsplash.com/7/color-correct-coffee.JPG'); min-height: 15em;">
+<div class="bg-primary bg-hero" style="background-image: url('https://source.unsplash.com/random/740x320'); min-height: 15em;">
 	<div class="padding-top-large padding-bottom-large text-center">
 		<span class="text-large">This is a hero image with text.</span>
 	</div>
@@ -646,10 +646,10 @@ Button styles can be applied `<a>`, `<button>`, and `<input type="submit">` elem
 
 <button class="btn active">Active</button>
 <button class="btn btn-secondary active">Secondary Active</button>
-<button class="btn btn-tertiary active">Secondary Active</button>
+<button class="btn btn-tertiary active">Tertiary Active</button>
 <button class="btn disabled">Disabled</button>
 <button class="btn btn-secondary disabled">Secondary Disabled</button>
-<button class="btn btn-tertiary disabled">Secondary Disabled</button>
+<button class="btn btn-tertiary disabled">Tertiary Disabled</button>
 
 ```markup
 <button class="btn">Button</button>
@@ -663,10 +663,10 @@ Button styles can be applied `<a>`, `<button>`, and `<input type="submit">` elem
 
 <button class="btn active">Active</button>
 <button class="btn btn-secondary active">Secondary Active</button>
-<button class="btn btn-tertiary active">Secondary Active</button>
+<button class="btn btn-tertiary active">Tertiary Active</button>
 <button class="btn disabled">Disabled</button>
 <button class="btn btn-secondary disabled">Secondary Disabled</button>
-<button class="btn btn-tertiary disabled">Secondary Disabled</button>
+<button class="btn btn-tertiary disabled">Tertiary Disabled</button>
 ```
 
 <hr>
@@ -1172,19 +1172,19 @@ Add simple `.img-*` classes to any img element to add styling. You can combine c
 	<div class="grid-third">
 		<p style="text-align: center;">
 			<strong>Circle</strong><br>
-			<img class="img-circle" src="http://placehold.it/200x200">
+			<img class="img-circle" src="https://source.unsplash.com/random/200x200">
 		</p>
 	</div>
 	<div class="grid-third">
 		<p style="text-align: center;">
 			<strong>Border</strong><br>
-			<img class="img-border" src="http://placehold.it/200x200">
+			<img class="img-border" src="https://source.unsplash.com/random/200x200">
 		</p>
 	</div>
 	<div class="grid-third">
 		<p style="text-align: center;">
 			<strong>Photo</strong><br>
-			<img class="img-photo" src="http://placehold.it/200x200">
+			<img class="img-photo" src="https://source.unsplash.com/random/200x200">
 		</p>
 	</div>
 </div>
