@@ -58,10 +58,15 @@
 		toggle.innerHTML = '<span class="collapse-text-show">' + settings.iconShow + '</span><span class="collapse-text-hide">' + settings.iconHide + '</span>';
 		toggle.classList.add( 'collapse-toggle' );
 		toggle.setAttribute( 'data-collapse', true );
-		toggle.style.marginLeft = settings.iconMargin;
-		toggle.style.marginRight = settings.iconMargin;
 		if ( isActive ) { toggle.classList.add( 'active' ); }
 		if ( settings.isAccordion ) { toggle.setAttribute( 'data-group', 'docs-subnav' ); }
+
+		// Add margin
+		if ( settings.iconAfter ) {
+			toggle.style.marginLeft = settings.iconMargin;
+		} else {
+			toggle.style.marginRight = settings.iconMargin;
+		}
 
 		// Inject link into DOM
 		navlink.parentNode.insertBefore(toggle, location);
