@@ -1,5 +1,5 @@
 # Sparrow
-Sparrow is a flexible, mobile-friendly theme for the Mashery Portal. [View the demo and get started](http://mashery.github.com/sparrow/).
+Sparrow is a flexible, mobile-friendly theme for the Mashery Portal. [View the documentation to get started](https://mashery.github.com/sparrow/).
 
 
 ## How to Contribute
