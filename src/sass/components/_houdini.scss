@@ -32,3 +32,11 @@
 		outline: none;
 	}
 }
+
+
+/**
+ * Houdini subnav
+ */
+.js-houdini ul.collapse.active {
+	margin-left: $spacing;
+}

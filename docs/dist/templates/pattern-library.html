@@ -899,6 +899,12 @@ You can also include superscripts&lt;sup&gt;1&lt;/sup&gt; and subscripts&lt;sub&
     ...
 &lt;/table&gt;
 </code></pre>
+<h3 id="wysiwyg-generated-tables">WYSIWYG Generated Tables</h3>
+<p>The Mashery Portal WYSIWYG generates tables that are missing the required <code>&lt;thead&gt;</code> and <code>&lt;th&gt;</code> elements. You can fix this by calling the <code>addTableHeaders()</code> JavaScript method. This is done for you already in the <em>Body JavaScript</em> section of <em>Portal Setup</em> in the Dashboard.</p>
+<pre><code class="lang-js">portalReady(function () {
+    addTableHeaders();
+});
+</code></pre>
 <hr>
 
 

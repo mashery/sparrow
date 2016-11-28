@@ -1031,6 +1031,16 @@ Classes can be combined as needed.
 </table>
 ```
 
+### WYSIWYG Generated Tables
+
+The Mashery Portal WYSIWYG generates tables that are missing the required `<thead>` and `<th>` elements. You can fix this by calling the `addTableHeaders()` JavaScript method. This is done for you already in the *Body JavaScript* section of *Portal Setup* in the Dashboard.
+
+```js
+portalReady(function () {
+	addTableHeaders();
+});
+```
+
 <hr>
 
 

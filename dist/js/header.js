@@ -1,6 +1,7 @@
 /*!
  * YOUR-CLIENT-NAME-WITHOUT-SPACES v1.0.0: Portal theme for YOUR-CLIENT-NAME
  * (c) 2016 YOUR-NAME
+ * Built on the Sparrow Boilerplate v8.4.1
  * MIT License
  * https://github.com/mashery/sparrow
  */
@@ -493,7 +494,7 @@ var portalReady = function ( fn ) {
 	if ( typeof fn !== 'function' ) return;
 
 	// If document is already loaded, run method
-	if ( document.readyState === 'complete' ) {
+	if ( document.readyState === 'interactive' || document.readyState === 'complete' ) {
 		return fn();
 	}
 

@@ -12,4 +12,5 @@ portalReady(function () {
     smoothScroll.init();
     stickyFooter.init();
     tabby.init();
+    addTableHeaders();
 });
