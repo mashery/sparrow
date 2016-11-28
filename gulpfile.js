@@ -89,6 +89,7 @@ var banner = {
 		'/*!\n' +
 		' * <%= package.name %> v<%= package.version %>: <%= package.description %>\n' +
 		' * (c) ' + new Date().getFullYear() + ' <%= package.author.name %>\n' +
+		' * Built on the Sparrow Boilerplate v<%= package.sparrow.version %>\n' +
 		' * MIT License\n' +
 		' * <%= package.repository.url %>\n' +
 		' */\n\n',
@@ -96,6 +97,7 @@ var banner = {
 		'/*!' +
 		' <%= package.name %> v<%= package.version %>' +
 		' | (c) ' + new Date().getFullYear() + ' <%= package.author.name %>' +
+		' | Sparrow v<%= package.sparrow.version %>' +
 		' | MIT License' +
 		' | <%= package.repository.url %>' +
 		' */\n'
