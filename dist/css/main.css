@@ -1,7 +1,7 @@
 /*!
  * YOUR-CLIENT-NAME-WITHOUT-SPACES v1.0.0: Portal theme for YOUR-CLIENT-NAME
  * (c) 2016 YOUR-NAME
- * Built on the Sparrow Boilerplate v8.4.2
+ * Built on the Sparrow Boilerplate v8.4.3
  * MIT License
  * https://github.com/mashery/sparrow
  */
@@ -1314,19 +1314,30 @@ thead {
   border-bottom: 0.125em solid #e5e5e5;
 }
 
-/* line 24, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
+/* line 23, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
+.search-form thead {
+  border-bottom: 0;
+}
+
+/* line 28, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
 th,
 thead td {
   font-weight: bold;
   vertical-align: bottom;
 }
 
-/* line 31, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
+/* line 34, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
+.search-form th, .search-form
+thead td {
+  vertical-align: top;
+}
+
+/* line 39, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
 tbody tr {
   border-top: 1px solid #e5e5e5;
 }
 
-/* line 35, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
+/* line 43, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
 td {
   vertical-align: top;
 }
@@ -1334,7 +1345,7 @@ td {
 /**
  * Adds zebra striping
  */
-/* line 42, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
+/* line 50, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
 .table-striped tbody tr:nth-child(odd) {
   background-color: #f7f7f7;
 }
@@ -1342,7 +1353,7 @@ td {
 /**
  * Reduces padding on condensed tables
  */
-/* line 50, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
+/* line 58, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
 .table-condensed th,
 .table-condensed td {
   padding: 0.25em;
@@ -1354,24 +1365,24 @@ td {
  * @link https://techblog.livingsocial.com/blog/2015/04/06/responsive-tables-in-pure-css/
  */
 @media (max-width: 40em) {
-  /* line 64, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
+  /* line 72, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
   .table-responsive thead {
     display: none;
     visibility: hidden;
   }
-  /* line 69, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
+  /* line 77, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
   .table-responsive tr {
     border-top: 1px solid #ededed;
     display: block;
     padding: 0.5em;
   }
-  /* line 75, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
+  /* line 83, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
   .table-responsive td {
     border: 0;
     display: block;
     padding: 0.25em;
   }
-  /* line 80, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
+  /* line 88, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
   .table-responsive td:before {
     content: attr(data-label);
     display: block;

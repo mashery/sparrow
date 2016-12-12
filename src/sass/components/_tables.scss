@@ -19,6 +19,10 @@ td {
 
 thead {
 	border-bottom: calc-em(2px) solid $color-gray-light;
+
+	.search-form & {
+		border-bottom: 0;
+	}
 }
 
 th,
@@ -26,6 +30,10 @@ thead td {
 	// background-color: lighten( $color-gray-light, 5% );
 	font-weight: bold;
 	vertical-align: bottom;
+
+	.search-form & {
+		vertical-align: top;
+	}
 }
 
 tbody tr {
