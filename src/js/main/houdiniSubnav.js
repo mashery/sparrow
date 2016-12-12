@@ -43,6 +43,51 @@
 	//
 
 	/**
+	 * Merge two or more objects. Returns a new object.
+	 * Set the first argument to `true` for a deep or recursive merge
+	 * @param {Boolean}  deep     If true, do a deep (or recursive) merge [optional]
+	 * @param {Object}   objects  The objects to merge together
+	 * @returns {Object}          Merged values of defaults and options
+	 */
+	var extend = function () {
+
+		// Variables
+		var extended = {};
+		var deep = false;
+		var i = 0;
+		var length = arguments.length;
+
+		// Check if a deep merge
+		if ( Object.prototype.toString.call( arguments[0] ) === '[object Boolean]' ) {
+			deep = arguments[0];
+			i++;
+		}
+
+		// Merge the object into the extended object
+		var merge = function ( obj ) {
+			for ( var prop in obj ) {
+				if ( Object.prototype.hasOwnProperty.call( obj, prop ) ) {
+					// If deep merge and property is an object, merge properties
+					if ( deep && Object.prototype.toString.call(obj[prop]) === '[object Object]' ) {
+						extended[prop] = extend( true, extended[prop], obj[prop] );
+					} else {
+						extended[prop] = obj[prop];
+					}
+				}
+			}
+		};
+
+		// Loop through each object and conduct a merge
+		for ( ; i < length; i++ ) {
+			var obj = arguments[i];
+			merge(obj);
+		}
+
+		return extended;
+
+	};
+
+	/**
 	 * Create the link node
 	 * @private
 	 * @param  {Node}    navlink  The current link element
@@ -57,7 +102,7 @@
 		toggle.href = '#docs-subnav-' + index;
 		toggle.innerHTML = '<span class="collapse-text-show">' + settings.iconShow + '</span><span class="collapse-text-hide">' + settings.iconHide + '</span>';
 		toggle.classList.add( 'collapse-toggle' );
-		toggle.setAttribute( 'data-collapse', true );
+		toggle.classList.add( 'js-collapse' );
 		if ( isActive ) { toggle.classList.add( 'active' ); }
 		if ( settings.isAccordion ) { toggle.setAttribute( 'data-group', 'docs-subnav' ); }
 
@@ -79,22 +124,23 @@
 	 * @param {NodesList} navs Nav elements
 	 */
 	var addAttributes = function ( navs ) {
-		buoy.forEach(navs, function (nav, index) {
+
+		for (var i = 0; i < navs.length; i++) {
 
 			// Get subnav
-			var subnav = nav.querySelector( 'ul' );
+			var subnav = navs[i].querySelector( 'ul' );
 
 			// If no subnav, move on to the next nav element
 			if ( !subnav ) return;
 
 			// Get subnav link
-			var navlink = nav.firstChild;
+			var navlink = navs[i].firstChild;
 
 			// Determine if nav is active
-			var isActive = nav.classList.contains( 'active' );
+			var isActive = navs[i].classList.contains( 'active' );
 
 			// Remove .active class from parent li
-			nav.classList.remove( 'active' );
+			navs[i].classList.remove( 'active' );
 
 			// Render the link
 			renderLink( navlink, isActive, index );
@@ -108,7 +154,8 @@
 			var subSubNavs = subnav.querySelectorAll( 'ul > li' );
 			addAttributes( subSubNavs );
 
-		});
+		}
+
 	};
 
 	/**
@@ -146,7 +193,7 @@
 		houdiniSubnav.destroy();
 
 		// Variables
-		settings = buoy.extend( defaults, options || {} ); // Merge user options with defaults
+		settings = extend( defaults, options || {} ); // Merge user options with defaults
 		theNav = document.querySelector( settings.selectorNav );
 		navs = document.querySelectorAll( settings.selectorNavs );
 

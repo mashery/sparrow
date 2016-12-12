@@ -1,7 +1,7 @@
 /*!
  * YOUR-CLIENT-NAME-WITHOUT-SPACES v1.0.0: Portal theme for YOUR-CLIENT-NAME
  * (c) 2016 YOUR-NAME
- * Built on the Sparrow Boilerplate v8.4.3
+ * Built on the Sparrow Boilerplate v9.0.0
  * MIT License
  * https://github.com/mashery/sparrow
  */
@@ -1728,114 +1728,6 @@ a:hover .icon-link, .link-block-styled:hover .icon-link, .link-block:hover .link
 /* line 66, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tabby.scss */
 .js-tabby .tabs-pane:focus {
   outline: none;
-}
-
-/**
- * @section Modals
- * Styling for modal window overlays.
- */
-/**
- * Modal window
- */
-/* line 9, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_modals.scss */
-.modal {
-  background-color: #ffffff;
-  border: 1px solid #e5e5e5;
-  border-radius: 1px;
-  box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.3);
-  display: none;
-  max-width: 100%;
-  padding: 0.5em 1em;
-  visibility: hidden;
-  z-index: 9999;
-}
-
-@media (min-width: 40em) {
-  /* line 9, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_modals.scss */
-  .modal {
-    max-width: 98%;
-  }
-}
-
-/* line 24, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_modals.scss */
-.modal.active {
-  display: block;
-  height: 100%;
-  left: 0;
-  max-height: 100%;
-  overflow: auto;
-  position: fixed;
-  right: 0;
-  top: 0;
-  visibility: visible;
-  -webkit-overflow-scrolling: touch;
-}
-
-@media (min-width: 30em) {
-  /* line 24, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_modals.scss */
-  .modal.active {
-    height: auto;
-    left: 3%;
-    margin-left: auto;
-    margin-right: auto;
-    right: 3%;
-    top: 50px;
-  }
-}
-
-@media (min-width: 40em) {
-  /* line 24, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_modals.scss */
-  .modal.active {
-    left: 8%;
-    right: 8%;
-  }
-  /* line 49, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_modals.scss */
-  .modal.active.modal-medium {
-    width: 35em;
-  }
-  /* line 53, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_modals.scss */
-  .modal.active.modal-small {
-    width: 25em;
-  }
-}
-
-/* line 59, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_modals.scss */
-.modal:focus {
-  outline: none;
-}
-
-/**
- * Modal background
- */
-/* line 67, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_modals.scss */
-.modal-bg {
-  background-color: #272727;
-  bottom: 0;
-  position: fixed;
-  left: 0;
-  opacity: .9;
-  right: 0;
-  top: 0;
-  z-index: 9998;
-}
-
-/**
- * Close button
- */
-/* line 81, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_modals.scss */
-.close {
-  color: #808080;
-  cursor: pointer;
-  float: right;
-  font-weight: bold;
-  font-size: 1.5em;
-}
-
-/* line 88, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_modals.scss */
-.close:hover {
-  color: #5a5a5a;
-  cursor: pointer;
-  text-decoration: none;
 }
 
 /**

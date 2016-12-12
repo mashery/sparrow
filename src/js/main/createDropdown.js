@@ -49,4 +49,9 @@ var createDropdown = function ( target, dropdown, nav ) {
 		break;
 	}
 
+	// Initialize dropdowns
+	drop.init({
+		activeClass: 'drop-active',
+	});
+
 };

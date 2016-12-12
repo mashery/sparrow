@@ -1368,10 +1368,10 @@ Force your footer to stick to the bottom of the viewport, even when there's not 
 
 #### Markup
 
-Add the `[data-sticky-footer]` attribute to your footer.
+Add the `.js-sticky-footer` class to your footer.
 
 ```markup
-<footer data-sticky-footer>
+<footer class="js-sticky-footer">
 	...
 </footer>
 ```
@@ -1382,18 +1382,10 @@ The script will not run until initialized. This is done for you already in the *
 
 ```javascript
 portalReady(function () {
-	stickyFooter.init();
+	stickyFooter.init({
+		selector: 'js-sticky-footer',
+	});
 });
-```
-
-#### TinyMCE Workaround
-
-TinyMCE removes data attributes from the markup. In order to use this script, you must either uncheck the "Use TinyMCE" checkbox in the Content section of the Portal Dashboard, or use the `.js-sticky-footer` class instead.
-
-```markup
-<footer class="js-sticky-footer">
-	...
-</footer>
 ```
 
 ### Global Settings
@@ -1402,9 +1394,9 @@ You can pass options and callbacks into the script through the `init()` function
 
 ```javascript
 stickyFooter.init({
-	content: '#content', // The element that contains your main content
-	callbackBefore: function () {}, // Function that runs before adjusting footer
-	callbackAfter: function () {} // Function that runs after adjusting footer
+	selector: '[data-sticky-footer]', // The selector for the footer
+	content: '#content', // The selector for the element that contains your main content
+	callback: function () {} // Function that runs after adjusting footer
 });
 ```
 
@@ -1442,21 +1434,21 @@ stickyFooter.destroy();
 
 Dynamically set content areas of different lengths to the same height.
 
-<div class="row" data-right-height>
+<div class="row js-right-height">
 	<div class="grid-third">
-		<div class="demo-grid-bg" data-right-height-content>
+		<div class="demo-grid-bg js-right-height-content">
 			<h2>Content 1</h2>
 			<p>The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs.</p>
 		</div>
 	</div>
 	<div class="grid-third">
-		<div class="demo-grid-bg" data-right-height-content>
+		<div class="demo-grid-bg js-right-height-content">
 			<h2>Content 2</h2>
 			<p>Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack. Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex. Two driven jocks help fax my big quiz.</p>
 		</div>
 	</div>
 	<div class="grid-third">
-		<div class="demo-grid-bg" data-right-height-content>
+		<div class="demo-grid-bg js-right-height-content">
 			<h2>Content 3</h2>
 			<p>Quick, Baz, get my woven flax jodhpurs! "Now fax quiz Jack!" my brave ghost pled. Five quacking zephyrs jolt my wax bed. Flummoxed by job, kvetching W. zaps Iraq. Cozy sphinx waves quart jug of bad milk. A very bad quack might jinx zippy fowls.</p>
 		</div>
@@ -1467,17 +1459,17 @@ Dynamically set content areas of different lengths to the same height.
 
 #### Markup
 
-Add the `[data-right-height]` data attribute to the wrapper div for your content areas. This let's Right Height adjust heights for different sections of content independently from each other. Give each content area that you want Right Height to adjust a `[data-right-height-content]` data attribute.
+Add the `.js-right-height` class to the wrapper div for your content areas. This let's Right Height adjust heights for different sections of content independently from each other. Give each content area that you want Right Height to adjust a `.js-right-height-content` class.
 
 ```markup
-<div class="row" data-right-height>
-	<div class="grid-third" data-right-height-content>
+<div class="row js-right-height">
+	<div class="grid-third js-right-height-content">
 		Content 1
 	</div>
-	<div class="grid-third" data-right-height-content>
+	<div class="grid-third js-right-height-content">
 		Content 2
 	</div>
-	<div class="grid-third" data-right-height-content>
+	<div class="grid-third js-right-height-content">
 		Content 3
 	</div>
 </div>
@@ -1490,22 +1482,12 @@ The script will not run until initialized. This is done for you already in the *
 ```markup
 <script>
 	portalReady(function () {
-		rightHeight.init();
+		rightHeight.init({
+			selector: '.js-right-height',
+			selectorContent: '.js-right-height-content',
+		});
 	});
 </script>
-```
-
-#### TinyMCE Workaround
-
-TinyMCE removes data attributes from the markup. In order to use this script, you must either uncheck the "Use TinyMCE" checkbox in the Content section of the Portal Dashboard, or use the `.js-right-height` and `.js-right-height-content` classes instead.
-
-```markup
-<div class="row js-right-height">
-	<div class="grid-third js-right-height-content">
-		Content 1
-	</div>
-	...
-</div>
 ```
 
 ### Global Settings
@@ -1514,8 +1496,9 @@ You can pass options and callbacks into Right Height through the `init()` functi
 
 ```javascript
 rightHeight.init({
-	callbackBefore: function ( container ) {}, // Function that runs before content height is adjusted
-	callbackAfter: function ( container ) {} // Function that runs after content height is adjusted
+	selector: '[data-right-height]', // Selector for the right height parent container
+	selectorContent: '[data-right-height-content]', // Selector for right height content areas
+	callback: function () {} // Function to run after height is adjusted
 });
 ```
 
@@ -1542,149 +1525,6 @@ Destroy the current `rightHeight.init()`. This is called automatically during th
 
 ```javascript
 rightHeight.destroy();
-```
-
-<hr>
-
-
-## Modals
-
-Your theme includes mobile-friendly modal dialogue windows.
-
-<p><button data-modal="#modal1">Modal</button> <button data-modal="#modal2">Modal Medium</button> <button data-modal="#modal3">Modal Small</button></p>
-
-<div class="modal" data-modal-window id="modal1">
-	<a class="close" data-modal-close href="#">x</a>
-	<h3>Modal</h3>
-	<p>Modal content</p>
-	<button data-modal-close>Close</button>
-</div>
-
-<div class="modal modal-medium" data-modal-window id="modal2">
-	<a  class="close" data-modal-close href="#">x</a>
-	<h3>Modal Medium</h3>
-	<p>Modal content</p>
-	<button data-modal-close>Close</button>
-</div>
-
-<div class="modal modal-small" data-modal-window id="modal3">
-	<a class="close" data-modal-close href="#">x</a>
-	<h3>Modal Small</h3>
-	<p>Modal content</p>
-	<button data-modal-close>Close</button>
-</div>
-
-### Getting Started
-
-#### Markup
-
-```markup
-<a data-modal="#modal" href="#">Modal Toggle</a>
-
-<div class="modal" data-modal-window id="modal">
-	<a class="close" data-modal-close href="#">x</a>
-	<h3>Modal</h3>
-	<p>Modal content</p>
-	<button data-modal-close>Close</button>
-</div>
-```
-
-Be sure to assign each modal a unique ID. Add the `.modal-medium` or `.modal-small` class to change the modal size.
-
-```markup
-<div class="modal modal-small" data-modal-window id="modal">
-	...
-</div>
-```
-
-Adding a `[data-modal-close]` data attribute to any button or link turns it into a modal dismiss link. The `.modal-close` class adds special styling to close links (if you wanted to use an X for close, for example). Clicking anywhere outside the modal or pressing the escape key will close the modal, too.
-
-Always specify a functioning link as a backup for modals. Modals uses modern JavaScript API's that aren't supported by older browsers, including IE 8 and lower. On modern browsers, Modals will prevent the backup URL from redirecting people away from the current page.
-
-```markup
-<a data-modal="#modal" href="http://backup-url.com">Modal Toggle</a>
-```
-
-#### JavaScript
-
-The script will not run until initialized. This is done for you already in the *Body JavaScript* section of *Portal Setup* in the Dashboard.
-
-```markup
-<script>
-	portalReady(function () {
-		modals.init();
-	});
-</script>
-```
-
-#### TinyMCE Workaround
-
-TinyMCE removes data attributes from the markup. In order to use this script, you must either uncheck the "Use TinyMCE" checkbox in the Content section of the Portal Dashboard, or use the `.js-modal`, `.js-modal-window`, and `.js-modal-close` classes instead, passing in the ID through the `href` value.
-
-```markup
-<a class="js-modal" href="#modal">Modal Toggle</a>
-
-<div class="modal js-modal-window" id="modal">
-	<a class="close js-modal-close">x</a>
-	<h3>Modal</h3>
-	<p>Modal content</p>
-	<button class="js-modal-close">Close</button>
-</div>
-```
-
-### Global Settings
-
-You can pass options and callbacks into Modals through the `init()` function:
-
-```javascript
-modals.init({
-	modalActiveClass: 'active', // Class applied to active modal windows
-	modalBGClass: 'modal-bg', // Class applied to the modal background overlay
-	backspaceClose: true, // Boolean, whether or not to enable backspace/delete button modal closing
-	callbackOpen: function ( toggle, modalID ) {}, // Functions to run after opening a modal
-	callbackClose: function () {} // Functions to run after closing a modal
-});
-```
-
-***Note:*** *If your modal includes any form fields, you should set `backspaceClose` to `false` or users will not be able to delete their text.*
-
-### Use Modals events in your own scripts
-
-You can also call Modals events in your own scripts.
-
-#### openModal()
-Open a specific modal window.
-
-```javascript
-modals.openModal(
-	toggle, // Node that launches the modal. ex. document.querySelector('#toggle')
-	modalID, // The ID of the modal to launch. ex '#modal'
-	options, // Classes and callbacks. Same options as those passed into the init() function.
-	event // Optional, if a DOM event was triggered.
-);
-
-// Example
-modals.openModal( null, '#modal' );
-```
-
-#### closeModals()
-Close all modal windows.
-
-```javascript
-modals.closeModals(
-	options, // Classes and callbacks. Same options as those passed into the init() function.
-	event // Optional, if a DOM event was triggered.
-);
-
-// Example
-modals.closeModals();
-```
-
-#### destroy()
-Destroy the current `modals.init()`. This is called automatically during the init function to remove any existing initializations.
-
-```javascript
-modals.destroy();
 ```
 
 <hr>
@@ -1756,10 +1596,10 @@ Add simple expand-and-collapse widgets and accordions.
 
 #### Markup
 
-Add the `.collapse-toggle` class to your toggle element, and the `.collapse` class to your content. You also need to add the `[data-collapse]` attribute to your toggle element, and provide an `href` that matches the `id` of the content you want to expand-and-collapse.
+Add the `.collapse-toggle` class to your toggle element, and the `.collapse` class to your content. You also need to provide an `href` that matches the `id` of the content you want to expand-and-collapse.
 
 ```html
-<a class="collapse-toggle" data-collapse href="#show-me">
+<a class="collapse-toggle" href="#show-me">
 	<span class="collapse-text-show">Show +</span>
 	<span class="collapse-text-hide">Hide -</span>
 </a>
@@ -1773,7 +1613,7 @@ Add the `.collapse-toggle` class to your toggle element, and the `.collapse` cla
 If you'd prefer to show content by default, include the `.active` class along with the `.collapse` and `.collapse-toggle` classes.
 
 ```html
-<a class="collapse-toggle active" data-collapse href="#hide-me">
+<a class="collapse-toggle active" href="#hide-me">
 	<span class="collapse-text-show">Show +</span>
 	<span class="collapse-text-hide">Hide -</span>
 </a>
@@ -1787,7 +1627,7 @@ If you'd prefer to show content by default, include the `.active` class along wi
 Expand-and-collapse accordion groups are also supported. Add a `[data-group]` attribute to every toggle in the accordion, and make sure they all have the same value. The script will sort out the rest.
 
 ```html
-<a class="collapse-toggle active" data-collapse data-group="accordion" href="#section1">
+<a class="collapse-toggle active" data-group="accordion" href="#section1">
 	Section 1
 	<span class="collapse-text-show">+</span>
 	<span class="collapse-text-hide">-</span>
@@ -1796,7 +1636,7 @@ Expand-and-collapse accordion groups are also supported. Add a `[data-group]` at
 	<h3>Section 1</h3>
 	<p>The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs.</p>
 </div>
-<a class="collapse-toggle" data-collapse data-group="accordion" href="#section2">
+<a class="collapse-toggle" data-group="accordion" href="#section2">
 	Section 2
 	<span class="collapse-text-show">+</span>
 	<span class="collapse-text-hide">-</span>
@@ -1805,7 +1645,7 @@ Expand-and-collapse accordion groups are also supported. Add a `[data-group]` at
 	<h3>Section 2</h3>
 	<p>Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack. Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex. Two driven jocks help fax my big quiz.</p>
 </div>
-<a class="collapse-toggle" data-collapse data-group="accordion" href="#section3">
+<a class="collapse-toggle" data-group="accordion" href="#section3">
 	Section 3
 	<span class="collapse-text-show">+</span>
 	<span class="collapse-text-hide">-</span>
@@ -1823,22 +1663,16 @@ The script will not run until initialized. This is done for you already in the *
 ```markup
 <script>
 	portalReady(function () {
-		houdini.init();
+		houdini.init({
+	    	selectorToggle: '.collapse-toggle',
+	    });
 	});
 </script>
 ```
 
-#### TinyMCE Workaround
+#### TinyMCE Issues
 
-TinyMCE removes data attributes from the markup. In order to use this script, you must either uncheck the "Use TinyMCE" checkbox in the Content section of the Portal Dashboard, or use the `.js-collapse` class instead of `[data-collapse]`.
-
-```markup
-<a class="collapse-toggle js-collapse" href="#show-me">
-	...
-</a>
-```
-
-***Note:*** *The only way to use this script with accordions is to disable TinyMCE. Expand-and-collapse functionality is only added one-level deep.*
+TinyMCE removes data attributes from the markup. In order to use this script as an accordion, you must uncheck the "Use TinyMCE" checkbox in the Content section of the Portal Dashboard.
 
 ### Global Settings
 
@@ -1939,22 +1773,22 @@ houdiniSubnav.init({
 
 Light weight toggle tabs.
 
-<ul data-tabs class="tabs">
-	<li class="active"><a class="active" data-tab href="#taba">Superheroes</a></li>
-	<li><a data-tab href="#tabb">Ice Cream</a></li>
-	<li><a data-tab href="#tabc">Seasons</a></li>
+<ul class="tabs">
+	<li class="active"><a class="js-tab active" href="#taba">Superheroes</a></li>
+	<li><a class="js-tab" href="#tabb">Ice Cream</a></li>
+	<li><a class="js-tab" href="#tabc">Seasons</a></li>
 </ul>
 
-<div data-tabs-content>
-	<div data-tabs-pane class="tabs-pane active" id="taba">
+<div class="js-tabs-content">
+	<div class="tabs-pane active" id="taba">
 		<p><strong>Superheros</strong></p>
 		<p>Spiderman, Batman, or Iron Man... which one is your favorite?</p>
 	</div>
-	<div data-tabs-pane class="tabs-pane" id="tabb">
+	<div class="tabs-pane" id="tabb">
 		<p><strong>Ice Cream</strong></p>
 		<p>Chocolate, vanilla or strawberry?</p>
 	</div>
-	<div data-tabs-pane class="tabs-pane" id="tabc">
+	<div class="tabs-pane" id="tabc">
 		<p><strong>Seasons</strong></p>
 		<p>Winter, summer, spring or fall?</p>
 	</div>
@@ -1966,27 +1800,27 @@ Light weight toggle tabs.
 
 For semantic reasons, tab toggles must be links, but can be strutured however you see fit. Make sure that the `href` for each tab toggle matches the id of the target `.tabs-pane`.
 
-Add the `[data-tabs]` attribute to the tab toggles parent element, and the `[data-tab]` attribute to individual toggles. Add a `[data-tabs-content]` attribute to the tab content group parent element, and the `[data-tabs-pane]` attribute to individual tab content.
+Add the `.tabs` class to the tab toggles parent element, and the `.js-tab` class to individual toggles. Add a `.js-tabs-content` class to the tab content group parent element, and the `.tabs-pane` class to individual tab content.
 
 Add the `.active` class to the tab and content that you'd like displayed by default.
 
 ```markup
-<ul data-tabs class="tabs">
-	<li class="active"><a class="active" data-tab href="#taba">Superheroes</a></li>
-	<li><a data-tab href="#tabb">Ice Cream</a></li>
-	<li><a data-tab href="#tabc">Seasons</a></li>
+<ul class="tabs">
+	<li class="active"><a class="js-tab active" href="#taba">Superheroes</a></li>
+	<li><a class="js-tab" href="#tabb">Ice Cream</a></li>
+	<li><a class="js-tab" href="#tabc">Seasons</a></li>
 </ul>
 
-<div data-tabs-content>
-	<div data-tabs-pane class="tabs-pane active" id="taba">
+<div class="js-tabs-content">
+	<div class="tabs-pane active" id="taba">
 		<p><strong>Superheros</strong></p>
 		<p>Spiderman, Batman, or Iron Man... which one is your favorite?</p>
 	</div>
-	<div data-tabs-pane class="tabs-pane" id="tabb">
+	<div class="tabs-pane" id="tabb">
 		<p><strong>Ice Cream</strong></p>
 		<p>Chocolate, vanilla or strawberry?</p>
 	</div>
-	<div data-tabs-pane class="tabs-pane" id="tabc">
+	<div class="tabs-pane" id="tabc">
 		<p><strong>Seasons</strong></p>
 		<p>Winter, summer, spring or fall?</p>
 	</div>
@@ -2000,27 +1834,14 @@ The script will not run until initialized. This is done for you already in the *
 ```markup
 <script>
 	portalReady(function () {
-		tabby.init();
+		tabby.init({
+			selectorToggle: '.js-tab',
+			selectorToggleGroup: '.tabs',
+			selectorContent: '.tabs-pane',
+			selectorContentGroup: '.js-tabs-content',
+		});
 	});
 </script>
-```
-
-#### TinyMCE Workaround
-
-TinyMCE removes data attributes from the markup. In order to use this script, you must either uncheck the "Use TinyMCE" checkbox in the Content section of the Portal Dashboard, or use `.js-*` classes instead. The class-based workaround only works with link elements.
-
-```markup
-<ul class="js-tabs tabs">
-	<li><a class="js-tab" href="#taba">Superheroes</a></li>
-	...
-</ul>
-
-<div class="js-tabs-content">
-	<div class="js-tabs-pane tabs-pane" id="taba">
-		...
-	</div>
-	...
-</div>
 ```
 
 ### Global Settings
@@ -2079,31 +1900,31 @@ Animate scrolling to anchor links.
 
 <p>
 	<strong>Linear</strong><br>
-	<a data-scroll data-options='{ "easing": "linear" }' href="#bazinga">Linear (no other options)</a><br>
+	<a class="js-scroll" data-options='{ "easing": "linear" }' href="#bazinga">Linear (no other options)</a><br>
 </p>
 
 <p>
 	<strong>Ease-In</strong><br>
-	<a data-scroll data-options='{ "easing": "easeInQuad" }' href="#bazinga">Quad</a><br>
-	<a data-scroll data-options='{ "easing": "easeInCubic" }' href="#bazinga">Cubic</a><br>
-	<a data-scroll data-options='{ "easing": "easeInQuart" }' href="#bazinga">Quart</a><br>
-	<a data-scroll data-options='{ "easing": "easeInQuint" }' href="#bazinga">Quint</a>
+	<a class="js-scroll" data-options='{ "easing": "easeInQuad" }' href="#bazinga">Quad</a><br>
+	<a class="js-scroll" data-options='{ "easing": "easeInCubic" }' href="#bazinga">Cubic</a><br>
+	<a class="js-scroll" data-options='{ "easing": "easeInQuart" }' href="#bazinga">Quart</a><br>
+	<a class="js-scroll" data-options='{ "easing": "easeInQuint" }' href="#bazinga">Quint</a>
 </p>
 
 <p>
 	<strong>Ease-In-Out</strong><br>
-	<a data-scroll data-options='{ "easing": "easeInOutQuad" }' href="#bazinga">Quad</a><br>
-	<a data-scroll data-options='{ "easing": "easeInOutCubic" }' href="#bazinga">Cubic</a><br>
-	<a data-scroll data-options='{ "easing": "easeInOutQuart" }' href="#bazinga">Quart</a><br>
-	<a data-scroll data-options='{ "easing": "easeInOutQuint" }' href="#bazinga">Quint</a>
+	<a class="js-scroll" data-options='{ "easing": "easeInOutQuad" }' href="#bazinga">Quad</a><br>
+	<a class="js-scroll" data-options='{ "easing": "easeInOutCubic" }' href="#bazinga">Cubic</a><br>
+	<a class="js-scroll" data-options='{ "easing": "easeInOutQuart" }' href="#bazinga">Quart</a><br>
+	<a class="js-scroll" data-options='{ "easing": "easeInOutQuint" }' href="#bazinga">Quint</a>
 </p>
 
 <p>
 	<strong>Ease-Out</strong><br>
-	<a data-scroll data-options='{ "easing": "easeOutQuad" }' href="#bazinga">Quad</a><br>
-	<a data-scroll data-options='{ "easing": "easeOutCubic" }' href="#bazinga">Cubic</a><br>
-	<a data-scroll data-options='{ "easing": "easeOutQuart" }' href="#bazinga">Quart</a><br>
-	<a data-scroll data-options='{ "easing": "easeOutQuint" }' href="#bazinga">Quint</a>
+	<a class="js-scroll" data-options='{ "easing": "easeOutQuad" }' href="#bazinga">Quad</a><br>
+	<a class="js-scroll" data-options='{ "easing": "easeOutCubic" }' href="#bazinga">Cubic</a><br>
+	<a class="js-scroll" data-options='{ "easing": "easeOutQuart" }' href="#bazinga">Quart</a><br>
+	<a class="js-scroll" data-options='{ "easing": "easeOutQuint" }' href="#bazinga">Quint</a>
 </p>
 
 <p>
@@ -2112,7 +1933,7 @@ Animate scrolling to anchor links.
 	.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.
 </p>
 
-<p id="bazinga"><a data-scroll href="#1@#%^-bottom">Bazinga!</a></p>
+<p id="bazinga"><a class="js-scroll" href="#1@#%^-bottom">Bazinga!</a></p>
 
 <p>
 	.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>
@@ -2120,16 +1941,16 @@ Animate scrolling to anchor links.
 	.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.
 </p>
 
-<p id="1@#%^-bottom"><a data-scroll data-options='{ "easing": "easeOutCubic" }' href="#smooth-scroll">Back to the top</a></p>
+<p id="1@#%^-bottom"><a class="js-scroll" data-options='{ "easing": "easeOutCubic" }' href="#smooth-scroll">Back to the top</a></p>
 
 ### Getting Started
 
 #### Markup
 
-Turn anchor links into Smooth Scroll links by adding the `[data-scroll]` data attribute. Give the anchor location an ID just like you normally would.
+Turn anchor links into Smooth Scroll links by adding the `.js-scroll` class. Give the anchor location an ID just like you normally would.
 
 ```markup
-<a data-scroll href="#bazinga">Anchor Link</a>
+<a class="js-scroll" href="#bazinga">Anchor Link</a>
 ...
 <span id="bazinga">Bazinga!</span>
 ```
@@ -2141,17 +1962,12 @@ The script will not run until initialized. This is done for you already in the *
 ```markup
 <script>
 	portalReady(function () {
-		smoothScroll.init();
+		smoothScroll.init({
+			selector: '.js-scroll',
+			selectorHeader: '.js-scroll-header',
+		});
 	});
 </script>
-```
-
-#### TinyMCE Workaround
-
-TinyMCE removes data attributes from the markup. In order to use this script, you must either uncheck the "Use TinyMCE" checkbox in the Content section of the Portal Dashboard, or use the `.js-scroll` class instead. You are unable to pass in individual link option overrides using the class-based workaround.
-
-```markup
-<a class="js-scroll" href="#bazinga">Click Me</a>
 ```
 
 ### Global Settings
@@ -2160,12 +1976,12 @@ You can pass options and callbacks into Smooth Scroll through the `init()` funct
 
 ```javascript
 smoothScroll.init({
+	selector: '[data-scroll]', // Smooth scroll link selector
+	selectorHeader: null, // Selector for a fixed header (if one exists)
 	speed: 500, // Integer. How fast to complete the scroll in milliseconds
 	easing: 'easeInOutCubic', // Easing pattern to use
-	updateURL: true, // Boolean. Whether or not to update the URL with the anchor hash on scroll
 	offset: 0, // Integer. How far to offset the scrolling anchor location in pixels
-	callbackBefore: function ( toggle, anchor ) {}, // Function to run before scrolling
-	callbackAfter: function ( toggle, anchor ) {} // Function to run after scrolling
+	callback: function () {} // Function to run after scrolling
 });
 ```
 
@@ -2174,12 +1990,11 @@ smoothScroll.init({
 Smooth Scroll also lets you override global settings on a link-by-link basis using the `[data-options]` data attribute.
 
 ```markup
-<a data-scroll
+<a class="js-scroll"
    data-options='{
 					"speed": 500,
 					"easing": "easeInOutCubic",
-					"offset": 0,
-					"updateURL": false
+					"offset": 0
 				}'
 >
 	Anchor Link
@@ -2223,10 +2038,10 @@ smoothScroll.destroy();
 
 ### Fixed Headers
 
-Add a `[data-scroll-header]` data attribute to fixed headers. Smooth Scroll will automatically offset scroll distances by the header height. If you have multiple fixed headers, add `[data-scroll-header]` to the last one in the markup.
+Add a `[class="js-scroll"-header]` data attribute to fixed headers. Smooth Scroll will automatically offset scroll distances by the header height. If you have multiple fixed headers, add `[class="js-scroll"-header]` to the last one in the markup.
 
 ```markup
-<nav data-scroll-header>
+<nav class="js-scroll-header">
 	...
 </nav>
 ```
@@ -2347,9 +2162,6 @@ createDropdown(
 
 // Example
 portalReady(function () {
-	drop.init({
-		activeClass: 'drop-active'
-	});
 	createDropdown(
 		'documentation',
 		[

@@ -1,7 +1,7 @@
 /*!
  * YOUR-CLIENT-NAME-WITHOUT-SPACES v1.0.0: Portal theme for YOUR-CLIENT-NAME
  * (c) 2016 YOUR-NAME
- * Built on the Sparrow Boilerplate v8.4.3
+ * Built on the Sparrow Boilerplate v9.0.0
  * MIT License
  * https://github.com/mashery/sparrow
  */

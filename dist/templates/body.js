@@ -6,11 +6,25 @@ portalReady(function () {
         selector: ['iframe', 'object'], // runs querySelectorAll()
         players: ['www.youtube.com', 'player.vimeo.com'] // players to support
     });
-    houdini.init();
-    modals.init();
-    rightHeight.init();
-    smoothScroll.init();
-    stickyFooter.init();
-    tabby.init();
+    houdini.init({
+        selectorToggle: '.collapse-toggle',
+    });
+    rightHeight.init({
+        selector: '.js-right-height',
+        selectorContent: '.js-right-height-content',
+    });
+    smoothScroll.init({
+        selector: '.js-scroll',
+        selectorHeader: '.js-scroll-header',
+    });
+    stickyFooter.init({
+        selector: 'js-sticky-footer',
+    });
+    tabby.init({
+        selectorToggle: '.js-tab',
+        selectorToggleGroup: '.tabs',
+        selectorContent: '.tabs-pane',
+        selectorContentGroup: '.js-tabs-content',
+    });
     addTableHeaders();
 });
