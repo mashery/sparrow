@@ -1,7 +1,7 @@
 /*!
  * YOUR-CLIENT-NAME-WITHOUT-SPACES v1.0.0: Portal theme for YOUR-CLIENT-NAME
  * (c) 2016 YOUR-NAME
- * Built on the Sparrow Boilerplate v8.4.3
+ * Built on the Sparrow Boilerplate v9.0.0
  * MIT License
  * https://github.com/mashery/sparrow
  */
@@ -388,12 +388,12 @@ portalReady((function () {
 
 	};
 
-	buoy.forEach(codes, (function ( code ) {
-		var lang = /brush: (.*?);/.exec( code.className );
+	for (var i = 0; i < codes.length; i++) {
+		var lang = /brush: (.*?);/.exec( codes[i].className );
 		if ( !lang || Object.prototype.toString.call( lang ) !== '[object Array]' || lang.length < 2 ) return;
 		var langClass = getLangClass( lang[1] );
-		code.classList.add( langClass );
-	}));
+		codes[i].classList.add( langClass );
+	}
 
 }));
 /**
@@ -529,64 +529,33 @@ var addTableHeaders = function () {
 	};
 
 	/**
-	 * Get the closest matching element up the DOM tree
+	 * Get the closest matching element up the DOM tree.
 	 * @private
-	 * @param {Element} elem Starting element
-	 * @param {String} selector Selector to match against (class, ID, or data attribute)
-	 * @return {Element} Returns null if no match found
+	 * @param  {Element} elem     Starting element
+	 * @param  {String}  selector Selector to match against
+	 * @return {Boolean|Element}  Returns null if not match found
 	 */
 	var getClosest = function ( elem, selector ) {
 
-		// Variables
-		var firstChar = selector.charAt(0);
-		var attribute, value;
-
-		// If selector is a data attribute, split attribute from value
-		if ( firstChar === '[' ) {
-			selector = selector.substr(1, selector.length - 2);
-			attribute = selector.split( '=' );
-
-			if ( attribute.length > 1 ) {
-				value = true;
-				attribute[1] = attribute[1].replace( /"/g, '' ).replace( /'/g, '' );
-			}
+		// Element.matches() polyfill
+		if (!Element.prototype.matches) {
+			Element.prototype.matches =
+				Element.prototype.matchesSelector ||
+				Element.prototype.mozMatchesSelector ||
+				Element.prototype.msMatchesSelector ||
+				Element.prototype.oMatchesSelector ||
+				Element.prototype.webkitMatchesSelector ||
+				function(s) {
+					var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+						i = matches.length;
+					while (--i >= 0 && matches.item(i) !== this) {}
+					return i > -1;
+				};
 		}
 
 		// Get closest match
 		for ( ; elem && elem !== document; elem = elem.parentNode ) {
-
-			// If selector is a class
-			if ( firstChar === '.' ) {
-				if ( elem.classList.contains( selector.substr(1) ) ) {
-					return elem;
-				}
-			}
-
-			// If selector is an ID
-			if ( firstChar === '#' ) {
-				if ( elem.id === selector.substr(1) ) {
-					return elem;
-				}
-			}
-
-			// If selector is a data attribute
-			if ( firstChar === '[' ) {
-				if ( elem.hasAttribute( attribute[0] ) ) {
-					if ( value ) {
-						if ( elem.getAttribute( attribute[0] ) === attribute[1] ) {
-							return elem;
-						}
-					} else {
-						return elem;
-					}
-				}
-			}
-
-			// If selector is a tag
-			if ( elem.tagName.toLowerCase() === selector ) {
-				return elem;
-			}
-
+			if ( elem.matches( selector ) ) return elem;
 		}
 
 		return null;
@@ -722,6 +691,71 @@ var addTableHeaders = function () {
 	//
 
 	/**
+	 * Merge two or more objects. Returns a new object.
+	 * Set the first argument to `true` for a deep or recursive merge
+	 * @param {Boolean}  deep     If true, do a deep (or recursive) merge [optional]
+	 * @param {Object}   objects  The objects to merge together
+	 * @returns {Object}          Merged values of defaults and options
+	 */
+	var extend = function () {
+
+		// Variables
+		var extended = {};
+		var deep = false;
+		var i = 0;
+		var length = arguments.length;
+
+		// Check if a deep merge
+		if ( Object.prototype.toString.call( arguments[0] ) === '[object Boolean]' ) {
+			deep = arguments[0];
+			i++;
+		}
+
+		// Merge the object into the extended object
+		var merge = function ( obj ) {
+			for ( var prop in obj ) {
+				if ( Object.prototype.hasOwnProperty.call( obj, prop ) ) {
+					// If deep merge and property is an object, merge properties
+					if ( deep && Object.prototype.toString.call(obj[prop]) === '[object Object]' ) {
+						extended[prop] = extend( true, extended[prop], obj[prop] );
+					} else {
+						extended[prop] = obj[prop];
+					}
+				}
+			}
+		};
+
+		// Loop through each object and conduct a merge
+		for ( ; i < length; i++ ) {
+			var obj = arguments[i];
+			merge(obj);
+		}
+
+		return extended;
+
+	};
+
+	/**
+	 * Loop through objects, arrays, and nodelists
+	 * Copyright 2014 @todomotto https://github.com/toddmotto/foreach
+	 * @param  {Array|NodeList|Object}  collection The elements to loop through
+	 * @param  {Function}               callback   The function to run on each loop
+	 */
+	var forEach = function (collection, callback, scope) {
+		if (Object.prototype.toString.call(collection) === '[object Object]') {
+			for (var prop in collection) {
+				if (Object.prototype.hasOwnProperty.call(collection, prop)) {
+					callback.call(scope, collection[prop], prop, collection);
+				}
+			}
+		} else {
+			for (var i = 0; i < collection.length; i++) {
+				callback.call(scope, collection[i], i, collection);
+			}
+		}
+	};
+
+	/**
 	 * Convert string to title case
 	 * @private
 	 * @param  {String} str The string to convert to title case
@@ -804,7 +838,7 @@ var addTableHeaders = function () {
 		if ( document.documentElement.classList.contains( 'dom-landing' ) ) breadcrumbs = '<li>Home</li>';
 
 		// Create breadcrumb links
-		buoy.forEach(crumbs, (function (crumb, index) {
+		forEach(crumbs, (function (crumb, index) {
 
 			// If crumb is empty or it's the forum, bail
 			if ( crumb === '' || isForum ) return;
@@ -887,7 +921,7 @@ var addTableHeaders = function () {
 			var count = settings.pages.length;
 
 			// For each one, create a selector
-			buoy.forEach(settings.pages, (function (page, index) {
+			forEach(settings.pages, (function (page, index) {
 
 				// Add a comma delimiter to all but the last item
 				var delimiter = index + 1 === count ? '' : ', ';
@@ -957,7 +991,7 @@ var addTableHeaders = function () {
 		breadcrumbs.destroy();
 
 		// Merge user options with defaults
-		settings = buoy.extend( true, defaults, options || {} );
+		settings = extend( true, defaults, options || {} );
 
 		// Check if it's ok to run based on user settings
 		if ( !okToRun() ) return;
@@ -1020,6 +1054,85 @@ var addTableHeaders = function () {
 	//
 
 	/**
+	 * Merge two or more objects. Returns a new object.
+	 * Set the first argument to `true` for a deep or recursive merge
+	 * @param {Boolean}  deep     If true, do a deep (or recursive) merge [optional]
+	 * @param {Object}   objects  The objects to merge together
+	 * @returns {Object}          Merged values of defaults and options
+	 */
+	var extend = function () {
+
+		// Variables
+		var extended = {};
+		var deep = false;
+		var i = 0;
+		var length = arguments.length;
+
+		// Check if a deep merge
+		if ( Object.prototype.toString.call( arguments[0] ) === '[object Boolean]' ) {
+			deep = arguments[0];
+			i++;
+		}
+
+		// Merge the object into the extended object
+		var merge = function ( obj ) {
+			for ( var prop in obj ) {
+				if ( Object.prototype.hasOwnProperty.call( obj, prop ) ) {
+					// If deep merge and property is an object, merge properties
+					if ( deep && Object.prototype.toString.call(obj[prop]) === '[object Object]' ) {
+						extended[prop] = extend( true, extended[prop], obj[prop] );
+					} else {
+						extended[prop] = obj[prop];
+					}
+				}
+			}
+		};
+
+		// Loop through each object and conduct a merge
+		for ( ; i < length; i++ ) {
+			var obj = arguments[i];
+			merge(obj);
+		}
+
+		return extended;
+
+	};
+
+	/**
+	 * Get the closest matching element up the DOM tree.
+	 * @private
+	 * @param  {Element} elem     Starting element
+	 * @param  {String}  selector Selector to match against
+	 * @return {Boolean|Element}  Returns null if not match found
+	 */
+	var getClosest = function ( elem, selector ) {
+
+		// Element.matches() polyfill
+		if (!Element.prototype.matches) {
+			Element.prototype.matches =
+				Element.prototype.matchesSelector ||
+				Element.prototype.mozMatchesSelector ||
+				Element.prototype.msMatchesSelector ||
+				Element.prototype.oMatchesSelector ||
+				Element.prototype.webkitMatchesSelector ||
+				function(s) {
+					var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+						i = matches.length;
+					while (--i >= 0 && matches.item(i) !== this) {}
+					return i > -1;
+				};
+		}
+
+		// Get closest match
+		for ( ; elem && elem !== document; elem = elem.parentNode ) {
+			if ( elem.matches( selector ) ) return elem;
+		}
+
+		return null;
+
+	};
+
+	/**
 	 * Highlight clicked text.
 	 * @param {Node} elem The elem whose content to highlight.
 	 */
@@ -1041,7 +1154,7 @@ var addTableHeaders = function () {
 	 * @private
 	 */
 	var eventHandler = function (event) {
-		var toggle = buoy.getClosest( event.target, settings.selector );
+		var toggle = getClosest( event.target, settings.selector );
 		if ( toggle ) {
 			clickToHighlight.highlight( toggle );
 		}
@@ -1073,7 +1186,7 @@ var addTableHeaders = function () {
 		clickToHighlight.destroy();
 
 		// Merge user options with defaults
-		settings = buoy.extend( defaults, options || {} );
+		settings = extend( defaults, options || {} );
 
 		// Add class to HTML element to activate conditional CSS
 		document.documentElement.classList.add( settings.initClass );
@@ -1141,6 +1254,11 @@ var createDropdown = function ( target, dropdown, nav ) {
 		addAttributes( items[i] );
 		break;
 	}
+
+	// Initialize dropdowns
+	drop.init({
+		activeClass: 'drop-active',
+	});
 
 };
 /**
@@ -1265,70 +1383,33 @@ var loadCustomLogo = function ( logo ) {
 	};
 
 	/**
-	 * Get closest DOM element up the tree that contains a class or data attribute
-	 * @param  {Element} elem The base element
-	 * @param  {String} selector The class or data attribute to look for
-	 * @return {Boolean|Element} False if no match
+	 * Get the closest matching element up the DOM tree.
+	 * @private
+	 * @param  {Element} elem     Starting element
+	 * @param  {String}  selector Selector to match against
+	 * @return {Boolean|Element}  Returns null if not match found
 	 */
 	var getClosest = function ( elem, selector ) {
 
-		// Variables
-		var firstChar = selector.charAt(0);
-		var supports = 'classList' in document.documentElement;
-		var attribute, value;
-
-		// If selector is a data attribute, split attribute from value
-		if ( firstChar === '[' ) {
-			selector = selector.substr(1, selector.length - 2);
-			attribute = selector.split( '=' );
-
-			if ( attribute.length > 1 ) {
-				value = true;
-				attribute[1] = attribute[1].replace( /"/g, '' ).replace( /'/g, '' );
-			}
+		// Element.matches() polyfill
+		if (!Element.prototype.matches) {
+			Element.prototype.matches =
+				Element.prototype.matchesSelector ||
+				Element.prototype.mozMatchesSelector ||
+				Element.prototype.msMatchesSelector ||
+				Element.prototype.oMatchesSelector ||
+				Element.prototype.webkitMatchesSelector ||
+				function(s) {
+					var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+						i = matches.length;
+					while (--i >= 0 && matches.item(i) !== this) {}
+					return i > -1;
+				};
 		}
 
 		// Get closest match
 		for ( ; elem && elem !== document; elem = elem.parentNode ) {
-
-			// If selector is a class
-			if ( firstChar === '.' ) {
-				if ( supports ) {
-					if ( elem.classList.contains( selector.substr(1) ) ) {
-						return elem;
-					}
-				} else {
-					if ( new RegExp('(^|\\s)' + selector.substr(1) + '(\\s|$)').test( elem.className ) ) {
-						return elem;
-					}
-				}
-			}
-
-			// If selector is an ID
-			if ( firstChar === '#' ) {
-				if ( elem.id === selector.substr(1) ) {
-					return elem;
-				}
-			}
-
-			// If selector is a data attribute
-			if ( firstChar === '[' ) {
-				if ( elem.hasAttribute( attribute[0] ) ) {
-					if ( value ) {
-						if ( elem.getAttribute( attribute[0] ) === attribute[1] ) {
-							return elem;
-						}
-					} else {
-						return elem;
-					}
-				}
-			}
-
-			// If selector is a tag
-			if ( elem.tagName.toLowerCase() === selector ) {
-				return elem;
-			}
-
+			if ( elem.matches( selector ) ) return elem;
 		}
 
 		return null;
@@ -1740,63 +1821,33 @@ var fullWidth = function ( hideH1 ) {
 	};
 
 	/**
-	 * Get the closest matching element up the DOM tree
-	 * @param {Element} elem Starting element
-	 * @param {String} selector Selector to match against (class, ID, or data attribute)
-	 * @return {Boolean|Element} Returns false if not match found
+	 * Get the closest matching element up the DOM tree.
+	 * @private
+	 * @param  {Element} elem     Starting element
+	 * @param  {String}  selector Selector to match against
+	 * @return {Boolean|Element}  Returns null if not match found
 	 */
 	var getClosest = function ( elem, selector ) {
 
-		// Variables
-		var firstChar = selector.charAt(0);
-		var attribute, value;
-
-		// If selector is a data attribute, split attribute from value
-		if ( firstChar === '[' ) {
-			selector = selector.substr(1, selector.length - 2);
-			attribute = selector.split( '=' );
-
-			if ( attribute.length > 1 ) {
-				value = true;
-				attribute[1] = attribute[1].replace( /"/g, '' ).replace( /'/g, '' );
-			}
+		// Element.matches() polyfill
+		if (!Element.prototype.matches) {
+			Element.prototype.matches =
+				Element.prototype.matchesSelector ||
+				Element.prototype.mozMatchesSelector ||
+				Element.prototype.msMatchesSelector ||
+				Element.prototype.oMatchesSelector ||
+				Element.prototype.webkitMatchesSelector ||
+				function(s) {
+					var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+						i = matches.length;
+					while (--i >= 0 && matches.item(i) !== this) {}
+					return i > -1;
+				};
 		}
 
 		// Get closest match
 		for ( ; elem && elem !== document; elem = elem.parentNode ) {
-
-			// If selector is a class
-			if ( firstChar === '.' ) {
-				if ( elem.classList.contains( selector.substr(1) ) ) {
-					return elem;
-				}
-			}
-
-			// If selector is an ID
-			if ( firstChar === '#' ) {
-				if ( elem.id === selector.substr(1) ) {
-					return elem;
-				}
-			}
-
-			// If selector is a data attribute
-			if ( firstChar === '[' ) {
-				if ( elem.hasAttribute( attribute[0] ) ) {
-					if ( value ) {
-						if ( elem.getAttribute( attribute[0] ) === attribute[1] ) {
-							return elem;
-						}
-					} else {
-						return elem;
-					}
-				}
-			}
-
-			// If selector is a tag
-			if ( elem.tagName.toLowerCase() === selector ) {
-				return elem;
-			}
-
+			if ( elem.matches( selector ) ) return elem;
 		}
 
 		return null;
@@ -2187,6 +2238,51 @@ var fullWidth = function ( hideH1 ) {
 	//
 
 	/**
+	 * Merge two or more objects. Returns a new object.
+	 * Set the first argument to `true` for a deep or recursive merge
+	 * @param {Boolean}  deep     If true, do a deep (or recursive) merge [optional]
+	 * @param {Object}   objects  The objects to merge together
+	 * @returns {Object}          Merged values of defaults and options
+	 */
+	var extend = function () {
+
+		// Variables
+		var extended = {};
+		var deep = false;
+		var i = 0;
+		var length = arguments.length;
+
+		// Check if a deep merge
+		if ( Object.prototype.toString.call( arguments[0] ) === '[object Boolean]' ) {
+			deep = arguments[0];
+			i++;
+		}
+
+		// Merge the object into the extended object
+		var merge = function ( obj ) {
+			for ( var prop in obj ) {
+				if ( Object.prototype.hasOwnProperty.call( obj, prop ) ) {
+					// If deep merge and property is an object, merge properties
+					if ( deep && Object.prototype.toString.call(obj[prop]) === '[object Object]' ) {
+						extended[prop] = extend( true, extended[prop], obj[prop] );
+					} else {
+						extended[prop] = obj[prop];
+					}
+				}
+			}
+		};
+
+		// Loop through each object and conduct a merge
+		for ( ; i < length; i++ ) {
+			var obj = arguments[i];
+			merge(obj);
+		}
+
+		return extended;
+
+	};
+
+	/**
 	 * Create the link node
 	 * @private
 	 * @param  {Node}    navlink  The current link element
@@ -2201,7 +2297,7 @@ var fullWidth = function ( hideH1 ) {
 		toggle.href = '#docs-subnav-' + index;
 		toggle.innerHTML = '<span class="collapse-text-show">' + settings.iconShow + '</span><span class="collapse-text-hide">' + settings.iconHide + '</span>';
 		toggle.classList.add( 'collapse-toggle' );
-		toggle.setAttribute( 'data-collapse', true );
+		toggle.classList.add( 'js-collapse' );
 		if ( isActive ) { toggle.classList.add( 'active' ); }
 		if ( settings.isAccordion ) { toggle.setAttribute( 'data-group', 'docs-subnav' ); }
 
@@ -2223,22 +2319,23 @@ var fullWidth = function ( hideH1 ) {
 	 * @param {NodesList} navs Nav elements
 	 */
 	var addAttributes = function ( navs ) {
-		buoy.forEach(navs, (function (nav, index) {
+
+		for (var i = 0; i < navs.length; i++) {
 
 			// Get subnav
-			var subnav = nav.querySelector( 'ul' );
+			var subnav = navs[i].querySelector( 'ul' );
 
 			// If no subnav, move on to the next nav element
 			if ( !subnav ) return;
 
 			// Get subnav link
-			var navlink = nav.firstChild;
+			var navlink = navs[i].firstChild;
 
 			// Determine if nav is active
-			var isActive = nav.classList.contains( 'active' );
+			var isActive = navs[i].classList.contains( 'active' );
 
 			// Remove .active class from parent li
-			nav.classList.remove( 'active' );
+			navs[i].classList.remove( 'active' );
 
 			// Render the link
 			renderLink( navlink, isActive, index );
@@ -2252,7 +2349,8 @@ var fullWidth = function ( hideH1 ) {
 			var subSubNavs = subnav.querySelectorAll( 'ul > li' );
 			addAttributes( subSubNavs );
 
-		}));
+		}
+
 	};
 
 	/**
@@ -2290,7 +2388,7 @@ var fullWidth = function ( hideH1 ) {
 		houdiniSubnav.destroy();
 
 		// Variables
-		settings = buoy.extend( defaults, options || {} ); // Merge user options with defaults
+		settings = extend( defaults, options || {} ); // Merge user options with defaults
 		theNav = document.querySelector( settings.selectorNav );
 		navs = document.querySelectorAll( settings.selectorNavs );
 
@@ -2314,441 +2412,6 @@ var fullWidth = function ( hideH1 ) {
 	//
 
 	return houdiniSubnav;
-
-}));
-(function (root, factory) {
-    if ( typeof define === 'function' && define.amd ) {
-        define([], factory(root));
-    } else if ( typeof exports === 'object' ) {
-        module.exports = factory(root);
-    } else {
-        root.modals = factory(root);
-    }
-})(typeof global !== 'undefined' ? global : this.window || this.global, (function (root) {
-
-    'use strict';
-
-    //
-    // Variables
-    //
-
-    var publicApi = {}; // Object for public APIs
-    var supports = 'querySelector' in document && 'addEventListener' in root && 'classList' in document.createElement('_'); // Feature test
-    var state = 'closed';
-    var scrollbarWidth, placeholder, settings;
-
-    // Default settings
-    var defaults = {
-        selectorToggle: '[data-modal]',
-        selectorWindow: '[data-modal-window]',
-        selectorClose: '[data-modal-close]',
-        modalActiveClass: 'active',
-        modalBGClass: 'modal-bg',
-        preventBGScroll: true,
-        preventBGScrollHtml: true,
-        preventBGScrollBody: true,
-        backspaceClose: true,
-        stopVideo: true,
-        callbackOpen: function () {},
-        callbackClose: function () {}
-    };
-
-
-    //
-    // Methods
-    //
-
-    /**
-     * A simple forEach() implementation for Arrays, Objects and NodeLists.
-     * @private
-     * @author Todd Motto
-     * @link   https://github.com/toddmotto/foreach
-     * @param {Array|Object|NodeList} collection Collection of items to iterate
-     * @param {Function}              callback   Callback function for each iteration
-     * @param {Array|Object|NodeList} scope      Object/NodeList/Array that forEach is iterating over (aka `this`)
-     */
-    var forEach = function ( collection, callback, scope ) {
-        if ( Object.prototype.toString.call( collection ) === '[object Object]' ) {
-            for ( var prop in collection ) {
-                if ( Object.prototype.hasOwnProperty.call( collection, prop ) ) {
-                    callback.call( scope, collection[prop], prop, collection );
-                }
-            }
-        } else {
-            for ( var i = 0, len = collection.length; i < len; i++ ) {
-                callback.call( scope, collection[i], i, collection );
-            }
-        }
-    };
-
-    /**
-     * Merge two or more objects. Returns a new object.
-     * @private
-     * @param {Boolean}  deep     If true, do a deep (or recursive) merge [optional]
-     * @param {Object}   objects  The objects to merge together
-     * @returns {Object}          Merged values of defaults and options
-     */
-    var extend = function () {
-
-        // Variables
-        var extended = {};
-        var deep = false;
-        var i = 0;
-        var length = arguments.length;
-
-        // Check if a deep merge
-        if ( Object.prototype.toString.call( arguments[0] ) === '[object Boolean]' ) {
-            deep = arguments[0];
-            i++;
-        }
-
-        // Merge the object into the extended object
-        var merge = function (obj) {
-            for ( var prop in obj ) {
-                if ( Object.prototype.hasOwnProperty.call( obj, prop ) ) {
-                    // If deep merge and property is an object, merge properties
-                    if ( deep && Object.prototype.toString.call(obj[prop]) === '[object Object]' ) {
-                        extended[prop] = extend( true, extended[prop], obj[prop] );
-                    } else {
-                        extended[prop] = obj[prop];
-                    }
-                }
-            }
-        };
-
-        // Loop through each object and conduct a merge
-        for ( ; i < length; i++ ) {
-            var obj = arguments[i];
-            merge(obj);
-        }
-
-        return extended;
-
-    };
-
-    /**
-     * Get the closest matching element up the DOM tree.
-     * @private
-     * @param  {Element} elem     Starting element
-     * @param  {String}  selector Selector to match against (class, ID, data attribute, or tag)
-     * @return {Boolean|Element}  Returns null if not match found
-     */
-    var getClosest = function ( elem, selector ) {
-
-        // Variables
-        var firstChar = selector.charAt(0);
-        var attribute, value;
-
-        // If selector is a data attribute, split attribute from value
-        if ( firstChar === '[' ) {
-            selector = selector.substr(1, selector.length - 2);
-            attribute = selector.split( '=' );
-
-            if ( attribute.length > 1 ) {
-                value = true;
-                attribute[1] = attribute[1].replace( /"/g, '' ).replace( /'/g, '' );
-            }
-        }
-
-        // Get closest match
-        for ( ; elem && elem !== document; elem = elem.parentNode ) {
-
-            // If selector is a class
-            if ( firstChar === '.' ) {
-                if ( elem.classList.contains( selector.substr(1) ) ) {
-                    return elem;
-                }
-            }
-
-            // If selector is an ID
-            if ( firstChar === '#' ) {
-                if ( elem.id === selector.substr(1) ) {
-                    return elem;
-                }
-            }
-
-            // If selector is a data attribute
-            if ( firstChar === '[' ) {
-                if ( elem.hasAttribute( attribute[0] ) ) {
-                    if ( value ) {
-                        if ( elem.getAttribute( attribute[0] ) === attribute[1] ) {
-                            return elem;
-                        }
-                    } else {
-                        return elem;
-                    }
-                }
-            }
-
-            // If selector is a tag
-            if ( elem.tagName.toLowerCase() === selector ) {
-                return elem;
-            }
-
-        }
-
-        return null;
-
-    };
-
-    /**
-     * Stop YouTube, Vimeo, and HTML5 videos from playing when leaving the slide
-     * @private
-     * @param  {Element} content The content container the video is in
-     * @param  {String} activeClass The class asigned to expanded content areas
-     */
-    var stopVideos = function ( content, settings ) {
-
-        // Check if stop video enabled
-        if ( !settings.stopVideo ) return;
-
-        // Only run if content container was open
-        if ( !content.classList.contains( settings.modalActiveClass ) ) return;
-
-        // Check if the video is an iframe or HTML5 video
-        var iframe = content.querySelector( 'iframe');
-        var video = content.querySelector( 'video' );
-
-        // Stop the video
-        if ( iframe ) {
-            var iframeSrc = iframe.src;
-            iframe.src = iframeSrc;
-        }
-        if ( video ) {
-            video.pause();
-        }
-
-    };
-
-    /**
-     * Get the width of the scroll bars
-     * @private
-     */
-    var getScrollbarWidth = function () {
-
-        // Setup div
-        var outer = document.createElement('div');
-        outer.style.visibility = 'hidden';
-        outer.style.width = '100px';
-        outer.style.msOverflowStyle = 'scrollbar'; // needed for WinJS apps
-        document.body.appendChild(outer);
-
-        // Force scrollbars
-        var widthNoScroll = outer.offsetWidth;
-        outer.style.overflow = 'scroll';
-
-        // Add innerdiv
-        var inner = document.createElement('div');
-        inner.style.width = '100%';
-        outer.appendChild(inner);
-        var widthWithScroll = inner.offsetWidth;
-
-        // Remove divs
-        outer.parentNode.removeChild(outer);
-
-        return widthNoScroll - widthWithScroll;
-
-    };
-
-    /**
-     * Create the modal background and append it to the DOM
-     * @private
-     */
-    var createModalBg = function () {
-
-        // If modal BG already exists, don't create another one
-        if ( document.querySelector('[data-modal-bg]') ) return;
-
-        // Define the modal background
-        var modalBg = document.createElement('div');
-        modalBg.setAttribute('data-modal-bg', true);
-        modalBg.classList.add( settings.modalBGClass );
-
-        // Append the modal background to the page
-        document.body.appendChild(modalBg);
-
-    };
-
-    /**
-     * Remove the modal background from the DOM
-     * @private
-     */
-    var removeModalBg = function () {
-        var modalBg = document.querySelector( '[data-modal-bg]' );
-        if ( !modalBg ) return;
-        document.body.removeChild( modalBg );
-    };
-
-    /**
-     * Close open modal window
-     * @public
-     * @param  {Object} options
-     * @param  {Event} event
-     */
-    publicApi.closeModal = function (options) {
-
-        // Selectors and variables
-        var localSettings = extend( settings || defaults, options || {} ); // Merge user options with defaults
-        var modal = document.querySelector( localSettings.selectorWindow + '.' + localSettings.modalActiveClass ); // Get open modal
-
-        // Sanity check
-        if ( !modal ) return;
-
-        // Stop videos from playing
-        stopVideos( modal, localSettings );
-
-        // Close the modal
-        modal.classList.remove( localSettings.modalActiveClass );
-
-        // Remove the modal background from the DOM
-        removeModalBg();
-
-        // Set state to closed
-        state = 'closed';
-
-        // Reallow background scrolling
-        if ( localSettings.preventBGScroll ) {
-            document.documentElement.style.overflowY = '';
-            document.body.style.overflowY = '';
-            document.body.style.paddingRight = '';
-        }
-
-        // Run callbacks after closing a modal
-        localSettings.callbackClose( placeholder, modal );
-
-        // Bring focus back to the button that toggles the modal
-        if ( placeholder ) {
-            placeholder.focus();
-            placeholder = null;
-        }
-
-    };
-
-    /**
-     * Open the target modal window
-     * @public
-     * @param  {Element} toggle The element that toggled the open modal event
-     * @param  {String} modalID ID of the modal to open
-     * @param  {Object} options
-     * @param  {Event} event
-     */
-    publicApi.openModal = function (toggle, modalID, options) {
-
-        // Define the modal
-        var localSettings = extend( settings || defaults, options || {} );  // Merge user options with defaults
-        var modal = document.querySelector(modalID);
-
-        // If a modal is already open, close it first
-        if ( state === 'open' ) {
-            publicApi.closeModal( localSettings );
-        }
-
-        // Save the visitor's spot on the page
-        if ( toggle ) {
-            placeholder = toggle;
-        }
-
-        // Activate the modal
-        modal.classList.add( localSettings.modalActiveClass );
-        createModalBg();
-        state = 'open';
-
-        // Bring modal into focus
-        modal.setAttribute( 'tabindex', '-1' );
-        modal.focus();
-
-        // Prevent background scrolling
-        if ( localSettings.preventBGScroll ) {
-            if ( localSettings.preventBGScrollHtml ) {
-                document.documentElement.style.overflowY = 'hidden';
-            }
-            if ( localSettings.preventBGScrollBody ) {
-                document.body.style.overflowY = 'hidden';
-            }
-            document.body.style.paddingRight = scrollbarWidth + 'px';
-        }
-
-        localSettings.callbackOpen( toggle, modal ); // Run callbacks after opening a modal
-
-    };
-
-    /**
-     * Handle toggle click events
-     * @private
-     */
-    var eventHandler = function (event) {
-        var toggle = event.target;
-        var open = getClosest(toggle, settings.selectorToggle);
-        var close = getClosest(toggle, settings.selectorClose);
-        var modal = getClosest(toggle, settings.selectorWindow);
-        var key = event.keyCode;
-
-        if ( key && state === 'open' ) {
-            if ( key === 27 || ( settings.backspaceClose && ( key === 8 || key === 46 ) ) ) {
-                publicApi.closeModal();
-            }
-        } else if ( toggle ) {
-            if ( modal && !close ) {
-                return;
-            } else if ( open && ( !key || key === 13 ) ) {
-                event.preventDefault();
-                publicApi.openModal( open, open.getAttribute('data-modal'), settings );
-            } else if ( state === 'open' ) {
-                event.preventDefault();
-                publicApi.closeModal();
-            }
-        }
-    };
-
-    /**
-     * Destroy the current initialization.
-     * @public
-     */
-    publicApi.destroy = function () {
-        if ( !settings ) return;
-        document.removeEventListener('click', eventHandler, false);
-        document.removeEventListener('touchstart', eventHandler, false);
-        document.removeEventListener('keydown', eventHandler, false);
-        document.documentElement.style.overflowY = '';
-        document.body.style.overflowY = '';
-        document.body.style.paddingRight = '';
-        scrollbarWidth = null;
-        placeholder = null;
-        settings = null;
-    };
-
-    /**
-     * Initialize Modals
-     * @public
-     * @param {Object} options User settings
-     */
-    publicApi.init = function ( options ) {
-
-        // feature test
-        if ( !supports ) return;
-
-        // Destroy any existing initializations
-        publicApi.destroy();
-
-        // Merge user options with defaults
-        settings = extend( defaults, options || {} );
-
-        // Get scrollbar width
-        scrollbarWidth = getScrollbarWidth();
-
-        // Listen for events
-        document.addEventListener('click', eventHandler, false);
-        document.addEventListener('touchstart', eventHandler, false);
-        document.addEventListener('keydown', eventHandler, false);
-
-    };
-
-
-    //
-    // Public APIs
-    //
-
-    return publicApi;
 
 }));
 /* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+bash+c+csharp+cpp+ruby+http+java+php+python+sass+scss */
@@ -3953,14 +3616,34 @@ Prism.languages.scss['atrule'].inside.rest = Prism.util.clone(Prism.languages.sc
 	var scripts = document.getElementsByTagName('script'); // Get all scripots
 	var defs = document.getElementsByTagName('dd'); // Get all <dd> elements
 
+	/**
+	 * Loop through objects, arrays, and nodelists
+	 * Copyright 2014 @todomotto https://github.com/toddmotto/foreach
+	 * @param  {Array|NodeList|Object}  collection The elements to loop through
+	 * @param  {Function}               callback   The function to run on each loop
+	 */
+	var forEach = function (collection, callback, scope) {
+		if (Object.prototype.toString.call(collection) === '[object Object]') {
+			for (var prop in collection) {
+				if (Object.prototype.hasOwnProperty.call(collection, prop)) {
+					callback.call(scope, collection[prop], prop, collection);
+				}
+			}
+		} else {
+			for (var i = 0; i < collection.length; i++) {
+				callback.call(scope, collection[i], i, collection);
+			}
+		}
+	};
+
 	// Remove MasheryApiSelection.js from DOM
-	buoy.forEach(scripts, (function (script) {
+	forEach(scripts, (function (script) {
 		if ( !script || !script.src || !/MasheryApiSelection.js/.test( script.src ) ) return;
 		script.parentNode.removeChild(script);
 	}));
 
 	// Reset display of <dd> to block and remove click event that hides it
-	buoy.forEach(defs, (function (def, index) {
+	forEach(defs, (function (def, index) {
 
 		// Get the <dd> that MasheryApiSelection hid
 		if ( def.style.display === 'none' ) {
@@ -4020,6 +3703,51 @@ Prism.languages.scss['atrule'].inside.rest = Prism.util.clone(Prism.languages.sc
 	//
 	// Methods
 	//
+
+	/**
+	 * Merge two or more objects. Returns a new object.
+	 * Set the first argument to `true` for a deep or recursive merge
+	 * @param {Boolean}  deep     If true, do a deep (or recursive) merge [optional]
+	 * @param {Object}   objects  The objects to merge together
+	 * @returns {Object}          Merged values of defaults and options
+	 */
+	var extend = function () {
+
+		// Variables
+		var extended = {};
+		var deep = false;
+		var i = 0;
+		var length = arguments.length;
+
+		// Check if a deep merge
+		if ( Object.prototype.toString.call( arguments[0] ) === '[object Boolean]' ) {
+			deep = arguments[0];
+			i++;
+		}
+
+		// Merge the object into the extended object
+		var merge = function ( obj ) {
+			for ( var prop in obj ) {
+				if ( Object.prototype.hasOwnProperty.call( obj, prop ) ) {
+					// If deep merge and property is an object, merge properties
+					if ( deep && Object.prototype.toString.call(obj[prop]) === '[object Object]' ) {
+						extended[prop] = extend( true, extended[prop], obj[prop] );
+					} else {
+						extended[prop] = obj[prop];
+					}
+				}
+			}
+		};
+
+		// Loop through each object and conduct a merge
+		for ( ; i < length; i++ ) {
+			var obj = arguments[i];
+			merge(obj);
+		}
+
+		return extended;
+
+	};
 
 	/**
 	 * Add data-label attributes
@@ -4095,7 +3823,7 @@ Prism.languages.scss['atrule'].inside.rest = Prism.util.clone(Prism.languages.sc
 		responsiveTables.destroy();
 
 		// Merge user options with defaults
-		settings = buoy.extend( true, defaults, options || {} );
+		settings = extend( true, defaults, options || {} );
 
 		// Only run on documentation and custom pages
 		if ( !document.body.classList.contains( 'page-docs' ) && !document.body.classList.contains( 'page-page' ) ) return;
@@ -4533,68 +4261,30 @@ Prism.languages.scss['atrule'].inside.rest = Prism.util.clone(Prism.languages.sc
 	 * Get the closest matching element up the DOM tree.
 	 * @private
 	 * @param  {Element} elem     Starting element
-	 * @param  {String}  selector Selector to match against (class, ID, data attribute, or tag)
+	 * @param  {String}  selector Selector to match against
 	 * @return {Boolean|Element}  Returns null if not match found
 	 */
 	var getClosest = function ( elem, selector ) {
 
-		// Variables
-		var firstChar = selector.charAt(0);
-		var supports = 'classList' in document.documentElement;
-		var attribute, value;
-
-		// If selector is a data attribute, split attribute from value
-		if ( firstChar === '[' ) {
-			selector = selector.substr(1, selector.length - 2);
-			attribute = selector.split( '=' );
-
-			if ( attribute.length > 1 ) {
-				value = true;
-				attribute[1] = attribute[1].replace( /"/g, '' ).replace( /'/g, '' );
-			}
+		// Element.matches() polyfill
+		if (!Element.prototype.matches) {
+			Element.prototype.matches =
+				Element.prototype.matchesSelector ||
+				Element.prototype.mozMatchesSelector ||
+				Element.prototype.msMatchesSelector ||
+				Element.prototype.oMatchesSelector ||
+				Element.prototype.webkitMatchesSelector ||
+				function(s) {
+					var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+						i = matches.length;
+					while (--i >= 0 && matches.item(i) !== this) {}
+					return i > -1;
+				};
 		}
 
 		// Get closest match
-		for ( ; elem && elem !== document && elem.nodeType === 1; elem = elem.parentNode ) {
-
-			// If selector is a class
-			if ( firstChar === '.' ) {
-				if ( supports ) {
-					if ( elem.classList.contains( selector.substr(1) ) ) {
-						return elem;
-					}
-				} else {
-					if ( new RegExp('(^|\\s)' + selector.substr(1) + '(\\s|$)').test( elem.className ) ) {
-						return elem;
-					}
-				}
-			}
-
-			// If selector is an ID
-			if ( firstChar === '#' ) {
-				if ( elem.id === selector.substr(1) ) {
-					return elem;
-				}
-			}
-
-			// If selector is a data attribute
-			if ( firstChar === '[' ) {
-				if ( elem.hasAttribute( attribute[0] ) ) {
-					if ( value ) {
-						if ( elem.getAttribute( attribute[0] ) === attribute[1] ) {
-							return elem;
-						}
-					} else {
-						return elem;
-					}
-				}
-			}
-
-			// If selector is a tag
-			if ( elem.tagName.toLowerCase() === selector ) {
-				return elem;
-			}
-
+		for ( ; elem && elem !== document; elem = elem.parentNode ) {
+			if ( elem.matches( selector ) ) return elem;
 		}
 
 		return null;
@@ -5071,15 +4761,85 @@ Prism.languages.scss['atrule'].inside.rest = Prism.util.clone(Prism.languages.sc
 
 	// Default settings
 	var defaults = {
+		selector: '[data-sticky-footer]',
 		content: '#content',
-		callbackBefore: function () {},
-		callbackAfter: function () {}
+		callback: function () {}
 	};
 
 
 	//
 	// Methods
 	//
+
+	/**
+	 * Merge two or more objects. Returns a new object.
+	 * Set the first argument to `true` for a deep or recursive merge
+	 * @param {Boolean}  deep     If true, do a deep (or recursive) merge [optional]
+	 * @param {Object}   objects  The objects to merge together
+	 * @returns {Object}          Merged values of defaults and options
+	 */
+	var extend = function () {
+
+		// Variables
+		var extended = {};
+		var deep = false;
+		var i = 0;
+		var length = arguments.length;
+
+		// Check if a deep merge
+		if ( Object.prototype.toString.call( arguments[0] ) === '[object Boolean]' ) {
+			deep = arguments[0];
+			i++;
+		}
+
+		// Merge the object into the extended object
+		var merge = function ( obj ) {
+			for ( var prop in obj ) {
+				if ( Object.prototype.hasOwnProperty.call( obj, prop ) ) {
+					// If deep merge and property is an object, merge properties
+					if ( deep && Object.prototype.toString.call(obj[prop]) === '[object Object]' ) {
+						extended[prop] = extend( true, extended[prop], obj[prop] );
+					} else {
+						extended[prop] = obj[prop];
+					}
+				}
+			}
+		};
+
+		// Loop through each object and conduct a merge
+		for ( ; i < length; i++ ) {
+			var obj = arguments[i];
+			merge(obj);
+		}
+
+		return extended;
+
+	};
+
+	/**
+	 * Get the height of an element
+	 * @param  {Node}   elem The element
+	 * @return {Number}      The height
+	 */
+	var getHeight = function ( elem ) {
+		return Math.max( elem.scrollHeight, elem.offsetHeight, elem.clientHeight );
+	};
+
+	/**
+	 * Get an element's distance from the top of the page
+	 * @param  {Node}   elem The element
+	 * @return {Number}      Distance from the top of the page
+	 */
+	var getElemDistance = function ( elem ) {
+		var location = 0;
+		if ( elem.offsetParent ) {
+			do {
+				location += elem.offsetTop;
+				elem = elem.offsetParent;
+			} while ( elem );
+		}
+		return location >= 0 ? location : 0;
+	};
 
 	/**
 	 * Get height of the viewport
@@ -5095,16 +4855,15 @@ Prism.languages.scss['atrule'].inside.rest = Prism.util.clone(Prism.languages.sc
 	 * @public
 	 */
 	stickyFooter.setContentHeight = function ( content, footer, options ) {
-		var settings = buoy.extend( settings || defaults, options || {} );  // Merge user options with defaults
+		var settings = extend( settings || defaults, options || {} );  // Merge user options with defaults
 		var viewHeight = getViewportHeight();
-		var contentHeight = buoy.getHeight( content );
-		var footerHeight = buoy.getHeight( footer );
-		var footerOffset = buoy.getOffsetTop( footer );
+		var contentHeight = getHeight( content );
+		var footerHeight = getHeight( footer );
+		var footerOffset = getElemDistance( footer );
 		var gap = viewHeight - footerHeight - footerOffset;
 
-		settings.callbackBefore();
 		content.style.minHeight = ( contentHeight + gap ) + 'px';
-		settings.callbackAfter();
+		settings.callback();
 	};
 
 	/**
@@ -5160,9 +4919,9 @@ Prism.languages.scss['atrule'].inside.rest = Prism.util.clone(Prism.languages.sc
 		stickyFooter.destroy();
 
 		// Selectors and variables
-		settings = buoy.extend( defaults, options || {} ); // Merge user options with defaults
+		settings = extend( defaults, options || {} ); // Merge user options with defaults
 		content = document.querySelector( settings.content );
-		footer = document.querySelector( '[data-sticky-footer]' );
+		footer = document.querySelector( settings.selector );
 
 		// If there is no content or no sticky footer, end function
 		if ( !content || !footer ) return;
@@ -5288,63 +5047,33 @@ Prism.languages.scss['atrule'].inside.rest = Prism.util.clone(Prism.languages.sc
 	};
 
 	/**
-	 * Get the closest matching element up the DOM tree
-	 * @param {Element} elem Starting element
-	 * @param {String} selector Selector to match against (class, ID, or data attribute)
-	 * @return {Boolean|Element} Returns false if not match found
+	 * Get the closest matching element up the DOM tree.
+	 * @private
+	 * @param  {Element} elem     Starting element
+	 * @param  {String}  selector Selector to match against
+	 * @return {Boolean|Element}  Returns null if not match found
 	 */
 	var getClosest = function ( elem, selector ) {
 
-		// Variables
-		var firstChar = selector.charAt(0);
-		var attribute, value;
-
-		// If selector is a data attribute, split attribute from value
-		if ( firstChar === '[' ) {
-			selector = selector.substr(1, selector.length - 2);
-			attribute = selector.split( '=' );
-
-			if ( attribute.length > 1 ) {
-				value = true;
-				attribute[1] = attribute[1].replace( /"/g, '' ).replace( /'/g, '' );
-			}
+		// Element.matches() polyfill
+		if (!Element.prototype.matches) {
+			Element.prototype.matches =
+				Element.prototype.matchesSelector ||
+				Element.prototype.mozMatchesSelector ||
+				Element.prototype.msMatchesSelector ||
+				Element.prototype.oMatchesSelector ||
+				Element.prototype.webkitMatchesSelector ||
+				function(s) {
+					var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+						i = matches.length;
+					while (--i >= 0 && matches.item(i) !== this) {}
+					return i > -1;
+				};
 		}
 
 		// Get closest match
 		for ( ; elem && elem !== document; elem = elem.parentNode ) {
-
-			// If selector is a class
-			if ( firstChar === '.' ) {
-				if ( elem.classList.contains( selector.substr(1) ) ) {
-					return elem;
-				}
-			}
-
-			// If selector is an ID
-			if ( firstChar === '#' ) {
-				if ( elem.id === selector.substr(1) ) {
-					return elem;
-				}
-			}
-
-			// If selector is a data attribute
-			if ( firstChar === '[' ) {
-				if ( elem.hasAttribute( attribute[0] ) ) {
-					if ( value ) {
-						if ( elem.getAttribute( attribute[0] ) === attribute[1] ) {
-							return elem;
-						}
-					} else {
-						return elem;
-					}
-				}
-			}
-
-			// If selector is a tag
-			if ( elem.tagName.toLowerCase() === selector ) {
-				return elem;
-			}
-
+			if ( elem.matches( selector ) ) return elem;
 		}
 
 		return null;
@@ -5939,277 +5668,3 @@ Prism.languages.scss['atrule'].inside.rest = Prism.util.clone(Prism.languages.sc
 	return toggleIODocs;
 
 }));
-/**
- * TinyMCEHacks.js
- * Adds required data attributes that get stripped out when using TinyMCE.
- */
-
-// Astro
-;(function (window, document, undefined) {
-
-	'use strict';
-
-	// Feature test
-	if ( !document.querySelector ) return;
-
-	// Variables
-	var navs = document.querySelectorAll( '.js-nav' );
-
-	// Add attributes
-	buoy.forEach(navs, (function (nav) {
-		if ( nav.getAttribute( 'data-nav-toggle' ) ) return; // Skip if attribute already exists
-		var id = nav.href ? '#' + nav.href.split('#')[1] : '#';
-		nav.setAttribute( 'data-nav-toggle', id );
-	}));
-
-})(window, document);
-
-
-// Sticky Footer
-;(function (window, document, undefined) {
-
-	'use strict';
-
-	// Feature test
-	if ( !document.querySelector ) return;
-
-	// Variables
-	var footers = document.querySelectorAll( '.js-sticky-footer' );
-
-	// Add attributes
-	buoy.forEach(footers, (function (footer) {
-		if ( footer.getAttribute( 'data-sticky-footer' ) ) return; // Skip if attribute already exists
-		footer.setAttribute( 'data-sticky-footer', 'true' );
-	}));
-
-})(window, document);
-
-
-// Right Height
-;(function (window, document, undefined) {
-
-	'use strict';
-
-	// Feature test
-	if ( !document.querySelector ) return;
-
-	// Variables
-	var containers = document.querySelectorAll( '.js-right-height' );
-	var contents = document.querySelectorAll( '.js-right-height-content' );
-
-	// Add attributes
-	buoy.forEach(containers, (function (container) {
-		if ( container.getAttribute( 'data-right-height' ) ) return; // Skip if attribute already exists
-		container.setAttribute( 'data-right-height', 'true' );
-	}));
-	buoy.forEach(contents, (function (content) {
-		if ( content.getAttribute( 'data-right-height-content' ) ) return; // Skip if attribute already exists
-		content.setAttribute( 'data-right-height-content', 'true' );
-	}));
-
-})(window, document);
-
-
-// Modals
-;(function (window, document, undefined) {
-
-	'use strict';
-
-	// Feature test
-	if ( !document.querySelector ) return;
-
-	// Variables
-	var toggles = document.querySelectorAll( '.js-modal' );
-	var windows = document.querySelectorAll( '.js-modal-window' );
-	var closers = document.querySelectorAll( '.js-modal-close' );
-
-	// Add attributes
-	buoy.forEach(toggles, (function (toggle) {
-		if ( toggle.getAttribute( 'data-modal' ) ) return; // Skip if attribute already exists
-		var id = toggle.href ? '#' + toggle.href.split('#')[1] : '#';
-		toggle.setAttribute( 'data-modal', id );
-	}));
-	buoy.forEach(windows, (function (win) {
-		if ( win.getAttribute( 'data-modal-window' ) ) return; // Skip if attribute already exists
-		win.setAttribute( 'data-modal-window', 'true' );
-	}));
-	buoy.forEach(closers, (function (closer) {
-		if ( closer.getAttribute( 'data-modal-close' ) ) return; // Skip if attribute already exists
-		closer.setAttribute( 'data-modal-close', 'true' );
-	}));
-
-})(window, document);
-
-
-// Houdini
-;(function (window, document, undefined) {
-
-	'use strict';
-
-	// Feature test
-	if ( !document.querySelector ) return;
-
-	// Variables
-	var toggles = document.querySelectorAll( '.js-collapse' );
-
-	// Add attributes
-	buoy.forEach(toggles, (function (toggle) {
-		if ( toggle.getAttribute( 'data-collapse' ) ) return; // Skip if attribute already exists
-		toggle.setAttribute( 'data-collapse' );
-	}));
-
-})(window, document);
-
-
-// Tabby
-;(function (window, document, undefined) {
-
-	'use strict';
-
-	// Feature test
-	if ( !document.querySelector ) return;
-
-	// Variables
-	var navs = document.querySelectorAll( '.js-tabs' );
-	var tabs = document.querySelectorAll( '.js-tab' );
-	var contents = document.querySelectorAll( '.js-tabs-content' );
-	var panes = document.querySelectorAll( '.js-tabs-pane' );
-
-
-	// Add attributes
-
-	buoy.forEach(navs, (function (nav) {
-		if ( nav.getAttribute( 'data-tabs' ) ) return; // Skip if attribute already exists
-		nav.setAttribute( 'data-tabs', true );
-	}));
-
-	buoy.forEach(tabs, (function (tab) {
-		if ( tab.getAttribute( 'data-tab' ) ) return; // Skip if attribute already exists
-		tab.setAttribute( 'data-tab', true );
-	}));
-
-	buoy.forEach(contents, (function (content) {
-		if ( content.getAttribute( 'data-tabs-content' ) ) return; // Skip if attribute already exists
-		content.setAttribute( 'data-tabs-content', true );
-	}));
-
-	buoy.forEach(panes, (function (pane) {
-		if ( pane.getAttribute( 'data-tabs-pane' ) ) return; // Skip if attribute already exists
-		pane.setAttribute( 'data-tabs-pane', true );
-	}));
-
-})(window, document);
-
-
-// Smooth Scroll
-;(function (window, document, undefined) {
-
-	'use strict';
-
-	// Feature test
-	if ( !document.querySelector ) return;
-
-	// Variables
-	var links = document.querySelectorAll( '.js-scroll' );
-
-	// Add attributes
-	buoy.forEach(links, (function (link) {
-		if ( link.getAttribute( 'data-scroll' ) ) return; // Skip if attribute already exists
-		link.setAttribute( 'data-scroll', 'true' );
-	}));
-
-})(window, document);
-
-
-// Gumshoe
-;(function (window, document, undefined) {
-
-	'use strict';
-
-	// Feature test
-	if ( !document.querySelector ) return;
-
-	// Variables
-	var headers = document.querySelectorAll( '.js-gumshoe-header' );
-	var lists = document.querySelectorAll( '.js-gumshoe' );
-
-	// Add attributes
-	buoy.forEach(headers, (function (header) {
-		if ( header.getAttribute( 'data-gumshoe-header' ) ) return; // Skip if attribute already exists
-		header.setAttribute( 'data-gumshoe-header', 'true' );
-	}));
-	buoy.forEach(lists, (function (list) {
-		if ( list.getAttribute( 'data-gumshoe' ) ) return; // Skip if attribute already exists
-		list.setAttribute( 'data-gumshoe', 'true' );
-	}));
-
-})(window, document);
-
-
-// Dropdowns
-;(function (window, document, undefined) {
-
-	'use strict';
-
-	// Feature test
-	if ( !document.querySelector ) return;
-
-	// Variables
-	var dropdowns = document.querySelectorAll( '.js-dropdown' );
-	var menus = document.querySelectorAll( '.js-dropdown-menu' );
-
-	// Add attributes
-	buoy.forEach(dropdowns, (function (dropdown) {
-		if ( dropdown.getAttribute( 'data-dropdown' ) ) return; // Skip if attribute already exists
-		dropdown.setAttribute( 'data-dropdown', 'true' );
-	}));
-	buoy.forEach(menus, (function (menu) {
-		if ( menu.getAttribute( 'data-dropdown-menus' ) ) return; // Skip if attribute already exists
-		menu.setAttribute( 'data-dropdown-menu', 'true' );
-	}));
-
-})(window, document);
-
-
-// Responsive Tables
-;(function (window, document, undefined) {
-
-	// Feature test
-	if ( !document.querySelector ) return;
-
-	// Get all responsive tables
-	var tables = document.querySelectorAll( '.table-responsive' );
-
-	/**
-	 * Add data-label attributes
-	 * @param {node} table The table to add data-label attributes to
-	 */
-	var addLabels = function ( table ) {
-
-		// Variables
-		var labels = table.querySelectorAll( 'th' );
-		var rows = table.querySelectorAll( 'tr' );
-
-		// Sanity check
-		if ( !labels || !rows ) return;
-
-		// Loop through each row
-		buoy.forEach(rows, (function (row) {
-
-			// Get cells within the row
-			var cells = row.querySelectorAll( 'td' );
-
-			buoy.forEach(cells, (function (cell, index) {
-				cell.setAttribute( 'data-label', labels[index].innerHTML );
-			}));
-
-		}));
-
-	};
-
-	// Loop through each responsive table
-	buoy.forEach(tables, (function (table) {
-		addLabels( table );
-	}));
-
-})(window, document);

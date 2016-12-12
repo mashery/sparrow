@@ -28,11 +28,11 @@ portalReady(function () {
 
 	};
 
-	buoy.forEach(codes, function ( code ) {
-		var lang = /brush: (.*?);/.exec( code.className );
+	for (var i = 0; i < codes.length; i++) {
+		var lang = /brush: (.*?);/.exec( codes[i].className );
 		if ( !lang || Object.prototype.toString.call( lang ) !== '[object Array]' || lang.length < 2 ) return;
 		var langClass = getLangClass( lang[1] );
-		code.classList.add( langClass );
-	});
+		codes[i].classList.add( langClass );
+	}
 
 });

@@ -13,14 +13,34 @@
 	var scripts = document.getElementsByTagName('script'); // Get all scripots
 	var defs = document.getElementsByTagName('dd'); // Get all <dd> elements
 
+	/**
+	 * Loop through objects, arrays, and nodelists
+	 * Copyright 2014 @todomotto https://github.com/toddmotto/foreach
+	 * @param  {Array|NodeList|Object}  collection The elements to loop through
+	 * @param  {Function}               callback   The function to run on each loop
+	 */
+	var forEach = function (collection, callback, scope) {
+		if (Object.prototype.toString.call(collection) === '[object Object]') {
+			for (var prop in collection) {
+				if (Object.prototype.hasOwnProperty.call(collection, prop)) {
+					callback.call(scope, collection[prop], prop, collection);
+				}
+			}
+		} else {
+			for (var i = 0; i < collection.length; i++) {
+				callback.call(scope, collection[i], i, collection);
+			}
+		}
+	};
+
 	// Remove MasheryApiSelection.js from DOM
-	buoy.forEach(scripts, function (script) {
+	forEach(scripts, function (script) {
 		if ( !script || !script.src || !/MasheryApiSelection.js/.test( script.src ) ) return;
 		script.parentNode.removeChild(script);
 	});
 
 	// Reset display of <dd> to block and remove click event that hides it
-	buoy.forEach(defs, function (def, index) {
+	forEach(defs, function (def, index) {
 
 		// Get the <dd> that MasheryApiSelection hid
 		if ( def.style.display === 'none' ) {

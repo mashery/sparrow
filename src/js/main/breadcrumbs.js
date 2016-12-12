@@ -50,6 +50,71 @@
 	//
 
 	/**
+	 * Merge two or more objects. Returns a new object.
+	 * Set the first argument to `true` for a deep or recursive merge
+	 * @param {Boolean}  deep     If true, do a deep (or recursive) merge [optional]
+	 * @param {Object}   objects  The objects to merge together
+	 * @returns {Object}          Merged values of defaults and options
+	 */
+	var extend = function () {
+
+		// Variables
+		var extended = {};
+		var deep = false;
+		var i = 0;
+		var length = arguments.length;
+
+		// Check if a deep merge
+		if ( Object.prototype.toString.call( arguments[0] ) === '[object Boolean]' ) {
+			deep = arguments[0];
+			i++;
+		}
+
+		// Merge the object into the extended object
+		var merge = function ( obj ) {
+			for ( var prop in obj ) {
+				if ( Object.prototype.hasOwnProperty.call( obj, prop ) ) {
+					// If deep merge and property is an object, merge properties
+					if ( deep && Object.prototype.toString.call(obj[prop]) === '[object Object]' ) {
+						extended[prop] = extend( true, extended[prop], obj[prop] );
+					} else {
+						extended[prop] = obj[prop];
+					}
+				}
+			}
+		};
+
+		// Loop through each object and conduct a merge
+		for ( ; i < length; i++ ) {
+			var obj = arguments[i];
+			merge(obj);
+		}
+
+		return extended;
+
+	};
+
+	/**
+	 * Loop through objects, arrays, and nodelists
+	 * Copyright 2014 @todomotto https://github.com/toddmotto/foreach
+	 * @param  {Array|NodeList|Object}  collection The elements to loop through
+	 * @param  {Function}               callback   The function to run on each loop
+	 */
+	var forEach = function (collection, callback, scope) {
+		if (Object.prototype.toString.call(collection) === '[object Object]') {
+			for (var prop in collection) {
+				if (Object.prototype.hasOwnProperty.call(collection, prop)) {
+					callback.call(scope, collection[prop], prop, collection);
+				}
+			}
+		} else {
+			for (var i = 0; i < collection.length; i++) {
+				callback.call(scope, collection[i], i, collection);
+			}
+		}
+	};
+
+	/**
 	 * Convert string to title case
 	 * @private
 	 * @param  {String} str The string to convert to title case
@@ -132,7 +197,7 @@
 		if ( document.documentElement.classList.contains( 'dom-landing' ) ) breadcrumbs = '<li>Home</li>';
 
 		// Create breadcrumb links
-		buoy.forEach(crumbs, function (crumb, index) {
+		forEach(crumbs, function (crumb, index) {
 
 			// If crumb is empty or it's the forum, bail
 			if ( crumb === '' || isForum ) return;
@@ -215,7 +280,7 @@
 			var count = settings.pages.length;
 
 			// For each one, create a selector
-			buoy.forEach(settings.pages, function (page, index) {
+			forEach(settings.pages, function (page, index) {
 
 				// Add a comma delimiter to all but the last item
 				var delimiter = index + 1 === count ? '' : ', ';
@@ -285,7 +350,7 @@
 		breadcrumbs.destroy();
 
 		// Merge user options with defaults
-		settings = buoy.extend( true, defaults, options || {} );
+		settings = extend( true, defaults, options || {} );
 
 		// Check if it's ok to run based on user settings
 		if ( !okToRun() ) return;

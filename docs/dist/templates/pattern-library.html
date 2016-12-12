@@ -1317,29 +1317,25 @@ clickToHighlight.highlight( container );
 <p>Force your footer to stick to the bottom of the viewport, even when there&#39;s not a lot of content on a page.</p>
 <h3 id="getting-started">Getting Started</h3>
 <h4 id="markup">Markup</h4>
-<p>Add the <code>[data-sticky-footer]</code> attribute to your footer.</p>
-<pre><code class="lang-markup">&lt;footer data-sticky-footer&gt;
+<p>Add the <code>.js-sticky-footer</code> class to your footer.</p>
+<pre><code class="lang-markup">&lt;footer class=&quot;js-sticky-footer&quot;&gt;
     ...
 &lt;/footer&gt;
 </code></pre>
 <h4 id="javascript">JavaScript</h4>
 <p>The script will not run until initialized. This is done for you already in the <em>Body JavaScript</em> section of <em>Portal Setup</em> in the Dashboard.</p>
 <pre><code class="lang-javascript">portalReady(function () {
-    stickyFooter.init();
+    stickyFooter.init({
+        selector: &#39;js-sticky-footer&#39;,
+    });
 });
-</code></pre>
-<h4 id="tinymce-workaround">TinyMCE Workaround</h4>
-<p>TinyMCE removes data attributes from the markup. In order to use this script, you must either uncheck the &quot;Use TinyMCE&quot; checkbox in the Content section of the Portal Dashboard, or use the <code>.js-sticky-footer</code> class instead.</p>
-<pre><code class="lang-markup">&lt;footer class=&quot;js-sticky-footer&quot;&gt;
-    ...
-&lt;/footer&gt;
 </code></pre>
 <h3 id="global-settings">Global Settings</h3>
 <p>You can pass options and callbacks into the script through the <code>init()</code> function:</p>
 <pre><code class="lang-javascript">stickyFooter.init({
-    content: &#39;#content&#39;, // The element that contains your main content
-    callbackBefore: function () {}, // Function that runs before adjusting footer
-    callbackAfter: function () {} // Function that runs after adjusting footer
+    selector: &#39;[data-sticky-footer]&#39;, // The selector for the footer
+    content: &#39;#content&#39;, // The selector for the element that contains your main content
+    callback: function () {} // Function that runs after adjusting footer
 });
 </code></pre>
 <h3 id="use-script-events-in-your-own-scripts">Use script events in your own scripts</h3>
@@ -1366,21 +1362,21 @@ stickyFooter.setContentHeight( content, footer );
 
 <h2 id="right-height">Right Height</h2>
 <p>Dynamically set content areas of different lengths to the same height.</p>
-<div class="row" data-right-height>
+<div class="row js-right-height">
     <div class="grid-third">
-        <div class="demo-grid-bg" data-right-height-content>
+        <div class="demo-grid-bg js-right-height-content">
             <h2>Content 1</h2>
             <p>The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs.</p>
         </div>
     </div>
     <div class="grid-third">
-        <div class="demo-grid-bg" data-right-height-content>
+        <div class="demo-grid-bg js-right-height-content">
             <h2>Content 2</h2>
             <p>Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack. Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex. Two driven jocks help fax my big quiz.</p>
         </div>
     </div>
     <div class="grid-third">
-        <div class="demo-grid-bg" data-right-height-content>
+        <div class="demo-grid-bg js-right-height-content">
             <h2>Content 3</h2>
             <p>Quick, Baz, get my woven flax jodhpurs! &quot;Now fax quiz Jack!&quot; my brave ghost pled. Five quacking zephyrs jolt my wax bed. Flummoxed by job, kvetching W. zaps Iraq. Cozy sphinx waves quart jug of bad milk. A very bad quack might jinx zippy fowls.</p>
         </div>
@@ -1389,15 +1385,15 @@ stickyFooter.setContentHeight( content, footer );
 
 <h3 id="getting-started">Getting Started</h3>
 <h4 id="markup">Markup</h4>
-<p>Add the <code>[data-right-height]</code> data attribute to the wrapper div for your content areas. This let&#39;s Right Height adjust heights for different sections of content independently from each other. Give each content area that you want Right Height to adjust a <code>[data-right-height-content]</code> data attribute.</p>
-<pre><code class="lang-markup">&lt;div class=&quot;row&quot; data-right-height&gt;
-    &lt;div class=&quot;grid-third&quot; data-right-height-content&gt;
+<p>Add the <code>.js-right-height</code> class to the wrapper div for your content areas. This let&#39;s Right Height adjust heights for different sections of content independently from each other. Give each content area that you want Right Height to adjust a <code>.js-right-height-content</code> class.</p>
+<pre><code class="lang-markup">&lt;div class=&quot;row js-right-height&quot;&gt;
+    &lt;div class=&quot;grid-third js-right-height-content&quot;&gt;
         Content 1
     &lt;/div&gt;
-    &lt;div class=&quot;grid-third&quot; data-right-height-content&gt;
+    &lt;div class=&quot;grid-third js-right-height-content&quot;&gt;
         Content 2
     &lt;/div&gt;
-    &lt;div class=&quot;grid-third&quot; data-right-height-content&gt;
+    &lt;div class=&quot;grid-third js-right-height-content&quot;&gt;
         Content 3
     &lt;/div&gt;
 &lt;/div&gt;
@@ -1406,24 +1402,19 @@ stickyFooter.setContentHeight( content, footer );
 <p>The script will not run until initialized. This is done for you already in the <em>Body JavaScript</em> section of <em>Portal Setup</em> in the Dashboard.</p>
 <pre><code class="lang-markup">&lt;script&gt;
     portalReady(function () {
-        rightHeight.init();
+        rightHeight.init({
+            selector: &#39;.js-right-height&#39;,
+            selectorContent: &#39;.js-right-height-content&#39;,
+        });
     });
 &lt;/script&gt;
-</code></pre>
-<h4 id="tinymce-workaround">TinyMCE Workaround</h4>
-<p>TinyMCE removes data attributes from the markup. In order to use this script, you must either uncheck the &quot;Use TinyMCE&quot; checkbox in the Content section of the Portal Dashboard, or use the <code>.js-right-height</code> and <code>.js-right-height-content</code> classes instead.</p>
-<pre><code class="lang-markup">&lt;div class=&quot;row js-right-height&quot;&gt;
-    &lt;div class=&quot;grid-third js-right-height-content&quot;&gt;
-        Content 1
-    &lt;/div&gt;
-    ...
-&lt;/div&gt;
 </code></pre>
 <h3 id="global-settings">Global Settings</h3>
 <p>You can pass options and callbacks into Right Height through the <code>init()</code> function:</p>
 <pre><code class="lang-javascript">rightHeight.init({
-    callbackBefore: function ( container ) {}, // Function that runs before content height is adjusted
-    callbackAfter: function ( container ) {} // Function that runs after content height is adjusted
+    selector: &#39;[data-right-height]&#39;, // Selector for the right height parent container
+    selectorContent: &#39;[data-right-height-content]&#39;, // Selector for right height content areas
+    callback: function () {} // Function to run after height is adjusted
 });
 </code></pre>
 <h3 id="use-right-height-events-in-your-own-scripts">Use Right Height events in your own scripts</h3>
@@ -1442,112 +1433,6 @@ rightHeight.adjustContainerHeight( container );
 <h4 id="destroy-">destroy()</h4>
 <p>Destroy the current <code>rightHeight.init()</code>. This is called automatically during the init function to remove any existing initializations.</p>
 <pre><code class="lang-javascript">rightHeight.destroy();
-</code></pre>
-<hr>
-
-
-<h2 id="modals">Modals</h2>
-<p>Your theme includes mobile-friendly modal dialogue windows.</p>
-<p><button data-modal="#modal1">Modal</button> <button data-modal="#modal2">Modal Medium</button> <button data-modal="#modal3">Modal Small</button></p>
-
-<div class="modal" data-modal-window id="modal1">
-    <a class="close" data-modal-close href="#">x</a>
-    <h3>Modal</h3>
-    <p>Modal content</p>
-    <button data-modal-close>Close</button>
-</div>
-
-<div class="modal modal-medium" data-modal-window id="modal2">
-    <a  class="close" data-modal-close href="#">x</a>
-    <h3>Modal Medium</h3>
-    <p>Modal content</p>
-    <button data-modal-close>Close</button>
-</div>
-
-<div class="modal modal-small" data-modal-window id="modal3">
-    <a class="close" data-modal-close href="#">x</a>
-    <h3>Modal Small</h3>
-    <p>Modal content</p>
-    <button data-modal-close>Close</button>
-</div>
-
-<h3 id="getting-started">Getting Started</h3>
-<h4 id="markup">Markup</h4>
-<pre><code class="lang-markup">&lt;a data-modal=&quot;#modal&quot; href=&quot;#&quot;&gt;Modal Toggle&lt;/a&gt;
-
-&lt;div class=&quot;modal&quot; data-modal-window id=&quot;modal&quot;&gt;
-    &lt;a class=&quot;close&quot; data-modal-close href=&quot;#&quot;&gt;x&lt;/a&gt;
-    &lt;h3&gt;Modal&lt;/h3&gt;
-    &lt;p&gt;Modal content&lt;/p&gt;
-    &lt;button data-modal-close&gt;Close&lt;/button&gt;
-&lt;/div&gt;
-</code></pre>
-<p>Be sure to assign each modal a unique ID. Add the <code>.modal-medium</code> or <code>.modal-small</code> class to change the modal size.</p>
-<pre><code class="lang-markup">&lt;div class=&quot;modal modal-small&quot; data-modal-window id=&quot;modal&quot;&gt;
-    ...
-&lt;/div&gt;
-</code></pre>
-<p>Adding a <code>[data-modal-close]</code> data attribute to any button or link turns it into a modal dismiss link. The <code>.modal-close</code> class adds special styling to close links (if you wanted to use an X for close, for example). Clicking anywhere outside the modal or pressing the escape key will close the modal, too.</p>
-<p>Always specify a functioning link as a backup for modals. Modals uses modern JavaScript API&#39;s that aren&#39;t supported by older browsers, including IE 8 and lower. On modern browsers, Modals will prevent the backup URL from redirecting people away from the current page.</p>
-<pre><code class="lang-markup">&lt;a data-modal=&quot;#modal&quot; href=&quot;http://backup-url.com&quot;&gt;Modal Toggle&lt;/a&gt;
-</code></pre>
-<h4 id="javascript">JavaScript</h4>
-<p>The script will not run until initialized. This is done for you already in the <em>Body JavaScript</em> section of <em>Portal Setup</em> in the Dashboard.</p>
-<pre><code class="lang-markup">&lt;script&gt;
-    portalReady(function () {
-        modals.init();
-    });
-&lt;/script&gt;
-</code></pre>
-<h4 id="tinymce-workaround">TinyMCE Workaround</h4>
-<p>TinyMCE removes data attributes from the markup. In order to use this script, you must either uncheck the &quot;Use TinyMCE&quot; checkbox in the Content section of the Portal Dashboard, or use the <code>.js-modal</code>, <code>.js-modal-window</code>, and <code>.js-modal-close</code> classes instead, passing in the ID through the <code>href</code> value.</p>
-<pre><code class="lang-markup">&lt;a class=&quot;js-modal&quot; href=&quot;#modal&quot;&gt;Modal Toggle&lt;/a&gt;
-
-&lt;div class=&quot;modal js-modal-window&quot; id=&quot;modal&quot;&gt;
-    &lt;a class=&quot;close js-modal-close&quot;&gt;x&lt;/a&gt;
-    &lt;h3&gt;Modal&lt;/h3&gt;
-    &lt;p&gt;Modal content&lt;/p&gt;
-    &lt;button class=&quot;js-modal-close&quot;&gt;Close&lt;/button&gt;
-&lt;/div&gt;
-</code></pre>
-<h3 id="global-settings">Global Settings</h3>
-<p>You can pass options and callbacks into Modals through the <code>init()</code> function:</p>
-<pre><code class="lang-javascript">modals.init({
-    modalActiveClass: &#39;active&#39;, // Class applied to active modal windows
-    modalBGClass: &#39;modal-bg&#39;, // Class applied to the modal background overlay
-    backspaceClose: true, // Boolean, whether or not to enable backspace/delete button modal closing
-    callbackOpen: function ( toggle, modalID ) {}, // Functions to run after opening a modal
-    callbackClose: function () {} // Functions to run after closing a modal
-});
-</code></pre>
-<p><strong><em>Note:</em></strong> <em>If your modal includes any form fields, you should set <code>backspaceClose</code> to <code>false</code> or users will not be able to delete their text.</em></p>
-<h3 id="use-modals-events-in-your-own-scripts">Use Modals events in your own scripts</h3>
-<p>You can also call Modals events in your own scripts.</p>
-<h4 id="openmodal-">openModal()</h4>
-<p>Open a specific modal window.</p>
-<pre><code class="lang-javascript">modals.openModal(
-    toggle, // Node that launches the modal. ex. document.querySelector(&#39;#toggle&#39;)
-    modalID, // The ID of the modal to launch. ex &#39;#modal&#39;
-    options, // Classes and callbacks. Same options as those passed into the init() function.
-    event // Optional, if a DOM event was triggered.
-);
-
-// Example
-modals.openModal( null, &#39;#modal&#39; );
-</code></pre>
-<h4 id="closemodals-">closeModals()</h4>
-<p>Close all modal windows.</p>
-<pre><code class="lang-javascript">modals.closeModals(
-    options, // Classes and callbacks. Same options as those passed into the init() function.
-    event // Optional, if a DOM event was triggered.
-);
-
-// Example
-modals.closeModals();
-</code></pre>
-<h4 id="destroy-">destroy()</h4>
-<p>Destroy the current <code>modals.init()</code>. This is called automatically during the init function to remove any existing initializations.</p>
-<pre><code class="lang-javascript">modals.destroy();
 </code></pre>
 <hr>
 
@@ -1611,8 +1496,8 @@ modals.closeModals();
 
 <h3 id="getting-started">Getting Started</h3>
 <h4 id="markup">Markup</h4>
-<p>Add the <code>.collapse-toggle</code> class to your toggle element, and the <code>.collapse</code> class to your content. You also need to add the <code>[data-collapse]</code> attribute to your toggle element, and provide an <code>href</code> that matches the <code>id</code> of the content you want to expand-and-collapse.</p>
-<pre><code class="lang-html">&lt;a class=&quot;collapse-toggle&quot; data-collapse href=&quot;#show-me&quot;&gt;
+<p>Add the <code>.collapse-toggle</code> class to your toggle element, and the <code>.collapse</code> class to your content. You also need to provide an <code>href</code> that matches the <code>id</code> of the content you want to expand-and-collapse.</p>
+<pre><code class="lang-html">&lt;a class=&quot;collapse-toggle&quot; href=&quot;#show-me&quot;&gt;
     &lt;span class=&quot;collapse-text-show&quot;&gt;Show +&lt;/span&gt;
     &lt;span class=&quot;collapse-text-hide&quot;&gt;Hide -&lt;/span&gt;
 &lt;/a&gt;
@@ -1622,7 +1507,7 @@ modals.closeModals();
 </code></pre>
 <p><strong>Expanded by Default</strong></p>
 <p>If you&#39;d prefer to show content by default, include the <code>.active</code> class along with the <code>.collapse</code> and <code>.collapse-toggle</code> classes.</p>
-<pre><code class="lang-html">&lt;a class=&quot;collapse-toggle active&quot; data-collapse href=&quot;#hide-me&quot;&gt;
+<pre><code class="lang-html">&lt;a class=&quot;collapse-toggle active&quot; href=&quot;#hide-me&quot;&gt;
     &lt;span class=&quot;collapse-text-show&quot;&gt;Show +&lt;/span&gt;
     &lt;span class=&quot;collapse-text-hide&quot;&gt;Hide -&lt;/span&gt;
 &lt;/a&gt;
@@ -1632,7 +1517,7 @@ modals.closeModals();
 </code></pre>
 <p><strong>Accordions</strong></p>
 <p>Expand-and-collapse accordion groups are also supported. Add a <code>[data-group]</code> attribute to every toggle in the accordion, and make sure they all have the same value. The script will sort out the rest.</p>
-<pre><code class="lang-html">&lt;a class=&quot;collapse-toggle active&quot; data-collapse data-group=&quot;accordion&quot; href=&quot;#section1&quot;&gt;
+<pre><code class="lang-html">&lt;a class=&quot;collapse-toggle active&quot; data-group=&quot;accordion&quot; href=&quot;#section1&quot;&gt;
     Section 1
     &lt;span class=&quot;collapse-text-show&quot;&gt;+&lt;/span&gt;
     &lt;span class=&quot;collapse-text-hide&quot;&gt;-&lt;/span&gt;
@@ -1641,7 +1526,7 @@ modals.closeModals();
     &lt;h3&gt;Section 1&lt;/h3&gt;
     &lt;p&gt;The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs.&lt;/p&gt;
 &lt;/div&gt;
-&lt;a class=&quot;collapse-toggle&quot; data-collapse data-group=&quot;accordion&quot; href=&quot;#section2&quot;&gt;
+&lt;a class=&quot;collapse-toggle&quot; data-group=&quot;accordion&quot; href=&quot;#section2&quot;&gt;
     Section 2
     &lt;span class=&quot;collapse-text-show&quot;&gt;+&lt;/span&gt;
     &lt;span class=&quot;collapse-text-hide&quot;&gt;-&lt;/span&gt;
@@ -1650,7 +1535,7 @@ modals.closeModals();
     &lt;h3&gt;Section 2&lt;/h3&gt;
     &lt;p&gt;Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack. Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex. Two driven jocks help fax my big quiz.&lt;/p&gt;
 &lt;/div&gt;
-&lt;a class=&quot;collapse-toggle&quot; data-collapse data-group=&quot;accordion&quot; href=&quot;#section3&quot;&gt;
+&lt;a class=&quot;collapse-toggle&quot; data-group=&quot;accordion&quot; href=&quot;#section3&quot;&gt;
     Section 3
     &lt;span class=&quot;collapse-text-show&quot;&gt;+&lt;/span&gt;
     &lt;span class=&quot;collapse-text-hide&quot;&gt;-&lt;/span&gt;
@@ -1664,17 +1549,14 @@ modals.closeModals();
 <p>The script will not run until initialized. This is done for you already in the <em>Body JavaScript</em> section of <em>Portal Setup</em> in the Dashboard.</p>
 <pre><code class="lang-markup">&lt;script&gt;
     portalReady(function () {
-        houdini.init();
+        houdini.init({
+            selectorToggle: &#39;.collapse-toggle&#39;,
+        });
     });
 &lt;/script&gt;
 </code></pre>
-<h4 id="tinymce-workaround">TinyMCE Workaround</h4>
-<p>TinyMCE removes data attributes from the markup. In order to use this script, you must either uncheck the &quot;Use TinyMCE&quot; checkbox in the Content section of the Portal Dashboard, or use the <code>.js-collapse</code> class instead of <code>[data-collapse]</code>.</p>
-<pre><code class="lang-markup">&lt;a class=&quot;collapse-toggle js-collapse&quot; href=&quot;#show-me&quot;&gt;
-    ...
-&lt;/a&gt;
-</code></pre>
-<p><strong><em>Note:</em></strong> <em>The only way to use this script with accordions is to disable TinyMCE. Expand-and-collapse functionality is only added one-level deep.</em></p>
+<h4 id="tinymce-issues">TinyMCE Issues</h4>
+<p>TinyMCE removes data attributes from the markup. In order to use this script as an accordion, you must uncheck the &quot;Use TinyMCE&quot; checkbox in the Content section of the Portal Dashboard.</p>
 <h3 id="global-settings">Global Settings</h3>
 <p>You can pass options and callbacks through the <code>init()</code> function:</p>
 <pre><code class="lang-javascript">houdini.init({
@@ -1744,22 +1626,22 @@ houdini.closeContent( &#39;#hide-me-too&#39;, document.querySelector( &#39;a[hre
 
 <h2 id="toggle-tabs">Toggle Tabs</h2>
 <p>Light weight toggle tabs.</p>
-<ul data-tabs class="tabs">
-    <li class="active"><a class="active" data-tab href="#taba">Superheroes</a></li>
-    <li><a data-tab href="#tabb">Ice Cream</a></li>
-    <li><a data-tab href="#tabc">Seasons</a></li>
+<ul class="tabs">
+    <li class="active"><a class="js-tab active" href="#taba">Superheroes</a></li>
+    <li><a class="js-tab" href="#tabb">Ice Cream</a></li>
+    <li><a class="js-tab" href="#tabc">Seasons</a></li>
 </ul>
 
-<div data-tabs-content>
-    <div data-tabs-pane class="tabs-pane active" id="taba">
+<div class="js-tabs-content">
+    <div class="tabs-pane active" id="taba">
         <p><strong>Superheros</strong></p>
         <p>Spiderman, Batman, or Iron Man... which one is your favorite?</p>
     </div>
-    <div data-tabs-pane class="tabs-pane" id="tabb">
+    <div class="tabs-pane" id="tabb">
         <p><strong>Ice Cream</strong></p>
         <p>Chocolate, vanilla or strawberry?</p>
     </div>
-    <div data-tabs-pane class="tabs-pane" id="tabc">
+    <div class="tabs-pane" id="tabc">
         <p><strong>Seasons</strong></p>
         <p>Winter, summer, spring or fall?</p>
     </div>
@@ -1768,24 +1650,24 @@ houdini.closeContent( &#39;#hide-me-too&#39;, document.querySelector( &#39;a[hre
 <h3 id="getting-started">Getting Started</h3>
 <h4 id="markup">Markup</h4>
 <p>For semantic reasons, tab toggles must be links, but can be strutured however you see fit. Make sure that the <code>href</code> for each tab toggle matches the id of the target <code>.tabs-pane</code>.</p>
-<p>Add the <code>[data-tabs]</code> attribute to the tab toggles parent element, and the <code>[data-tab]</code> attribute to individual toggles. Add a <code>[data-tabs-content]</code> attribute to the tab content group parent element, and the <code>[data-tabs-pane]</code> attribute to individual tab content.</p>
+<p>Add the <code>.tabs</code> class to the tab toggles parent element, and the <code>.js-tab</code> class to individual toggles. Add a <code>.js-tabs-content</code> class to the tab content group parent element, and the <code>.tabs-pane</code> class to individual tab content.</p>
 <p>Add the <code>.active</code> class to the tab and content that you&#39;d like displayed by default.</p>
-<pre><code class="lang-markup">&lt;ul data-tabs class=&quot;tabs&quot;&gt;
-    &lt;li class=&quot;active&quot;&gt;&lt;a class=&quot;active&quot; data-tab href=&quot;#taba&quot;&gt;Superheroes&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a data-tab href=&quot;#tabb&quot;&gt;Ice Cream&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a data-tab href=&quot;#tabc&quot;&gt;Seasons&lt;/a&gt;&lt;/li&gt;
+<pre><code class="lang-markup">&lt;ul class=&quot;tabs&quot;&gt;
+    &lt;li class=&quot;active&quot;&gt;&lt;a class=&quot;js-tab active&quot; href=&quot;#taba&quot;&gt;Superheroes&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class=&quot;js-tab&quot; href=&quot;#tabb&quot;&gt;Ice Cream&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class=&quot;js-tab&quot; href=&quot;#tabc&quot;&gt;Seasons&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div data-tabs-content&gt;
-    &lt;div data-tabs-pane class=&quot;tabs-pane active&quot; id=&quot;taba&quot;&gt;
+&lt;div class=&quot;js-tabs-content&quot;&gt;
+    &lt;div class=&quot;tabs-pane active&quot; id=&quot;taba&quot;&gt;
         &lt;p&gt;&lt;strong&gt;Superheros&lt;/strong&gt;&lt;/p&gt;
         &lt;p&gt;Spiderman, Batman, or Iron Man... which one is your favorite?&lt;/p&gt;
     &lt;/div&gt;
-    &lt;div data-tabs-pane class=&quot;tabs-pane&quot; id=&quot;tabb&quot;&gt;
+    &lt;div class=&quot;tabs-pane&quot; id=&quot;tabb&quot;&gt;
         &lt;p&gt;&lt;strong&gt;Ice Cream&lt;/strong&gt;&lt;/p&gt;
         &lt;p&gt;Chocolate, vanilla or strawberry?&lt;/p&gt;
     &lt;/div&gt;
-    &lt;div data-tabs-pane class=&quot;tabs-pane&quot; id=&quot;tabc&quot;&gt;
+    &lt;div class=&quot;tabs-pane&quot; id=&quot;tabc&quot;&gt;
         &lt;p&gt;&lt;strong&gt;Seasons&lt;/strong&gt;&lt;/p&gt;
         &lt;p&gt;Winter, summer, spring or fall?&lt;/p&gt;
     &lt;/div&gt;
@@ -1795,23 +1677,14 @@ houdini.closeContent( &#39;#hide-me-too&#39;, document.querySelector( &#39;a[hre
 <p>The script will not run until initialized. This is done for you already in the <em>Body JavaScript</em> section of <em>Portal Setup</em> in the Dashboard.</p>
 <pre><code class="lang-markup">&lt;script&gt;
     portalReady(function () {
-        tabby.init();
+        tabby.init({
+            selectorToggle: &#39;.js-tab&#39;,
+            selectorToggleGroup: &#39;.tabs&#39;,
+            selectorContent: &#39;.tabs-pane&#39;,
+            selectorContentGroup: &#39;.js-tabs-content&#39;,
+        });
     });
 &lt;/script&gt;
-</code></pre>
-<h4 id="tinymce-workaround">TinyMCE Workaround</h4>
-<p>TinyMCE removes data attributes from the markup. In order to use this script, you must either uncheck the &quot;Use TinyMCE&quot; checkbox in the Content section of the Portal Dashboard, or use <code>.js-*</code> classes instead. The class-based workaround only works with link elements.</p>
-<pre><code class="lang-markup">&lt;ul class=&quot;js-tabs tabs&quot;&gt;
-    &lt;li&gt;&lt;a class=&quot;js-tab&quot; href=&quot;#taba&quot;&gt;Superheroes&lt;/a&gt;&lt;/li&gt;
-    ...
-&lt;/ul&gt;
-
-&lt;div class=&quot;js-tabs-content&quot;&gt;
-    &lt;div class=&quot;js-tabs-pane tabs-pane&quot; id=&quot;taba&quot;&gt;
-        ...
-    &lt;/div&gt;
-    ...
-&lt;/div&gt;
 </code></pre>
 <h3 id="global-settings">Global Settings</h3>
 <p>You can pass options and callbacks into Tabby through the <code>init()</code> function:</p>
@@ -1852,31 +1725,31 @@ tabby.toggleTab( &#39;#tab3&#39;, document.querySelector(&#39;[data-tab][href*=&
 <p>Animate scrolling to anchor links.</p>
 <p>
     <strong>Linear</strong><br>
-    <a data-scroll data-options='{ "easing": "linear" }' href="#bazinga">Linear (no other options)</a><br>
+    <a class="js-scroll" data-options='{ "easing": "linear" }' href="#bazinga">Linear (no other options)</a><br>
 </p>
 
 <p>
     <strong>Ease-In</strong><br>
-    <a data-scroll data-options='{ "easing": "easeInQuad" }' href="#bazinga">Quad</a><br>
-    <a data-scroll data-options='{ "easing": "easeInCubic" }' href="#bazinga">Cubic</a><br>
-    <a data-scroll data-options='{ "easing": "easeInQuart" }' href="#bazinga">Quart</a><br>
-    <a data-scroll data-options='{ "easing": "easeInQuint" }' href="#bazinga">Quint</a>
+    <a class="js-scroll" data-options='{ "easing": "easeInQuad" }' href="#bazinga">Quad</a><br>
+    <a class="js-scroll" data-options='{ "easing": "easeInCubic" }' href="#bazinga">Cubic</a><br>
+    <a class="js-scroll" data-options='{ "easing": "easeInQuart" }' href="#bazinga">Quart</a><br>
+    <a class="js-scroll" data-options='{ "easing": "easeInQuint" }' href="#bazinga">Quint</a>
 </p>
 
 <p>
     <strong>Ease-In-Out</strong><br>
-    <a data-scroll data-options='{ "easing": "easeInOutQuad" }' href="#bazinga">Quad</a><br>
-    <a data-scroll data-options='{ "easing": "easeInOutCubic" }' href="#bazinga">Cubic</a><br>
-    <a data-scroll data-options='{ "easing": "easeInOutQuart" }' href="#bazinga">Quart</a><br>
-    <a data-scroll data-options='{ "easing": "easeInOutQuint" }' href="#bazinga">Quint</a>
+    <a class="js-scroll" data-options='{ "easing": "easeInOutQuad" }' href="#bazinga">Quad</a><br>
+    <a class="js-scroll" data-options='{ "easing": "easeInOutCubic" }' href="#bazinga">Cubic</a><br>
+    <a class="js-scroll" data-options='{ "easing": "easeInOutQuart" }' href="#bazinga">Quart</a><br>
+    <a class="js-scroll" data-options='{ "easing": "easeInOutQuint" }' href="#bazinga">Quint</a>
 </p>
 
 <p>
     <strong>Ease-Out</strong><br>
-    <a data-scroll data-options='{ "easing": "easeOutQuad" }' href="#bazinga">Quad</a><br>
-    <a data-scroll data-options='{ "easing": "easeOutCubic" }' href="#bazinga">Cubic</a><br>
-    <a data-scroll data-options='{ "easing": "easeOutQuart" }' href="#bazinga">Quart</a><br>
-    <a data-scroll data-options='{ "easing": "easeOutQuint" }' href="#bazinga">Quint</a>
+    <a class="js-scroll" data-options='{ "easing": "easeOutQuad" }' href="#bazinga">Quad</a><br>
+    <a class="js-scroll" data-options='{ "easing": "easeOutCubic" }' href="#bazinga">Cubic</a><br>
+    <a class="js-scroll" data-options='{ "easing": "easeOutQuart" }' href="#bazinga">Quart</a><br>
+    <a class="js-scroll" data-options='{ "easing": "easeOutQuint" }' href="#bazinga">Quint</a>
 </p>
 
 <p>
@@ -1885,7 +1758,7 @@ tabby.toggleTab( &#39;#tab3&#39;, document.querySelector(&#39;[data-tab][href*=&
     .<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.
 </p>
 
-<p id="bazinga"><a data-scroll href="#1@#%^-bottom">Bazinga!</a></p>
+<p id="bazinga"><a class="js-scroll" href="#1@#%^-bottom">Bazinga!</a></p>
 
 <p>
     .<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>
@@ -1893,12 +1766,12 @@ tabby.toggleTab( &#39;#tab3&#39;, document.querySelector(&#39;[data-tab][href*=&
     .<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.
 </p>
 
-<p id="1@#%^-bottom"><a data-scroll data-options='{ "easing": "easeOutCubic" }' href="#smooth-scroll">Back to the top</a></p>
+<p id="1@#%^-bottom"><a class="js-scroll" data-options='{ "easing": "easeOutCubic" }' href="#smooth-scroll">Back to the top</a></p>
 
 <h3 id="getting-started">Getting Started</h3>
 <h4 id="markup">Markup</h4>
-<p>Turn anchor links into Smooth Scroll links by adding the <code>[data-scroll]</code> data attribute. Give the anchor location an ID just like you normally would.</p>
-<pre><code class="lang-markup">&lt;a data-scroll href=&quot;#bazinga&quot;&gt;Anchor Link&lt;/a&gt;
+<p>Turn anchor links into Smooth Scroll links by adding the <code>.js-scroll</code> class. Give the anchor location an ID just like you normally would.</p>
+<pre><code class="lang-markup">&lt;a class=&quot;js-scroll&quot; href=&quot;#bazinga&quot;&gt;Anchor Link&lt;/a&gt;
 ...
 &lt;span id=&quot;bazinga&quot;&gt;Bazinga!&lt;/span&gt;
 </code></pre>
@@ -1906,33 +1779,31 @@ tabby.toggleTab( &#39;#tab3&#39;, document.querySelector(&#39;[data-tab][href*=&
 <p>The script will not run until initialized. This is done for you already in the <em>Body JavaScript</em> section of <em>Portal Setup</em> in the Dashboard.</p>
 <pre><code class="lang-markup">&lt;script&gt;
     portalReady(function () {
-        smoothScroll.init();
+        smoothScroll.init({
+            selector: &#39;.js-scroll&#39;,
+            selectorHeader: &#39;.js-scroll-header&#39;,
+        });
     });
 &lt;/script&gt;
-</code></pre>
-<h4 id="tinymce-workaround">TinyMCE Workaround</h4>
-<p>TinyMCE removes data attributes from the markup. In order to use this script, you must either uncheck the &quot;Use TinyMCE&quot; checkbox in the Content section of the Portal Dashboard, or use the <code>.js-scroll</code> class instead. You are unable to pass in individual link option overrides using the class-based workaround.</p>
-<pre><code class="lang-markup">&lt;a class=&quot;js-scroll&quot; href=&quot;#bazinga&quot;&gt;Click Me&lt;/a&gt;
 </code></pre>
 <h3 id="global-settings">Global Settings</h3>
 <p>You can pass options and callbacks into Smooth Scroll through the <code>init()</code> function. Learn more about the different easing patterns and what they do at <a href="http://easings.net/">easings.net</a>.</p>
 <pre><code class="lang-javascript">smoothScroll.init({
+    selector: &#39;[data-scroll]&#39;, // Smooth scroll link selector
+    selectorHeader: null, // Selector for a fixed header (if one exists)
     speed: 500, // Integer. How fast to complete the scroll in milliseconds
     easing: &#39;easeInOutCubic&#39;, // Easing pattern to use
-    updateURL: true, // Boolean. Whether or not to update the URL with the anchor hash on scroll
     offset: 0, // Integer. How far to offset the scrolling anchor location in pixels
-    callbackBefore: function ( toggle, anchor ) {}, // Function to run before scrolling
-    callbackAfter: function ( toggle, anchor ) {} // Function to run after scrolling
+    callback: function () {} // Function to run after scrolling
 });
 </code></pre>
 <h3 id="override-settings-with-data-attributes">Override settings with data attributes</h3>
 <p>Smooth Scroll also lets you override global settings on a link-by-link basis using the <code>[data-options]</code> data attribute.</p>
-<pre><code class="lang-markup">&lt;a data-scroll
+<pre><code class="lang-markup">&lt;a class=&quot;js-scroll&quot;
    data-options=&#39;{
                     &quot;speed&quot;: 500,
                     &quot;easing&quot;: &quot;easeInOutCubic&quot;,
-                    &quot;offset&quot;: 0,
-                    &quot;updateURL&quot;: false
+                    &quot;offset&quot;: 0
                 }&#39;
 &gt;
     Anchor Link
@@ -1965,8 +1836,8 @@ smoothScroll.animateScroll( 750 );
 <pre><code class="lang-javascript">smoothScroll.destroy();
 </code></pre>
 <h3 id="fixed-headers">Fixed Headers</h3>
-<p>Add a <code>[data-scroll-header]</code> data attribute to fixed headers. Smooth Scroll will automatically offset scroll distances by the header height. If you have multiple fixed headers, add <code>[data-scroll-header]</code> to the last one in the markup.</p>
-<pre><code class="lang-markup">&lt;nav data-scroll-header&gt;
+<p>Add a <code>[class=&quot;js-scroll&quot;-header]</code> data attribute to fixed headers. Smooth Scroll will automatically offset scroll distances by the header height. If you have multiple fixed headers, add <code>[class=&quot;js-scroll&quot;-header]</code> to the last one in the markup.</p>
+<pre><code class="lang-markup">&lt;nav class=&quot;js-scroll-header&quot;&gt;
     ...
 &lt;/nav&gt;
 </code></pre>
@@ -2052,9 +1923,6 @@ smoothScroll.animateScroll( 750 );
 
 // Example
 portalReady(function () {
-    drop.init({
-        activeClass: &#39;drop-active&#39;
-    });
     createDropdown(
         &#39;documentation&#39;,
         [
@@ -2363,7 +2231,7 @@ if ( document.body.classList.contains( &#39;page-docs&#39; ) ) {
 					if ( !id ) continue;
 
 					// Create section navigation
-					subnavContent += '<li><a data-scroll class="link-plain" href="#' + id + '">' + sections[i].innerHTML + '</a></li>';
+					subnavContent += '<li><a class="js-scroll link-plain" href="#' + id + '">' + sections[i].innerHTML + '</a></li>';
 
 				}
 
