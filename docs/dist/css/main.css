@@ -1,7 +1,7 @@
 /*!
  * YOUR-CLIENT-NAME-WITHOUT-SPACES v1.0.0: Portal theme for YOUR-CLIENT-NAME
  * (c) 2016 YOUR-NAME
- * Built on the Sparrow Boilerplate v8.4.1
+ * Built on the Sparrow Boilerplate v8.4.2
  * MIT License
  * https://github.com/mashery/sparrow
  */
@@ -2397,6 +2397,7 @@ a:hover .icon-link, .link-block-styled:hover .icon-link, .link-block:hover .link
   overflow: hidden;
   padding: 0;
   position: absolute;
+  white-space: nowrap;
   width: 1px;
 }
 
@@ -2405,7 +2406,7 @@ a:hover .icon-link, .link-block-styled:hover .icon-link, .link-block:hover .link
  * @link https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css
  * @link https://www.drupal.org/node/897638
  */
-/* line 264, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 265, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .screen-reader-focusable:active, .js-houdini .collapse.active,
 .screen-reader-focusable:focus {
   clip: auto;
@@ -2413,6 +2414,7 @@ a:hover .icon-link, .link-block-styled:hover .icon-link, .link-block:hover .link
   margin: 0;
   overflow: visible;
   position: static;
+  white-space: normal;
   width: auto;
 }
 
@@ -2421,7 +2423,7 @@ a:hover .icon-link, .link-block-styled:hover .icon-link, .link-block:hover .link
  * @affected IE 8/9/10
  * @link http://juicystudio.com/article/screen-readers-display-none.php
  */
-/* line 279, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 281, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 [hidden], template, #user-menu, .pun-nav, a.rss, .rss.link-block-styled, #nav-user .status, .dom-forum .breadcrumbs, .page-forum .section-menu ul, .search-input .search-button, #detailTables_container.loading #detailTables div {
   display: none;
   visibility: hidden;
@@ -2432,7 +2434,7 @@ a:hover .icon-link, .link-block-styled:hover .icon-link, .link-block:hover .link
  * The space content is one way to avoid an Opera bug when the `contenteditable` attribute is included anywhere else in the document.
  * @link https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css
  */
-/* line 291, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 293, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .clearfix:before, .container:before, .page:before,
 .row:before, .content:before, .page-login .signin_member_mashery:before, form:before, .section-menu ul:before, .method .title:before, ol.categories .category ul:before, ol.topics .topic > ul:before, .page-wiki .section-tags:before, span.timezone-note:before, #quotaInfo:before, #detailTables_container:before,
 .clearfix:after,
@@ -2456,7 +2458,7 @@ span.timezone-note:after,
   display: table;
 }
 
-/* line 297, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 299, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .clearfix:after, .container:after, .page:after,
 .row:after, .content:after, .page-login .signin_member_mashery:after, form:after, .section-menu ul:after, .method .title:after, .method a.clear-results:after, .method .clear-results.link-block-styled:after, ol.categories .category ul:after, ol.topics .topic > ul:after, .page-wiki .section-tags:after, span.timezone-note:after, #quotaInfo:after, #detailTables_container:after {
   clear: both;
