@@ -1,7 +1,7 @@
 /*!
  * YOUR-CLIENT-NAME-WITHOUT-SPACES v1.0.0: Portal theme for YOUR-CLIENT-NAME
  * (c) 2016 YOUR-NAME
- * Built on the Sparrow Boilerplate v9.0.1
+ * Built on the Sparrow Boilerplate v9.0.2
  * MIT License
  * https://github.com/mashery/sparrow
  */
@@ -1627,14 +1627,14 @@ a:hover .icon-link, .link-block-styled:hover .icon-link, .link-block:hover .link
  * Show/hide text
  */
 /* line 9, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_houdini.scss */
-.js-houdini .active .collapse-text-show,
+.js-houdini .active > .collapse-text-show,
 .collapse-text-hide {
   display: none;
   visibility: hidden;
 }
 
 /* line 15, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_houdini.scss */
-.js-houdini .active .collapse-text-hide {
+.js-houdini .active > .collapse-text-hide {
   display: inline-block;
   visibility: visible;
 }
