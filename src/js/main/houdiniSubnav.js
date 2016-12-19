@@ -96,8 +96,6 @@
 	 */
 	var renderLink = function ( navlink, isActive, index ) {
 
-		console.log(navlink);
-
 		// Create link
 		var toggle = document.createElement( 'a' );
 		var location = settings.iconAfter ? navlink.nextSibling : navlink;
@@ -198,8 +196,6 @@
 		settings = extend( defaults, options || {} ); // Merge user options with defaults
 		theNav = document.querySelector( settings.selectorNav );
 		navs = document.querySelectorAll( settings.selectorNavs );
-
-		console.log(navs);
 
 		// If set to only run on Docs and not docs page, end
 		if ( !document.body.classList.contains( 'page-docs' ) ) return;
