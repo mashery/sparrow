@@ -1,7 +1,7 @@
 /*!
  * YOUR-CLIENT-NAME-WITHOUT-SPACES v1.0.0: Portal theme for YOUR-CLIENT-NAME
  * (c) 2016 YOUR-NAME
- * Built on the Sparrow Boilerplate v9.0.0
+ * Built on the Sparrow Boilerplate v9.0.1
  * MIT License
  * https://github.com/mashery/sparrow
  */
@@ -2291,6 +2291,8 @@ var fullWidth = function ( hideH1 ) {
 	 */
 	var renderLink = function ( navlink, isActive, index ) {
 
+		console.log(navlink);
+
 		// Create link
 		var toggle = document.createElement( 'a' );
 		var location = settings.iconAfter ? navlink.nextSibling : navlink;
@@ -2326,7 +2328,7 @@ var fullWidth = function ( hideH1 ) {
 			var subnav = navs[i].querySelector( 'ul' );
 
 			// If no subnav, move on to the next nav element
-			if ( !subnav ) return;
+			if ( !subnav ) continue;
 
 			// Get subnav link
 			var navlink = navs[i].firstChild;
@@ -2338,11 +2340,11 @@ var fullWidth = function ( hideH1 ) {
 			navs[i].classList.remove( 'active' );
 
 			// Render the link
-			renderLink( navlink, isActive, index );
+			renderLink( navlink, isActive, i );
 
 			// Add classes and ID to subnav
 			subnav.classList.add( 'collapse' );
-			subnav.id = 'docs-subnav-' + index;
+			subnav.id = 'docs-subnav-' + i;
 			if ( isActive ) { subnav.classList.add( 'active' ); }
 
 			// If subnav has subnav, run again
@@ -2391,6 +2393,8 @@ var fullWidth = function ( hideH1 ) {
 		settings = extend( defaults, options || {} ); // Merge user options with defaults
 		theNav = document.querySelector( settings.selectorNav );
 		navs = document.querySelectorAll( settings.selectorNavs );
+
+		console.log(navs);
 
 		// If set to only run on Docs and not docs page, end
 		if ( !document.body.classList.contains( 'page-docs' ) ) return;
