@@ -1,7 +1,7 @@
 /*!
  * YOUR-CLIENT-NAME-WITHOUT-SPACES v1.0.0: Portal theme for YOUR-CLIENT-NAME
  * (c) 2016 YOUR-NAME
- * Built on the Sparrow Boilerplate v9.0.1
+ * Built on the Sparrow Boilerplate v9.0.2
  * MIT License
  * https://github.com/mashery/sparrow
  */
@@ -1821,33 +1821,63 @@ var fullWidth = function ( hideH1 ) {
 	};
 
 	/**
-	 * Get the closest matching element up the DOM tree.
-	 * @private
-	 * @param  {Element} elem     Starting element
-	 * @param  {String}  selector Selector to match against
-	 * @return {Boolean|Element}  Returns null if not match found
+	 * Get the closest matching element up the DOM tree
+	 * @param {Element} elem Starting element
+	 * @param {String} selector Selector to match against (class, ID, or data attribute)
+	 * @return {Boolean|Element} Returns false if not match found
 	 */
 	var getClosest = function ( elem, selector ) {
 
-		// Element.matches() polyfill
-		if (!Element.prototype.matches) {
-			Element.prototype.matches =
-				Element.prototype.matchesSelector ||
-				Element.prototype.mozMatchesSelector ||
-				Element.prototype.msMatchesSelector ||
-				Element.prototype.oMatchesSelector ||
-				Element.prototype.webkitMatchesSelector ||
-				function(s) {
-					var matches = (this.document || this.ownerDocument).querySelectorAll(s),
-						i = matches.length;
-					while (--i >= 0 && matches.item(i) !== this) {}
-					return i > -1;
-				};
+		// Variables
+		var firstChar = selector.charAt(0);
+		var attribute, value;
+
+		// If selector is a data attribute, split attribute from value
+		if ( firstChar === '[' ) {
+			selector = selector.substr(1, selector.length - 2);
+			attribute = selector.split( '=' );
+
+			if ( attribute.length > 1 ) {
+				value = true;
+				attribute[1] = attribute[1].replace( /"/g, '' ).replace( /'/g, '' );
+			}
 		}
 
 		// Get closest match
 		for ( ; elem && elem !== document; elem = elem.parentNode ) {
-			if ( elem.matches( selector ) ) return elem;
+
+			// If selector is a class
+			if ( firstChar === '.' ) {
+				if ( elem.classList.contains( selector.substr(1) ) ) {
+					return elem;
+				}
+			}
+
+			// If selector is an ID
+			if ( firstChar === '#' ) {
+				if ( elem.id === selector.substr(1) ) {
+					return elem;
+				}
+			}
+
+			// If selector is a data attribute
+			if ( firstChar === '[' ) {
+				if ( elem.hasAttribute( attribute[0] ) ) {
+					if ( value ) {
+						if ( elem.getAttribute( attribute[0] ) === attribute[1] ) {
+							return elem;
+						}
+					} else {
+						return elem;
+					}
+				}
+			}
+
+			// If selector is a tag
+			if ( elem.tagName.toLowerCase() === selector ) {
+				return elem;
+			}
+
 		}
 
 		return null;
@@ -2238,11 +2268,32 @@ var fullWidth = function ( hideH1 ) {
 	//
 
 	/**
-	 * Merge two or more objects. Returns a new object.
-	 * Set the first argument to `true` for a deep or recursive merge
-	 * @param {Boolean}  deep     If true, do a deep (or recursive) merge [optional]
-	 * @param {Object}   objects  The objects to merge together
-	 * @returns {Object}          Merged values of defaults and options
+	 * A simple forEach() implementation for Arrays, Objects and NodeLists
+	 * @private
+	 * @param {Array|Object|NodeList} collection Collection of items to iterate
+	 * @param {Function} callback Callback function for each iteration
+	 * @param {Array|Object|NodeList} scope Object/NodeList/Array that forEach is iterating over (aka `this`)
+	 */
+	var forEach = function (collection, callback, scope) {
+		if (Object.prototype.toString.call(collection) === '[object Object]') {
+			for (var prop in collection) {
+				if (Object.prototype.hasOwnProperty.call(collection, prop)) {
+					callback.call(scope, collection[prop], prop, collection);
+				}
+			}
+		} else {
+			for (var i = 0, len = collection.length; i < len; i++) {
+				callback.call(scope, collection[i], i, collection);
+			}
+		}
+	};
+
+	/**
+	 * Merge defaults with user options
+	 * @private
+	 * @param {Object} defaults Default settings
+	 * @param {Object} options User options
+	 * @returns {Object} Merged values of defaults and options
 	 */
 	var extend = function () {
 
@@ -2259,7 +2310,7 @@ var fullWidth = function ( hideH1 ) {
 		}
 
 		// Merge the object into the extended object
-		var merge = function ( obj ) {
+		var merge = function (obj) {
 			for ( var prop in obj ) {
 				if ( Object.prototype.hasOwnProperty.call( obj, prop ) ) {
 					// If deep merge and property is an object, merge properties
@@ -2297,7 +2348,7 @@ var fullWidth = function ( hideH1 ) {
 		toggle.href = '#docs-subnav-' + index;
 		toggle.innerHTML = '<span class="collapse-text-show">' + settings.iconShow + '</span><span class="collapse-text-hide">' + settings.iconHide + '</span>';
 		toggle.classList.add( 'collapse-toggle' );
-		toggle.classList.add( 'js-collapse' );
+		toggle.setAttribute( 'data-collapse', true );
 		if ( isActive ) { toggle.classList.add( 'active' ); }
 		if ( settings.isAccordion ) { toggle.setAttribute( 'data-group', 'docs-subnav' ); }
 
@@ -2319,38 +2370,36 @@ var fullWidth = function ( hideH1 ) {
 	 * @param {NodesList} navs Nav elements
 	 */
 	var addAttributes = function ( navs ) {
-
-		for (var i = 0; i < navs.length; i++) {
+		forEach(navs, (function (nav, index) {
 
 			// Get subnav
-			var subnav = navs[i].querySelector( 'ul' );
+			var subnav = nav.querySelector( 'ul' );
 
 			// If no subnav, move on to the next nav element
-			if ( !subnav ) continue;
+			if ( !subnav ) return;
 
 			// Get subnav link
-			var navlink = navs[i].firstChild;
+			var navlink = nav.firstChild;
 
 			// Determine if nav is active
-			var isActive = navs[i].classList.contains( 'active' );
+			var isActive = nav.classList.contains( 'active' );
 
 			// Remove .active class from parent li
-			navs[i].classList.remove( 'active' );
+			nav.classList.remove( 'active' );
 
 			// Render the link
-			renderLink( navlink, isActive, i );
+			renderLink( navlink, isActive, index );
 
 			// Add classes and ID to subnav
 			subnav.classList.add( 'collapse' );
-			subnav.id = 'docs-subnav-' + i;
+			subnav.id = 'docs-subnav-' + index;
 			if ( isActive ) { subnav.classList.add( 'active' ); }
 
 			// If subnav has subnav, run again
 			var subSubNavs = subnav.querySelectorAll( 'ul > li' );
 			addAttributes( subSubNavs );
 
-		}
-
+		}));
 	};
 
 	/**
