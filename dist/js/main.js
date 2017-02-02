@@ -1,7 +1,7 @@
 /*!
  * YOUR-CLIENT-NAME-WITHOUT-SPACES v1.0.0: Portal theme for YOUR-CLIENT-NAME
- * (c) 2016 YOUR-NAME
- * Built on the Sparrow Boilerplate v9.0.2
+ * (c) 2017 YOUR-NAME
+ * Built on the Sparrow Boilerplate v9.0.3
  * MIT License
  * https://github.com/mashery/sparrow
  */
@@ -2343,7 +2343,7 @@ var fullWidth = function ( hideH1 ) {
 	var renderLink = function ( navlink, isActive, index ) {
 
 		// Create link
-		var toggle = document.createElement( 'a' );
+		var toggle = navlink.parentNode.querySelector( 'a[data-collapse]' ) || document.createElement( 'a' );
 		var location = settings.iconAfter ? navlink.nextSibling : navlink;
 		toggle.href = '#docs-subnav-' + index;
 		toggle.innerHTML = '<span class="collapse-text-show">' + settings.iconShow + '</span><span class="collapse-text-hide">' + settings.iconHide + '</span>';
@@ -2396,7 +2396,7 @@ var fullWidth = function ( hideH1 ) {
 			if ( isActive ) { subnav.classList.add( 'active' ); }
 
 			// If subnav has subnav, run again
-			var subSubNavs = subnav.querySelectorAll( 'ul > li' );
+			var subSubNavs = subnav.querySelectorAll( 'ul> li' );
 			addAttributes( subSubNavs );
 
 		}));
