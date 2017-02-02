@@ -118,7 +118,7 @@
 	var renderLink = function ( navlink, isActive, index ) {
 
 		// Create link
-		var toggle = document.createElement( 'a' );
+		var toggle = navlink.parentNode.querySelector( 'a[data-collapse]' ) || document.createElement( 'a' );
 		var location = settings.iconAfter ? navlink.nextSibling : navlink;
 		toggle.href = '#docs-subnav-' + index;
 		toggle.innerHTML = '<span class="collapse-text-show">' + settings.iconShow + '</span><span class="collapse-text-hide">' + settings.iconHide + '</span>';
@@ -171,7 +171,7 @@
 			if ( isActive ) { subnav.classList.add( 'active' ); }
 
 			// If subnav has subnav, run again
-			var subSubNavs = subnav.querySelectorAll( 'ul > li' );
+			var subSubNavs = subnav.querySelectorAll( 'ul> li' );
 			addAttributes( subSubNavs );
 
 		});
