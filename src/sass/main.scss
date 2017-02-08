@@ -4,7 +4,6 @@
 
 
 // Core Styles
-// @import "components/reset";
 @import "components/normalize";
 @import "components/grid";
 @import "components/typography";
@@ -49,6 +48,3 @@
 @import "components/mashery-login"; // Login
 @import "components/mashery-register"; // Registration
 @import "components/mashery-logout"; // Logged Out Page
-
-// Print Styles
-@import "components/print";

@@ -1,7 +1,7 @@
 /*!
  * YOUR-CLIENT-NAME-WITHOUT-SPACES v1.0.0: Portal theme for YOUR-CLIENT-NAME
  * (c) 2017 YOUR-NAME
- * Built on the Sparrow Boilerplate v9.0.3
+ * Built on the Sparrow Boilerplate v9.1.0
  * MIT License
  * https://github.com/mashery/sparrow
  */
@@ -642,7 +642,7 @@ var addTableHeaders = function () {
 /**
  * breadcrumbs.js
  * @description Add breadcrumbs to the Portal
- * @version     1.0.0
+ * @version     1.0.1
  * @author      Chris Ferdinandi
  */
 (function (root, factory) {
@@ -679,6 +679,7 @@ var addTableHeaders = function () {
 		memberManage: 'Manage My Account',
 		memberEmail: 'Change Email',
 		memberPassword: 'Change Password',
+		customTitles: {},
 		initClass: 'js-breadcrumbs',
 		containerClass: 'container padding-top-small text-muted link-plain',
 		listClass: 'list-inline list-inline-breadcrumbs',
@@ -689,71 +690,6 @@ var addTableHeaders = function () {
 	//
 	// Methods
 	//
-
-	/**
-	 * Merge two or more objects. Returns a new object.
-	 * Set the first argument to `true` for a deep or recursive merge
-	 * @param {Boolean}  deep     If true, do a deep (or recursive) merge [optional]
-	 * @param {Object}   objects  The objects to merge together
-	 * @returns {Object}          Merged values of defaults and options
-	 */
-	var extend = function () {
-
-		// Variables
-		var extended = {};
-		var deep = false;
-		var i = 0;
-		var length = arguments.length;
-
-		// Check if a deep merge
-		if ( Object.prototype.toString.call( arguments[0] ) === '[object Boolean]' ) {
-			deep = arguments[0];
-			i++;
-		}
-
-		// Merge the object into the extended object
-		var merge = function ( obj ) {
-			for ( var prop in obj ) {
-				if ( Object.prototype.hasOwnProperty.call( obj, prop ) ) {
-					// If deep merge and property is an object, merge properties
-					if ( deep && Object.prototype.toString.call(obj[prop]) === '[object Object]' ) {
-						extended[prop] = extend( true, extended[prop], obj[prop] );
-					} else {
-						extended[prop] = obj[prop];
-					}
-				}
-			}
-		};
-
-		// Loop through each object and conduct a merge
-		for ( ; i < length; i++ ) {
-			var obj = arguments[i];
-			merge(obj);
-		}
-
-		return extended;
-
-	};
-
-	/**
-	 * Loop through objects, arrays, and nodelists
-	 * Copyright 2014 @todomotto https://github.com/toddmotto/foreach
-	 * @param  {Array|NodeList|Object}  collection The elements to loop through
-	 * @param  {Function}               callback   The function to run on each loop
-	 */
-	var forEach = function (collection, callback, scope) {
-		if (Object.prototype.toString.call(collection) === '[object Object]') {
-			for (var prop in collection) {
-				if (Object.prototype.hasOwnProperty.call(collection, prop)) {
-					callback.call(scope, collection[prop], prop, collection);
-				}
-			}
-		} else {
-			for (var i = 0; i < collection.length; i++) {
-				callback.call(scope, collection[i], i, collection);
-			}
-		}
-	};
 
 	/**
 	 * Convert string to title case
@@ -783,10 +719,9 @@ var addTableHeaders = function () {
 		if ( document.body.id === 'page-member' && titleCase === 'Edit' ) titleCase = settings.memberManage; // Manage Account
 		if ( document.body.id === 'page-member' && titleCase === 'Email' ) titleCase = settings.memberEmail; // Change email
 		if ( document.body.id === 'page-member' && titleCase === 'Passwd' ) titleCase = settings.memberPassword; // Change password
+		if ( settings.customTitles.hasOwnProperty( titleCase.toLowerCase() ) ) titleCase = settings.customTitles[titleCase.toLowerCase()]; // Custom overrides
 
 		// @todo If forum and not "add category", return empty after 'forum'
-
-		// console.log(str);
 
 		return titleCase;
 
@@ -833,12 +768,13 @@ var addTableHeaders = function () {
 		var count = crumbs.length;
 		var breadcrumbs = '<li><a href="/">Home</a></li>';
 		var isForum = document.body.classList.contains( 'page-forum' );
+		var link = '';
 
 		// If it's the landing page, remove link from "Home" breadcrumb
 		if ( document.documentElement.classList.contains( 'dom-landing' ) ) breadcrumbs = '<li>Home</li>';
 
 		// Create breadcrumb links
-		forEach(crumbs, (function (crumb, index) {
+		buoy.forEach(crumbs, (function (crumb, index) {
 
 			// If crumb is empty or it's the forum, bail
 			if ( crumb === '' || isForum ) return;
@@ -861,7 +797,9 @@ var addTableHeaders = function () {
 			}
 
 			// Otherwise, create a linked crumb
-			breadcrumbs += '<li><a href="' + crumb + '">' + title + '</a></li>';
+			link += '/' + crumb;
+			console.log(link);
+			breadcrumbs += '<li><a href="' + link + '">' + title + '</a></li>';
 
 		}));
 
@@ -921,7 +859,7 @@ var addTableHeaders = function () {
 			var count = settings.pages.length;
 
 			// For each one, create a selector
-			forEach(settings.pages, (function (page, index) {
+			buoy.forEach(settings.pages, (function (page, index) {
 
 				// Add a comma delimiter to all but the last item
 				var delimiter = index + 1 === count ? '' : ', ';
@@ -991,7 +929,7 @@ var addTableHeaders = function () {
 		breadcrumbs.destroy();
 
 		// Merge user options with defaults
-		settings = extend( true, defaults, options || {} );
+		settings = buoy.extend( true, defaults, options || {} );
 
 		// Check if it's ok to run based on user settings
 		if ( !okToRun() ) return;
@@ -2226,7 +2164,7 @@ var fullWidth = function ( hideH1 ) {
 /**
  * Houdini Subnav
  * @description  A Houdini expand-and-collapse functionality to documentation pages.
- * @version      1.0.0
+ * @version      1.0.1
  * @author       Chris Ferdinandi
  */
 
@@ -2369,7 +2307,8 @@ var fullWidth = function ( hideH1 ) {
 	 * @private
 	 * @param {NodesList} navs Nav elements
 	 */
-	var addAttributes = function ( navs ) {
+	var addAttributes = function ( navs, offset ) {
+		offset = offset ? offset : '';
 		forEach(navs, (function (nav, index) {
 
 			// Get subnav
@@ -2388,16 +2327,16 @@ var fullWidth = function ( hideH1 ) {
 			nav.classList.remove( 'active' );
 
 			// Render the link
-			renderLink( navlink, isActive, index );
+			renderLink( navlink, isActive, offset + '-' + index );
 
 			// Add classes and ID to subnav
 			subnav.classList.add( 'collapse' );
-			subnav.id = 'docs-subnav-' + index;
+			subnav.id = 'docs-subnav-' + offset + '-' + index;
 			if ( isActive ) { subnav.classList.add( 'active' ); }
 
 			// If subnav has subnav, run again
-			var subSubNavs = subnav.querySelectorAll( 'ul> li' );
-			addAttributes( subSubNavs );
+			var subSubNavs = subnav.children;
+			addAttributes( subSubNavs, offset + '-' + index );
 
 		}));
 	};
