@@ -1,7 +1,7 @@
 /**
  * Houdini Subnav
  * @description  A Houdini expand-and-collapse functionality to documentation pages.
- * @version      1.0.0
+ * @version      1.0.1
  * @author       Chris Ferdinandi
  */
 
@@ -144,7 +144,8 @@
 	 * @private
 	 * @param {NodesList} navs Nav elements
 	 */
-	var addAttributes = function ( navs ) {
+	var addAttributes = function ( navs, offset ) {
+		offset = offset ? offset : '';
 		forEach(navs, function (nav, index) {
 
 			// Get subnav
@@ -163,16 +164,16 @@
 			nav.classList.remove( 'active' );
 
 			// Render the link
-			renderLink( navlink, isActive, index );
+			renderLink( navlink, isActive, offset + '-' + index );
 
 			// Add classes and ID to subnav
 			subnav.classList.add( 'collapse' );
-			subnav.id = 'docs-subnav-' + index;
+			subnav.id = 'docs-subnav-' + offset + '-' + index;
 			if ( isActive ) { subnav.classList.add( 'active' ); }
 
 			// If subnav has subnav, run again
-			var subSubNavs = subnav.querySelectorAll( 'ul> li' );
-			addAttributes( subSubNavs );
+			var subSubNavs = subnav.children;
+			addAttributes( subSubNavs, offset + '-' + index );
 
 		});
 	};

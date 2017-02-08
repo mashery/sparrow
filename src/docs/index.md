@@ -6,8 +6,6 @@ It looks great out-of-the-box, and includes features that make customization eas
 
 **[View the Live Demo Portal.](https://stagingcs9.mashery.com/)**
 
-*Sparrow is a fork of [Kraken by Chris Ferdinandi](https://cferdinandi.github.io/kraken/), adapted for the Mashery Portal and enhanced with commonly requested features.*
-
 <hr>
 
 

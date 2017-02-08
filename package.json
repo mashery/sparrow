@@ -6,9 +6,9 @@
   "author": {
     "name": "YOUR-NAME"
   },
-  "license": "LicenseRef-All Rights Reserved",
+  "license": "BSD-3-Clause",
   "sparrow": {
-    "version": "9.0.3",
+    "version": "9.1.0",
     "author": "Chris Ferdinandi"
   },
   "repository": {

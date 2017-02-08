@@ -34,3 +34,13 @@
 	}
 	@return ($px / $base) * 1em;
 }
+
+// Calculate pixels from ems
+@function calc-px($em, $base: 16) {
+	$em: strip-unit($em);
+	$base: strip-unit($base);
+	@if $em == 1px {
+		@return 1px;
+	}
+	@return ($em * $base) * 1px;
+}

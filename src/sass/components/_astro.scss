@@ -10,7 +10,7 @@
 	@extend .bg-muted;
 	text-align: center;
 
-	@media (max-width: $bp-large) {
+	@media (max-width: (calc-em(calc-px($bp-large) - 1))) {
 		.js-astro &.nav-collapse  {
 			text-align: left;
 		}
@@ -54,7 +54,7 @@
  */
 .nav-menu {
 
-	@media (max-width: $bp-large) {
+	@media (max-width: (calc-em(calc-px($bp-large) - 1))) {
 		.js-astro .nav-collapse & {
 			box-sizing: border-box;
 			display: none;
@@ -97,7 +97,7 @@
 		&.active > a {}
 	}
 
-	@media (max-width: $bp-large) {
+	@media (max-width: (calc-em(calc-px($bp-large) - 1))) {
 		.js-astro .nav-collapse & {
 			text-align: left;
 		}
@@ -117,7 +117,7 @@
 	display: none;
 	visibility: hidden;
 
-	@media (max-width: $bp-large) {
+	@media (max-width: (calc-em(calc-px($bp-large) - 1))) {
 		.js-astro .nav-collapse & {
 			display: block;
 			float: right;
