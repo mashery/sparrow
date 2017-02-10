@@ -18,7 +18,7 @@ portalReady(function () {
         selectorHeader: '.js-scroll-header',
     });
     stickyFooter.init({
-        selector: 'js-sticky-footer',
+        selector: '.js-sticky-footer',
     });
     tabby.init({
         selectorToggle: '.js-tab',
