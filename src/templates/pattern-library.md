@@ -1281,19 +1281,13 @@ Add `class="lang-*"` to your `<code>` element, where `*` is the language to be h
 
 ## Click-to-Highlight
 
-Make it easier for developers to copy-and-paste your code by enabling click-to-highlight. Try it for yourself by clicking or tapping anywhere in the code sample below.
-
-<pre><code class="lang-css">/* Preformatted Text */
-.js-example {
-	color: #272727;
-	background: #ffffff;
-}</code></pre>
+Make it easier for developers to copy-and-paste your code by enabling click-to-highlight.
 
 ### Getting Started
 
 #### JavaScript
 
-The script will not run until initialized. This is done for you already in the *Body JavaScript* section of *Portal Setup* in the Dashboard.
+The script will not run until initialized. This can be done in the *Body JavaScript* section of *Portal Setup* in the Dashboard, or as part of an external JS file.
 
 ```javascript
 portalReady(function () {
