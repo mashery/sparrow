@@ -2301,11 +2301,21 @@ loadCSS( 'http://fonts.googleapis.com/css?family=Open+Sans' );
 A small `@font-face` loader. Use in conjuction with [loadCSS](#loadcss-) to avoid [FOIT](https://github.com/filamentgroup/loadCSS/issues/16). [Authored by Bram Stein.](https://github.com/bramstein/fontfaceobserver)
 
 ```javascript
-loadCSS('//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic');
-var font = new FontFaceObserver('PT Serif');
-font.load().then(function () {
+// Load the font file
+loadCSS('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700');
+
+// If the font is cached, automatically apply it
+// Otherwise, wait for it to load
+if ( docCookies.getItem( 'fontsLoaded' ) ) {
 	document.documentElement.className += ' fonts-loaded';
-});
+} else {
+	var font = new FontFaceObserver('Source Sans Pro');
+	font.load().then(function () {
+		var expires = new Date(+new Date() + (7 * 24 * 60 * 60 * 1000)).toUTCString();
+		document.cookie = 'fontsLoaded=true; expires=' + expires;
+		document.documentElement.className += ' fonts-loaded';
+	});
+}
 ```
 
 ```css

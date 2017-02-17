@@ -9,4 +9,4 @@ Please review the [guidelines around questions and bug reports](CONTRIBUTING.md)
 
 ## License
 
-The code is available under the [BSD License](LICENSE.md).
+The code is available under a [BSD-type license](LICENSE.md).

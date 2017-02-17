@@ -1,7 +1,7 @@
 /*!
  * YOUR-CLIENT-NAME-WITHOUT-SPACES v1.0.0: Portal theme for YOUR-CLIENT-NAME
  * (c) 2017 YOUR-NAME
- * Built on the Sparrow Boilerplate v9.1.2
+ * Built on the Sparrow Boilerplate v9.2.0
  * MIT License
  * https://github.com/mashery/sparrow
  */
@@ -294,6 +294,15 @@ h)(b=f!=g&&f!=h&&g!=h)||(null===C&&(b=/AppleWebKit\/([0-9]+)(?:\.([0-9]+))/.exec
 h=p.a.offsetWidth,q();G=setTimeout(F,50)}}var e=new w(m),n=new w(m),p=new w(m),f=-1,g=-1,h=-1,r=-1,t=-1,u=-1,d=document.createElement("div"),G=0;d.dir="ltr";y(e,J(c,"sans-serif"));y(n,J(c,"serif"));y(p,J(c,"monospace"));d.appendChild(e.a);d.appendChild(n.a);d.appendChild(p.a);document.body.appendChild(d);r=e.a.offsetWidth;t=n.a.offsetWidth;u=p.a.offsetWidth;F();A(e,(function(a){f=a;q()}));y(e,J(c,'"'+c.family+'",sans-serif'));A(n,(function(a){g=a;q()}));y(n,J(c,'"'+c.family+'",serif'));A(p,(function(a){h=
 a;q()}));y(p,J(c,'"'+c.family+'",monospace'))}))})};window.FontFaceObserver=B;window.FontFaceObserver.prototype.check=window.FontFaceObserver.prototype.load=B.prototype.load;"undefined"!==typeof module&&(module.exports=window.FontFaceObserver);}());
 
+/**
+ * Get the value of a cookie
+ * https://gist.github.com/wpsmith/6cf23551dd140fb72ae7
+ */
+function getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2) return parts.pop().split(";").shift();
+}
 /**
  * Load a CSS file asynchronously.
  * @author @scottjehl, Filament Group, Inc.
