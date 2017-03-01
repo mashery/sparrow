@@ -1,8 +1,8 @@
 /*!
  * YOUR-CLIENT-NAME-WITHOUT-SPACES v1.0.0: Portal theme for YOUR-CLIENT-NAME
- * (c) 2017 YOUR-NAME
+ * Copyright (c) 2017 TIBCO Software Inc. All Rights Reserved.
  * Built on the Sparrow Boilerplate v9.2.0
- * MIT License
+ * BSD-type License
  * https://github.com/mashery/sparrow
  */
 
@@ -2370,20 +2370,21 @@ span.timezone-note:after,
 /**
  * @section Mashery Overrides
  * Portal DOM-specific overrides not tied to any specific page or area.
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  */
-/* line 11, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 12, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 .dom-full-width .page {
   max-width: none;
   width: 100%;
 }
 
-/* line 20, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 21, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 .dom-full-width .content {
   margin-left: 0;
   margin-right: 0;
 }
 
-/* line 26, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 27, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 .dom-full-width .main, .dom-full-width .sub, .dom-full-width .no_sub .main {
   padding-left: 0;
   padding-right: 0;
@@ -2392,7 +2393,7 @@ span.timezone-note:after,
 /**
  * Header edit links
  */
-/* line 74, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 75, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 h1 .edit, .page-login h2.signin .edit {
   font-size: 0.6875em;
 }
@@ -2400,7 +2401,7 @@ h1 .edit, .page-login h2.signin .edit {
 /**
  * Buttons
  */
-/* line 131, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 132, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 input[type="submit"],
 input[type="submit"]:last-child {
   margin-right: 0.3125em;
@@ -2409,17 +2410,17 @@ input[type="submit"]:last-child {
 /**
  * Markdown Guide
  */
-/* line 140, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 141, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 #mashery-markdown-help {
   clear: left;
 }
 
-/* line 144, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 145, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 #mashery-markdown-help h2:first-child a, #mashery-markdown-help h2:first-child .link-block-styled {
   font-size: 0.75em;
 }
 
-/* line 148, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 149, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 #mashery-markdown-help h2:first-child a:before, #mashery-markdown-help h2:first-child .link-block-styled:before {
   content: "\A";
   white-space: pre;
@@ -2429,7 +2430,7 @@ input[type="submit"]:last-child {
  * RSS Icon
  * Hide default. Icon added via JS.
  */
-/* line 166, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 167, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 .rss-icon {
   fill: #e06c33;
   height: 1em;
@@ -2439,12 +2440,12 @@ input[type="submit"]:last-child {
 /**
  * Add indicator for required form fields
  */
-/* line 182, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 183, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 label.require:after {
   content: " *";
 }
 
-/* line 186, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 187, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 label.require:empty:after {
   content: "";
 }
@@ -2452,7 +2453,7 @@ label.require:empty:after {
 /**
  * Success message styling
  */
-/* line 199, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 200, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 form ul.success li {
   font-style: italic;
 }
@@ -2460,20 +2461,20 @@ form ul.success li {
 /**
  * Form error styling
  */
-/* line 209, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 210, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 input.failure,
 textarea.failure {
   border-color: #880e14;
   margin-bottom: 0;
 }
 
-/* line 214, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 215, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 input.failure:focus,
 textarea.failure:focus {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0.5em rgba(136, 14, 20, 0.6);
 }
 
-/* line 219, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 220, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 ul.failure,
 ul.error {
   color: #880e14;
@@ -2482,12 +2483,13 @@ ul.error {
 /**
  * @section Mashery Navigation
  * Styling for the navigation sections
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  */
 /**
  * Hide "Signed-in as" text on small screens
  */
 @media (min-width: 40em) {
-  /* line 10, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-navigation.scss */
+  /* line 11, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-navigation.scss */
   #nav-user .status {
     display: inline;
     visibility: visible;
@@ -2497,19 +2499,22 @@ ul.error {
 /**
  * @section Mashery Landing
  * Styling specific to the landing page.
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  */
 /**
  * @section Mashery Pages
  * Styling specific to all custom pages (including the homepage).
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  */
 /**
  * @section Mashery Docs
  * Styling specific to documentation pages.
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  */
 /**
  * Sidebar
  */
-/* line 10, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-docs.scss */
+/* line 11, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-docs.scss */
 #sub {
   /**
 	 * Active links
@@ -2519,7 +2524,7 @@ ul.error {
 	 */
 }
 
-/* line 19, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-docs.scss */
+/* line 20, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-docs.scss */
 #sub li.js-active > a, #sub li.js-active > .link-block-styled {
   color: #808080;
   cursor: not-allowed;
@@ -2527,13 +2532,13 @@ ul.error {
   text-decoration: none;
 }
 
-/* line 25, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-docs.scss */
+/* line 26, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-docs.scss */
 #sub li.js-active > a.collapse-toggle, #sub li.js-active > .collapse-toggle.link-block-styled {
   cursor: pointer;
   pointer-events: auto;
 }
 
-/* line 34, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-docs.scss */
+/* line 35, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-docs.scss */
 #sub ul.collapse.active {
   margin-left: 1.5625em;
 }
@@ -2541,11 +2546,12 @@ ul.error {
 /**
  * @section Mashery IODocs
  * Styling specific to IODocs pages
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  */
 /**
  * API Select Element
  */
-/* line 13, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 14, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .servicesIodocs h2 {
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: 1em;
@@ -2554,13 +2560,13 @@ ul.error {
 }
 
 @media (min-width: 40em) {
-  /* line 13, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+  /* line 14, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
   .servicesIodocs h2 {
     line-height: 1.5625;
   }
 }
 
-/* line 25, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 26, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 #apiTitle {
   display: none;
   overflow: hidden;
@@ -2569,7 +2575,7 @@ ul.error {
 /**
  * Form for API Key
  */
-/* line 34, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 35, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .credentials {
   background-color: #f7f7f7;
   border: 1px solid #e5e5e5;
@@ -2580,7 +2586,7 @@ ul.error {
   padding: 1.5em;
 }
 
-/* line 43, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 44, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .credentials #apiKeyContainer,
 .credentials #apiSecretContainer,
 .credentials #apiKeySecretListContainer,
@@ -2592,14 +2598,14 @@ ul.error {
 /**
  * Error styling
  */
-/* line 57, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 58, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 pre.error {
   background-color: #e7cfd0;
   border-color: #d5abad;
   color: #43070a;
 }
 
-/* line 63, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 64, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 div.error {
   clear: left;
 }
@@ -2607,7 +2613,7 @@ div.error {
 /**
  * Toggle Endpoints/Methods Links
  */
-/* line 71, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 72, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 #controls {
   display: none;
   overflow: hidden;
@@ -2616,24 +2622,24 @@ div.error {
 /**
  * List of all available endpoints and methods
  */
-/* line 85, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 86, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .endpointList {
   display: none;
 }
 
-/* line 89, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 90, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .apiDescriptionList th,
 .method th {
   background-color: transparent;
 }
 
-/* line 94, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 95, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .apiDescriptionList tbody tr,
 .method tbody tr {
   background-color: transparent;
 }
 
-/* line 103, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 104, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .apiDescriptionList h4 a.select-all, .apiDescriptionList h4 .select-all.link-block-styled,
 .method h4 a.select-all,
 .method h4 .select-all.link-block-styled {
@@ -2641,7 +2647,7 @@ div.error {
   margin-left: 1em;
 }
 
-/* line 109, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 110, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .apiDescriptionList {
   display: none;
 }
@@ -2649,13 +2655,13 @@ div.error {
 /**
  * Make h3 element appear as a link
  */
-/* line 119, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 120, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .endpoint > .title .name:hover {
   cursor: pointer;
   text-decoration: underline;
 }
 
-/* line 124, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 125, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .endpoint > .title .actions {
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: 0.85em;
@@ -2665,23 +2671,23 @@ div.error {
 /**
  * Individual Methods
  */
-/* line 143, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 144, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .method .title {
   overflow: hidden;
   padding: 0.75em;
 }
 
-/* line 148, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 149, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .method .title:hover {
   cursor: pointer;
 }
 
-/* line 151, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 152, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .method .title:hover .name {
   text-decoration: underline;
 }
 
-/* line 156, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 157, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .method .title .http-method {
   border-radius: 0.3125em;
   color: #ffffff;
@@ -2693,35 +2699,35 @@ div.error {
   text-align: center;
 }
 
-/* line 167, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 168, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .method .title .name {
   margin-right: 0.5em;
 }
 
-/* line 171, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 172, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .method .title .uri {
   margin-right: 0.5em;
   opacity: 0.8;
 }
 
-/* line 182, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 183, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .method form {
   display: none;
   padding: 0.75em;
 }
 
-/* line 186, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 187, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .method form .parameters tr.hidden {
   display: none;
 }
 
-/* line 191, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 192, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .method a.clear-results, .method .clear-results.link-block-styled {
   color: red;
   margin-left: 1em;
 }
 
-/* line 195, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 196, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .method a.clear-results:hover, .method .clear-results.link-block-styled:hover, .method .link-block:hover .clear-results.link-block-styled, .link-block:hover .method .clear-results.link-block-styled {
   background-color: #0888cd;
   color: #ffffff;
@@ -2730,7 +2736,7 @@ div.error {
 /**
  * SOAP/JSON Nesting
  */
-/* line 212, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 213, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .fieldset-expanded {
   padding-left: 1em;
   padding-right: 1em;
@@ -2738,14 +2744,14 @@ div.error {
 }
 
 @media (min-width: 40em) {
-  /* line 212, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+  /* line 213, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
   .fieldset-expanded {
     padding-left: 1.5625em;
     padding-right: 1.5625em;
   }
 }
 
-/* line 223, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 224, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .legend-expanded {
   background-color: inherit;
   padding-left: 0.25em;
@@ -2755,24 +2761,24 @@ div.error {
 /**
  * GET Methods
  */
-/* line 233, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 234, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .get {
   background-color: #e6f3fa;
   border: 1px solid #bfe1f2;
 }
 
-/* line 237, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 238, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .get .http-method {
   background-color: #0088cc;
 }
 
-/* line 241, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 242, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .get th,
 .get td {
   border-color: #bfe1f2;
 }
 
-/* line 246, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 247, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .get .fieldset-expanded {
   border-color: #bfe1f2;
 }
@@ -2780,24 +2786,24 @@ div.error {
 /**
  * POST Methods
  */
-/* line 254, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 255, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .post {
   background-color: #ebf2ea;
   border: 1px solid #cddfcc;
 }
 
-/* line 258, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 259, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .post .http-method {
   background-color: #377f31;
 }
 
-/* line 262, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 263, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .post th,
 .post td {
   border-color: #cddfcc;
 }
 
-/* line 267, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 268, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .post .fieldset-expanded {
   border-color: #cddfcc;
 }
@@ -2805,24 +2811,24 @@ div.error {
 /**
  * PUT Methods
  */
-/* line 275, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 276, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .put {
   background-color: #fbf6e6;
   border: 1px solid #f6eac2;
 }
 
-/* line 279, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 280, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .put .http-method {
   background-color: #dba909;
 }
 
-/* line 283, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 284, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .put th,
 .put td {
   border-color: #f6eac2;
 }
 
-/* line 288, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 289, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .put .fieldset-expanded {
   border-color: #f6eac2;
 }
@@ -2830,24 +2836,24 @@ div.error {
 /**
  * DELETE Methods
  */
-/* line 296, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 297, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .delete {
   background-color: #f3e7e8;
   border: 1px solid #e1c3c4;
 }
 
-/* line 300, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 301, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .delete .http-method {
   background-color: #880e14;
 }
 
-/* line 304, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 305, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .delete th,
 .delete td {
   border-color: #e1c3c4;
 }
 
-/* line 309, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 310, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .delete .fieldset-expanded {
   border-color: #e1c3c4;
 }
@@ -2855,24 +2861,24 @@ div.error {
 /**
  * PATCH Methods
  */
-/* line 317, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 318, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .patch {
   background-color: #f3e7f4;
   border: 1px solid #e1c3e3;
 }
 
-/* line 321, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 322, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .patch .http-method {
   background-color: #860d8e;
 }
 
-/* line 325, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 326, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .patch th,
 .patch td {
   border-color: #e1c3e3;
 }
 
-/* line 330, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 331, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .patch .fieldset-expanded {
   border-color: #e1c3e3;
 }
@@ -2880,24 +2886,24 @@ div.error {
 /**
  * OPTIONS Methods
  */
-/* line 338, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 339, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .method.options {
   background-color: #faf1e6;
   border: 1px solid #f2dcbf;
 }
 
-/* line 342, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 343, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .method.options .http-method {
   background-color: #cc7100;
 }
 
-/* line 346, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 347, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .method.options th,
 .method.options td {
   border-color: #f2dcbf;
 }
 
-/* line 351, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 352, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .method.options .fieldset-expanded {
   border-color: #f2dcbf;
 }
@@ -2905,36 +2911,36 @@ div.error {
 /**
  * HEAD Methods
  */
-/* line 359, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 360, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .head {
   background-color: #e6eef2;
   border: 1px solid #bfd5df;
 }
 
-/* line 363, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 364, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .head .http-method {
   background-color: #00557f;
 }
 
-/* line 367, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 368, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .head th,
 .head td {
   border-color: #bfd5df;
 }
 
-/* line 372, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 373, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .head .fieldset-expanded {
   border-color: #bfd5df;
 }
 
-/* line 380, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 381, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .page-ioDocs {
   /**
 	 * Limit the max height of the response
 	 */
 }
 
-/* line 382, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 383, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .page-ioDocs .main {
   /**
 		 * Prevent select content from clipping
@@ -2944,23 +2950,23 @@ div.error {
 		 */
 }
 
-/* line 387, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 388, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .page-ioDocs .main select {
   width: auto;
 }
 
-/* line 395, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 396, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .page-ioDocs .main ul {
   margin: 0;
 }
 
-/* line 399, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 400, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .page-ioDocs .main li {
   list-style: none;
   margin-left: 0;
 }
 
-/* line 409, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
+/* line 410, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-iodocs.scss */
 .page-ioDocs pre.response {
   max-height: 32em;
   overflow-y: auto;
@@ -2969,21 +2975,22 @@ div.error {
 /**
  * @section Mashery Forum
  * Styling specific to forum pages.
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  */
-/* line 13, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 14, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 li.recent-topics a:before, li.recent-topics .link-block-styled:before {
   content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" viewBox="0 0 18 16"><path d="M17 14.081c0 0.711 0.407 1.327 1 1.628v0.249c-0.166 0.023-0.335 0.035-0.508 0.035-1.063 0-2.021-0.446-2.699-1.16-0.41 0.109-0.844 0.168-1.293 0.168-2.485 0-4.5-1.791-4.5-4s2.015-4 4.5-4c2.485 0 4.5 1.791 4.5 4 0 0.865-0.309 1.665-0.834 2.32-0.107 0.232-0.166 0.489-0.166 0.761zM8 0c4.351 0 7.89 2.822 7.997 6.336-0.768-0.343-1.619-0.524-2.497-0.524-1.493 0-2.903 0.523-3.971 1.472-1.107 0.984-1.717 2.304-1.717 3.716 0 0.698 0.149 1.373 0.433 1.997-0.082 0.002-0.164 0.003-0.246 0.003-0.424 0-0.841-0.027-1.247-0.079-1.718 1.718-3.77 2.027-5.753 2.072v-0.421c1.071-0.525 2-1.48 2-2.572 0-0.152-0.012-0.302-0.034-0.448-1.809-1.192-2.966-3.012-2.966-5.052 0-3.59 3.582-6.5 8-6.5z" fill="#808080"></path></svg>');
   margin-right: 0.25em;
 }
 
-/* line 34, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 35, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 ol.categories,
 ol.topics,
 .page-forum ol.comments {
   padding-top: 1em;
 }
 
-/* line 41, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 42, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 ol.categories .category,
 ol.topics .topic {
   border: 1px solid #e5e5e5;
@@ -2991,19 +2998,19 @@ ol.topics .topic {
   padding: 0.5em;
 }
 
-/* line 47, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 48, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 ol.categories .category:first-child,
 ol.topics .topic:first-child {
   border-top: 0.125em solid #0888cd;
 }
 
-/* line 51, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 52, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 ol.categories .category:nth-child(odd),
 ol.topics .topic:nth-child(odd) {
   background-color: #f7f7f7;
 }
 
-/* line 60, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 61, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 ol.categories .category {
   margin-bottom: 0;
   /**
@@ -3023,38 +3030,38 @@ ol.categories .category {
 		 */
 }
 
-/* line 84, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 85, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 ol.categories .category .description {
   clear: left;
 }
 
-/* line 108, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 109, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 ol.categories .category .comment-count:before {
   content: "/ ";
   margin-left: 0.25em;
 }
 
-/* line 117, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 118, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 ol.categories .category .last-comment {
   clear: left;
 }
 
-/* line 127, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 128, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 ol.categories .category .last-active {
   margin-left: 0.25em;
 }
 
-/* line 137, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 138, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 ol.categories .category .last-topic {
   margin-left: 0.25em;
 }
 
-/* line 143, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 144, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 ol.categories .category .last-topic span {
   text-transform: lowercase;
 }
 
-/* line 154, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 155, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 ol.topics .topic {
   /**
 		 * Author name
@@ -3067,86 +3074,86 @@ ol.topics .topic {
 		 */
 }
 
-/* line 176, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 177, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 ol.topics .topic .moniker {
   clear: left;
 }
 
-/* line 191, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 192, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 ol.topics .topic .last-comment {
   clear: left;
 }
 
-/* line 201, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 202, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 ol.topics .topic .last-active {
   margin-left: 0.25em;
 }
 
-/* line 213, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 214, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 .page-forum {
   /**
 	 * Only show recent topics on Forum landing page
 	 */
 }
 
-/* line 215, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 216, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 .page-forum h2 {
   padding-top: 0;
 }
 
-/* line 225, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 226, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 .dom-forum .page-forum .section-menu ul {
   display: block;
   visibility: visible;
 }
 
-/* line 243, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 244, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 .page-forum ol.comments .comment {
   border: 1px solid #e5e5e5;
   border-top: 0.125em solid #0888cd;
   border-bottom: 0;
 }
 
-/* line 249, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 250, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 .page-forum ol.comments .comment:last-child {
   border-bottom: 1px solid #e5e5e5;
 }
 
-/* line 258, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 259, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 .page-forum ol.comments .comment-header {
   background-color: #e5e5e5;
   padding: 0.5em;
 }
 
-/* line 276, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 277, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 .page-forum ol.comments .first .comment-body {
   border-bottom: 1px solid #e5e5e5;
   padding: 0.5em;
 }
 
-/* line 282, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 283, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 .page-forum ol.comments li.comment > .comment-body .comment-meta {
   background-color: #e5e5e5;
   margin: 0;
 }
 
-/* line 287, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 288, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 .page-forum ol.comments li.comment > .comment-body p {
   padding: 0.5em;
 }
 
-/* line 297, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 298, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 .page-forum ol.comments .edit-timestamp {
   margin: 0;
   padding: 0.5em;
 }
 
-/* line 305, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 306, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 .page-forum ol.comments .comment-tags {
   padding: 0.5em;
 }
 
-/* line 308, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 309, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 .page-forum ol.comments .comment-tags h4 {
   float: left;
   line-height: 1;
@@ -3155,7 +3162,7 @@ ol.topics .topic .last-active {
   padding: 0;
 }
 
-/* line 316, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
+/* line 317, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-forum.scss */
 .page-forum ol.comments .comment-tags ul {
   line-height: 1;
 }
@@ -3163,29 +3170,30 @@ ol.topics .topic .last-active {
 /**
  * @section Mashery Blog
  * Styling specific to Mashery blog content.
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  */
-/* line 13, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-blog.scss */
+/* line 14, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-blog.scss */
 .page-blog .browse .section {
   border-top: 1px solid #e5e5e5;
 }
 
-/* line 16, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-blog.scss */
+/* line 17, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-blog.scss */
 .page-blog .browse .section.first {
   border-top: 0;
 }
 
-/* line 37, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-blog.scss */
+/* line 38, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-blog.scss */
 .page-blog li.comment-count a:before, .page-blog li.comment-count .link-block-styled:before {
   content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" viewBox="0 0 18 16"><path d="M17 14.081c0 0.711 0.407 1.327 1 1.628v0.249c-0.166 0.023-0.335 0.035-0.508 0.035-1.063 0-2.021-0.446-2.699-1.16-0.41 0.109-0.844 0.168-1.293 0.168-2.485 0-4.5-1.791-4.5-4s2.015-4 4.5-4c2.485 0 4.5 1.791 4.5 4 0 0.865-0.309 1.665-0.834 2.32-0.107 0.232-0.166 0.489-0.166 0.761zM8 0c4.351 0 7.89 2.822 7.997 6.336-0.768-0.343-1.619-0.524-2.497-0.524-1.493 0-2.903 0.523-3.971 1.472-1.107 0.984-1.717 2.304-1.717 3.716 0 0.698 0.149 1.373 0.433 1.997-0.082 0.002-0.164 0.003-0.246 0.003-0.424 0-0.841-0.027-1.247-0.079-1.718 1.718-3.77 2.027-5.753 2.072v-0.421c1.071-0.525 2-1.48 2-2.572 0-0.152-0.012-0.302-0.034-0.448-1.809-1.192-2.966-3.012-2.966-5.052 0-3.59 3.582-6.5 8-6.5z" fill="#808080"></path></svg>');
   margin-right: 0.25em;
 }
 
-/* line 46, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-blog.scss */
+/* line 47, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-blog.scss */
 .page-blog ol.comments .comment {
   border-top: 1px solid #e5e5e5;
 }
 
-/* line 51, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-blog.scss */
+/* line 52, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-blog.scss */
 .page-blog ol.comments .comment-meta {
   font-weight: bold;
 }
@@ -3193,8 +3201,9 @@ ol.topics .topic .last-active {
 /**
  * @section Mashery Wiki
  * Styling specific to wiki pages.
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  */
-/* line 14, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-wiki.scss */
+/* line 15, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-wiki.scss */
 .page-wiki .section-tags h3 {
   float: left;
   font-size: 1em;
@@ -3204,18 +3213,18 @@ ol.topics .topic .last-active {
   padding: 0;
 }
 
-/* line 23, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-wiki.scss */
+/* line 24, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-wiki.scss */
 .page-wiki .section-tags ul {
   line-height: 1;
   margin: 0;
 }
 
-/* line 33, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-wiki.scss */
+/* line 34, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-wiki.scss */
 .page-wiki ol.comments .comment {
   border-top: 1px solid #e5e5e5;
 }
 
-/* line 38, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-wiki.scss */
+/* line 39, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-wiki.scss */
 .page-wiki ol.comments .comment-meta {
   font-weight: bold;
 }
@@ -3223,8 +3232,9 @@ ol.topics .topic .last-active {
 /**
  * @section Mashery Search
  * Styling specific to the search results page.
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  */
-/* line 8, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
+/* line 9, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
 .search-input {
   margin-bottom: 0;
   /**
@@ -3235,7 +3245,7 @@ ol.topics .topic .last-active {
 	 */
 }
 
-/* line 14, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
+/* line 15, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
 .search-input .search-box {
   border-radius: 1.3125em;
   margin-bottom: 0;
@@ -3244,12 +3254,12 @@ ol.topics .topic .last-active {
   width: 95%;
 }
 
-/* line 30, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
+/* line 31, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
 .search-input .search-button, .search-input .search-button:last-child {
   margin: 0;
 }
 
-/* line 36, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
+/* line 37, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
 .search-input .btn-search {
   display: inline;
   color: #808080;
@@ -3261,22 +3271,22 @@ ol.topics .topic .last-active {
   padding: 0.5em 0.6875em;
 }
 
-/* line 46, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
+/* line 47, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
 .search-input .btn-search .icon {
   fill: #808080;
 }
 
-/* line 50, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
+/* line 51, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
 .search-input .btn-search:hover {
   color: #5a5a5a;
 }
 
-/* line 53, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
+/* line 54, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
 .search-input .btn-search:hover .icon {
   fill: #5a5a5a;
 }
 
-/* line 63, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
+/* line 64, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
 .search-form {
   /**
 	 * Remove default table styles from search form table
@@ -3289,7 +3299,7 @@ ol.topics .topic .last-active {
 	 */
 }
 
-/* line 68, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
+/* line 69, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
 .search-form td {
   background: transparent;
   border: none;
@@ -3300,39 +3310,39 @@ ol.topics .topic .last-active {
 		 */
 }
 
-/* line 77, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
+/* line 78, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
 .search-form td:first-child {
   width: 65%;
 }
 
 @media (min-width: 30em) {
-  /* line 77, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
+  /* line 78, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
   .search-form td:first-child {
     width: 75%;
   }
 }
 
 @media (min-width: 40em) {
-  /* line 77, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
+  /* line 78, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
   .search-form td:first-child {
     width: 85%;
   }
 }
 
-/* line 93, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
+/* line 94, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
 .search-form input[type="text"] {
   border-radius: 1.3125em;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
 }
 
-/* line 102, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
+/* line 103, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
 .search-form input[type="submit"] {
   margin-left: 0.25em;
   /* Add back left margin removed by table styling */
 }
 
-/* line 117, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
+/* line 118, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-search.scss */
 .page-search .result .title {
   margin-bottom: 0;
 }
@@ -3340,30 +3350,32 @@ ol.topics .topic .last-active {
 /**
  * @section Mashery Account
  * Styling specific to the "My Account" page.
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  */
 /**
  * @section Mashery Manage Account
  * Styling specific to the "Manage My Account" page.
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  */
-/* line 19, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-member.scss */
+/* line 20, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-member.scss */
 .page-member .section-menu.actions .change-email:before {
   content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#808080" d="M1.259 4.229l6 3.223c.202.108.462.159.725.159.262 0 .523-.051.725-.159l6-3.223c.391-.21.761-1.029.043-1.029H1.217c-.718 0-.348.818.042 1.029zM14.89 5.991c-.444.231-5.91 3.079-6.182 3.222s-.462.159-.725.159-.453-.017-.725-.159-5.706-2.991-6.15-3.222c-.312-.163-.309.028-.309.175V12c0 .336.453.8.8.8h12.8c.347 0 .8-.464.8-.8V6.166c0-.148.003-.338-.31-.175z"/></svg>');
   margin-right: 0.25em;
 }
 
-/* line 24, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-member.scss */
+/* line 25, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-member.scss */
 .page-member .section-menu.actions .change-password:before {
   content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#808080" d="M14.153 3.78C13.751 1.398 11.577-.194 9.298.227S5.093 2.48 5.496 4.863c.086.513.326 1.315.61 1.892l-4.14 6.178c-.153.228-.239.639-.194.913l.266 1.577a.488.488 0 0 0 .56.411l1.213-.225c.262-.047.595-.278.739-.511l1.638-2.649.014-.018 1.109-.205 1.912-3.103c.628.111 1.53.074 2.062-.025 2.278-.421 3.27-2.936 2.867-5.319zm-2.02 1.222c-.627.936-1.267.277-2.162-.38-.895-.654-1.708-1.058-1.082-1.994s1.861-1.164 2.758-.508c.896.655 1.113 1.946.486 2.882z"/></svg>');
   margin-right: 0.25em;
 }
 
-/* line 29, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-member.scss */
+/* line 30, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-member.scss */
 .page-member .section-menu.actions .public-profile:before {
   content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#808080" d="M6.18 1.717c-.813.605-1.031 1.562-.991 2.072.051.623.178 1.434.178 1.434s-.25.136-.25.683c.087 1.374.546.781.641 1.383.227 1.451.746 1.193.746 1.985 0 1.319-.544 1.936-2.242 2.667-1.704.734-3.461 1.658-3.461 3.258v.8h14.4v-.8c0-1.6-1.758-2.524-3.462-3.258-1.698-.731-2.241-1.347-2.241-2.667 0-.792.518-.534.746-1.985.095-.602.554-.01.642-1.383 0-.547-.251-.683-.251-.683s.126-.811.177-1.434a2.471 2.471 0 0 0-1.84-2.477c-.266-.272-.446-.705.373-1.139-1.792-.084-2.209.854-3.163 1.543z"/></svg>');
   margin-right: 0.25em;
 }
 
-/* line 34, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-member.scss */
+/* line 35, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-member.scss */
 .page-member .section-menu.actions .delete-self:before {
   content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#808080" d="M8 1.28a6.72 6.72 0 1 0 0 13.44A6.72 6.72 0 0 0 8 1.28zm3.831 9.169l-1.383 1.383L8 9.383l-2.449 2.448-1.383-1.383L6.618 8 4.169 5.551l1.383-1.382L8 6.617l2.449-2.449 1.383 1.383L9.382 8l2.449 2.449z"/></svg>');
   margin-right: 0.25em;
@@ -3372,16 +3384,17 @@ ol.topics .topic .last-active {
 /**
  * @section Mashery Key
  * Styling specific to the "Key Activity" page.
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  */
 /**
  * The graphs and charts
  */
-/* line 11, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
+/* line 12, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
 div.reports div.report {
   margin-bottom: 1.5625em;
 }
 
-/* line 15, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
+/* line 16, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
 div.reports div.chart {
   margin-bottom: 0.6875em;
 }
@@ -3389,7 +3402,7 @@ div.reports div.chart {
 /**
  * Usage progress bar
  */
-/* line 24, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
+/* line 25, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
 #quota {
   margin-bottom: 0.5em;
   height: 1.5625em;
@@ -3398,25 +3411,25 @@ div.reports div.chart {
 }
 
 @media (min-width: 40em) {
-  /* line 24, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
+  /* line 25, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
   #quota {
     float: left;
     width: 50%;
   }
 }
 
-/* line 35, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
+/* line 36, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
 #quota div {
   background-color: #0888cd;
   height: 1.5625em;
 }
 
-/* line 39, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
+/* line 40, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
 #quota div.warning {
   background-color: #dba909;
 }
 
-/* line 43, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
+/* line 44, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
 #quota div.full {
   background-color: #880e14;
 }
@@ -3425,7 +3438,7 @@ div.reports div.chart {
  * Usage text
  */
 @media (min-width: 40em) {
-  /* line 52, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
+  /* line 53, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
   .quotaUsage {
     margin-left: 1.3125em;
   }
@@ -3434,7 +3447,7 @@ div.reports div.chart {
 /**
  * Timezone info
  */
-/* line 62, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
+/* line 63, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
 span.timezone-note {
   display: block;
   font-style: italic;
@@ -3444,7 +3457,7 @@ span.timezone-note {
 /**
  * Quota Info
  */
-/* line 75, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
+/* line 76, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
 #quotaInfo {
   display: block;
   margin-bottom: 0.5em;
@@ -3452,7 +3465,7 @@ span.timezone-note {
   width: 100%;
 }
 
-/* line 83, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
+/* line 84, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
 #remainingCallsMessage,
 #limitReachedMessage,
 #nextPeriodMessage {
@@ -3460,12 +3473,12 @@ span.timezone-note {
   float: left;
 }
 
-/* line 90, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
+/* line 91, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
 #nextPeriodMessage {
   padding-left: 0.5em;
 }
 
-/* line 94, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
+/* line 95, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
 #limitReachedMessage {
   color: #880e14;
 }
@@ -3473,12 +3486,12 @@ span.timezone-note {
 /**
  * Details Tables
  */
-/* line 106, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
+/* line 107, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
 #detailTables_container.loading {
   background: none;
 }
 
-/* line 109, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
+/* line 110, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
 #detailTables_container.loading #detailTables {
   -webkit-animation: load6 1.7s infinite ease;
           animation: load6 1.7s infinite ease;
@@ -3551,7 +3564,7 @@ span.timezone-note {
 /**
  * Multicontainer tables
  */
-/* line 159, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
+/* line 160, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
 #detailTables_multicontainer .google-visualization-table-tr-head .gradient,
 #detailTables_multicontainer .google-visualization-table-tr-head-nonstrict .gradient,
 #detailTables_multicontainer .google-visualization-table-div-page .gradient {
@@ -3560,7 +3573,7 @@ span.timezone-note {
   vertical-align: baseline;
 }
 
-/* line 167, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
+/* line 168, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
 #detailTables_multicontainer .google-visualization-table-table div.barchart {
   color: #808080;
   font-size: 0.6875em;
@@ -3568,7 +3581,7 @@ span.timezone-note {
   text-align: left;
 }
 
-/* line 174, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
+/* line 175, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
 #detailTables_multicontainer .google-visualization-table-table div.barchart div.bar {
   border: 1px solid #e5e5e5;
   display: inline-block;
@@ -3578,20 +3591,20 @@ span.timezone-note {
   width: 65%;
 }
 
-/* line 183, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
+/* line 184, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
 #detailTables_multicontainer .google-visualization-table-table div.barchart div.bar div.value {
   background-color: #0888cd;
   height: 0.6875em;
   padding: 0;
 }
 
-/* line 188, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
+/* line 189, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
 #detailTables_multicontainer .google-visualization-table-tr-head td {
   text-align: left;
   border-bottom: 1px solid #808080;
 }
 
-/* line 194, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
+/* line 195, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-key.scss */
 #detailTables_multicontainer .google-visualization-table-td {
   text-align: left;
 }
@@ -3599,13 +3612,15 @@ span.timezone-note {
 /**
  * @section Mashery Contact
  * Styling specific to the contact page.
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  */
 /**
  * @section Mashery Login
  * Styling specific to the login page.
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  */
 @media (min-width: 40em) {
-  /* line 22, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-login.scss */
+  /* line 23, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-login.scss */
   .page-login div.signin {
     border-right: 0.125em solid #e5e5e5;
   }
@@ -3614,24 +3629,25 @@ span.timezone-note {
 /**
  * @section Mashery Register
  * Styling specific to the registration page.
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  */
 /**
  * Descriptive text on signup labels
  */
-/* line 10, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-register.scss */
+/* line 11, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-register.scss */
 .descr {
   font-weight: normal;
   font-style: italic;
 }
 
-/* line 24, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-register.scss */
+/* line 25, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-register.scss */
 .page-member.register {
   /**
 	 * Labels with descriptive text
 	 */
 }
 
-/* line 29, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-register.scss */
+/* line 30, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-register.scss */
 .page-member.register label.require {
   line-height: 1;
 }
@@ -3639,4 +3655,5 @@ span.timezone-note {
 /**
  * @section Mashery Logout
  * Styling specific to the logged-out page.
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  */

@@ -1,5 +1,6 @@
 /**
  * addPrismHooks.js
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description  Adds class="lang-*" to TinyMCE-generated code snippets
  * @version  1.0.0
  * @author  Chris Ferdinandi

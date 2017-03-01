@@ -1,5 +1,6 @@
 /**
  * clickToHighlight.js
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description  Highlight text when clicked.
  * @version  1.0.0
  * @author  Chris Ferdinandi

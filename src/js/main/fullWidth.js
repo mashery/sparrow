@@ -1,5 +1,6 @@
 /**
  * fullWidth.js
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description Make page full-width (no padding or centering)
  * @version 0.0.1
  * @author  Chris Ferdinandi

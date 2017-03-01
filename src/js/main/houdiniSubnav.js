@@ -1,5 +1,6 @@
 /**
  * Houdini Subnav
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description  A Houdini expand-and-collapse functionality to documentation pages.
  * @version      1.0.1
  * @author       Chris Ferdinandi

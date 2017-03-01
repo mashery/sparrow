@@ -1,5 +1,6 @@
 /**
  * createDropdown.js
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description  Dynamically create dropdown menus
  * @version  1.0.0
  * @author  Chris Ferdinandi
