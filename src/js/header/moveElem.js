@@ -1,5 +1,6 @@
 /**
  * Move a node or its content in the DOM.
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @author Chris Ferdinandi
  * @param  {Node}     elem      Element to move.
  * @param  {Node}     target    The node to place the node before or after.

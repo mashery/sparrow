@@ -1,8 +1,8 @@
 /*!
  * YOUR-CLIENT-NAME-WITHOUT-SPACES v1.0.0: Portal theme for YOUR-CLIENT-NAME
- * (c) 2017 YOUR-NAME
+ * Copyright (c) 2017 TIBCO Software Inc. All Rights Reserved.
  * Built on the Sparrow Boilerplate v9.2.0
- * MIT License
+ * BSD-type License
  * https://github.com/mashery/sparrow
  */
 
@@ -175,6 +175,7 @@ if ("document" in self && !("classList" in document.createElement("_"))) {
 }
 /**
  * clickToHighlight.js
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description  Highlight text when clicked.
  * @version  1.0.0
  * @author  Chris Ferdinandi
@@ -345,6 +346,7 @@ var loadCSS = function ( href, before, media ){
 };
 /**
  * Load HTML into the DOM
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @author Chris Ferdinandi
  * @param  {String|Node} html     The markup. If a string, must be enclosed in a single node (ex. <div>, <span>, etc.).
  * @param  {Node}        target   The node to place your HTML before or after.
@@ -382,6 +384,7 @@ var loadHTML = function ( html, target, after, cb ) {
 };
 /**
  * Load styles or scripts inline in the DOM.
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @author Chris Ferdinandi
  * @param  {String}   elem The CSS or JS to load (with <style> or <script> tags).
  * @param  {Function} cb   Callback to run on completion.
@@ -421,6 +424,7 @@ var loadJS = function ( src, cb ){
 };
 /**
  * Move a node or its content in the DOM.
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @author Chris Ferdinandi
  * @param  {Node}     elem      Element to move.
  * @param  {Node}     target    The node to place the node before or after.
@@ -495,6 +499,7 @@ var onloadCSS = function ( ss, callback ) {
 /**
  * portalReady.js
  * Initialize scripts and run other methods after Portal is loaded and ready.
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  */
 
 var portalReady = function ( fn ) {
@@ -513,6 +518,7 @@ var portalReady = function ( fn ) {
 };
 /**
  * Remove stylesheets from the DOM.
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @param  {String} filename The name of the stylesheet to remove
  * @return {Object}          The stylesheet that was removed
  */
@@ -537,8 +543,8 @@ var removeCSS = function ( filename ) {
  * @description Adds .svg class to <html> element if SVGs are supported.
  * @version 1.1.0
  * @author Chris Ferdinandi
+ * @license MIT
  */
-
 ;(function (window, document, undefined) {
 
 	'use strict';
@@ -558,6 +564,7 @@ var removeCSS = function ( filename ) {
 })(window, document);
 /**
  * Wrap an element's contents in markup.
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @author Chris Ferdinandi
  * @param  {Node}     elem       Element to wrap in markup. Uses querySelector().
  * @param  {String}   wrap       Markup to wrap content in. Use {{content}} as content placeholder.

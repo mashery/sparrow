@@ -1,5 +1,6 @@
 /**
  * breadcrumbs.js
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description Add breadcrumbs to the Portal
  * @version     1.0.1
  * @author      Chris Ferdinandi

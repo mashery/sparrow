@@ -1,5 +1,6 @@
 /**
  * removeMasheryApiSelection.js
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description Overrides and removes MasheryApiSelection.js, which is causing some unintended behaviors
  * @version  1.0.0
  * @author Chris Ferdinandi

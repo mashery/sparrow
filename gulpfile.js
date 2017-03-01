@@ -88,17 +88,17 @@ var banner = {
 	full :
 		'/*!\n' +
 		' * <%= package.name %> v<%= package.version %>: <%= package.description %>\n' +
-		' * (c) ' + new Date().getFullYear() + ' <%= package.author.name %>\n' +
+		' * Copyright (c) ' + new Date().getFullYear() + ' TIBCO Software Inc. All Rights Reserved.\n' +
 		' * Built on the Sparrow Boilerplate v<%= package.sparrow.version %>\n' +
-		' * MIT License\n' +
+		' * BSD-type License\n' +
 		' * <%= package.repository.url %>\n' +
 		' */\n\n',
 	min :
 		'/*!' +
 		' <%= package.name %> v<%= package.version %>' +
-		' | (c) ' + new Date().getFullYear() + ' <%= package.author.name %>' +
+		' | Copyright (c) ' + new Date().getFullYear() + ' TIBCO Software Inc. All Rights Reserved.\n' +
 		' | Sparrow v<%= package.sparrow.version %>' +
-		' | MIT License' +
+		' | BSD-type License' +
 		' | <%= package.repository.url %>' +
 		' */\n'
 };

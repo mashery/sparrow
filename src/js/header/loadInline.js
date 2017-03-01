@@ -1,5 +1,6 @@
 /**
  * Load styles or scripts inline in the DOM.
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @author Chris Ferdinandi
  * @param  {String}   elem The CSS or JS to load (with <style> or <script> tags).
  * @param  {Function} cb   Callback to run on completion.

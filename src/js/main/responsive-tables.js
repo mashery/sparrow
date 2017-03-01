@@ -1,5 +1,6 @@
 /**
  * Responsive tables
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description Automatically make tables on documentation page responsive
  * @version     1.0.0
  * @author      Chris Ferdinandi

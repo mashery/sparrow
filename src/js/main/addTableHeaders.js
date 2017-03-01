@@ -1,5 +1,6 @@
 /**
  * addTableHeaders.js
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description Add table headers that are missing from the GUI generated tables
  * @version  1.0.0
  * @author Chris Ferdinandi

@@ -1,5 +1,6 @@
 /**
  * Load HTML into the DOM
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @author Chris Ferdinandi
  * @param  {String|Node} html     The markup. If a string, must be enclosed in a single node (ex. <div>, <span>, etc.).
  * @param  {Node}        target   The node to place your HTML before or after.

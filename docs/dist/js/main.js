@@ -1,8 +1,8 @@
 /*!
  * YOUR-CLIENT-NAME-WITHOUT-SPACES v1.0.0: Portal theme for YOUR-CLIENT-NAME
- * (c) 2017 YOUR-NAME
+ * Copyright (c) 2017 TIBCO Software Inc. All Rights Reserved.
  * Built on the Sparrow Boilerplate v9.2.0
- * MIT License
+ * BSD-type License
  * https://github.com/mashery/sparrow
  */
 
@@ -317,6 +317,7 @@
 }));
 /**
  * addNavItem.js
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description  Add a navigation item to the menu if all 6 spots are used up
  * @version  1.0.0
  * @author  Chris Ferdinandi
@@ -360,6 +361,7 @@ var addNavItem = function ( target, text, url, before, nav ) {
 };
 /**
  * addPrismHooks.js
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description  Adds class="lang-*" to TinyMCE-generated code snippets
  * @version  1.0.0
  * @author  Chris Ferdinandi
@@ -398,6 +400,7 @@ portalReady((function () {
 }));
 /**
  * addTableHeaders.js
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description Add table headers that are missing from the GUI generated tables
  * @version  1.0.0
  * @author Chris Ferdinandi
@@ -641,6 +644,7 @@ var addTableHeaders = function () {
 }));
 /**
  * breadcrumbs.js
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description Add breadcrumbs to the Portal
  * @version     1.0.1
  * @author      Chris Ferdinandi
@@ -955,6 +959,7 @@ var addTableHeaders = function () {
 }));
 /**
  * clickToHighlight.js
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description  Highlight text when clicked.
  * @version  1.0.0
  * @author  Chris Ferdinandi
@@ -1144,6 +1149,7 @@ var addTableHeaders = function () {
 }));
 /**
  * createDropdown.js
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description  Dynamically create dropdown menus
  * @version  1.0.0
  * @author  Chris Ferdinandi
@@ -1201,6 +1207,7 @@ var createDropdown = function ( target, dropdown, nav ) {
 };
 /**
  * loadCustomLogo.js
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * Add custom logo to the Portal.
  */
 var loadCustomLogo = function ( logo ) {
@@ -1517,6 +1524,7 @@ var loadCustomLogo = function ( logo ) {
 }));
 /**
  * dynamicLinks.js
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description Change the href on a link if the user is signed in
  * @version     1.0.0
  * @author      Chris Ferdinandi
@@ -1616,6 +1624,7 @@ var dynamicLinks = function ( link, url ) {
 
 /**
  * fullWidth.js
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description Make page full-width (no padding or centering)
  * @version 0.0.1
  * @author  Chris Ferdinandi
@@ -2163,6 +2172,7 @@ var fullWidth = function ( hideH1 ) {
 }));
 /**
  * Houdini Subnav
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description  A Houdini expand-and-collapse functionality to documentation pages.
  * @version      1.0.1
  * @author       Chris Ferdinandi
@@ -3591,6 +3601,7 @@ Prism.languages.scss['atrule'].inside.rest = Prism.util.clone(Prism.languages.sc
 
 /**
  * removeMasheryApiSelection.js
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description Overrides and removes MasheryApiSelection.js, which is causing some unintended behaviors
  * @version  1.0.0
  * @author Chris Ferdinandi
@@ -3654,6 +3665,7 @@ Prism.languages.scss['atrule'].inside.rest = Prism.util.clone(Prism.languages.sc
 })(window, document);
 /**
  * Responsive tables
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description Automatically make tables on documentation page responsive
  * @version     1.0.0
  * @author      Chris Ferdinandi
@@ -5436,6 +5448,7 @@ Prism.languages.scss['atrule'].inside.rest = Prism.util.clone(Prism.languages.sc
 }));
 /**
  * toggleIODocs.js
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description Dynamically togle IO-Docs selection using a URK query selector
  * @version     2.0.0
  * @author      Chris Ferdinandi

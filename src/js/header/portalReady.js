@@ -1,6 +1,7 @@
 /**
  * portalReady.js
  * Initialize scripts and run other methods after Portal is loaded and ready.
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  */
 
 var portalReady = function ( fn ) {

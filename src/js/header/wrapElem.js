@@ -1,5 +1,6 @@
 /**
  * Wrap an element's contents in markup.
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @author Chris Ferdinandi
  * @param  {Node}     elem       Element to wrap in markup. Uses querySelector().
  * @param  {String}   wrap       Markup to wrap content in. Use {{content}} as content placeholder.

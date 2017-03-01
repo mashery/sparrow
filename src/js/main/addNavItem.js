@@ -1,5 +1,6 @@
 /**
  * addNavItem.js
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description  Add a navigation item to the menu if all 6 spots are used up
  * @version  1.0.0
  * @author  Chris Ferdinandi

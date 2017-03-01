@@ -1,5 +1,6 @@
 /**
  * dynamicLinks.js
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description Change the href on a link if the user is signed in
  * @version     1.0.0
  * @author      Chris Ferdinandi

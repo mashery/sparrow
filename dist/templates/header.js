@@ -1,3 +1,4 @@
+// Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
 </script><!-- Close off the open script tag -->
 
 <!-- Force latest available IE rendering engine and Chrome Frame (if installed) -->

@@ -3,8 +3,8 @@
  * @description Adds .svg class to <html> element if SVGs are supported.
  * @version 1.1.0
  * @author Chris Ferdinandi
+ * @license MIT
  */
-
 ;(function (window, document, undefined) {
 
 	'use strict';

@@ -1,3 +1,5 @@
+// Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
+
 // Run script initializations when the Portal is ready
 portalReady(function () {
     astro.init();

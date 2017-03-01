@@ -1,5 +1,6 @@
 /**
  * toggleIODocs.js
+ * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description Dynamically togle IO-Docs selection using a URK query selector
  * @version     2.0.0
  * @author      Chris Ferdinandi
