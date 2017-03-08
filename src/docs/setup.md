@@ -27,8 +27,8 @@ There are three ways to use Sparrow on your project:
 	- Under `Custom JavaScript File Inclusion` > `Head JavaScript File URL`, add `/files/header.js`.
 	- Under `Custom JavaScript File Inclusion` > `Body JavaScript File URL`, add `/files/main.js`.
 	- Under `Custom CSS Files` > `Screen Stylesheet URL`, add `/files/main.css`.
-4. In `Portal Settings` under `Inline Javascript` > `Head Javascript`, copy-and-paste the contents of `dist/docs/header.js`.
-5. In `Portal Settings` under `Inline JavaScript` > `Body JavaScript`, copy-and-paste the contents of `dist/docs/body.js`.
+4. In `Portal Settings` under `Inline Javascript` > `Head Javascript`, copy-and-paste the contents of `dist/templates/header.js`.
+5. In `Portal Settings` under `Inline JavaScript` > `Body JavaScript`, copy-and-paste the contents of `dist/templates/body.js`.
 6. In `Portal Settings` under `Footer Copyright`, copy-and-paste the contents of `dist/templates/footer.html`.
 7. Click "Save."
 8. Head over to `Manage` > `Content` in Control Center and uncheck the box next to `Enable TinyMCE`. Copy-and-paste the contents of `dist/templates/landing-page.html` into the `Custom Pages` default page. For Trial customers, use `dist/templates/landing-page-trial.html` instead.
