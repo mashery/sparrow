@@ -1,7 +1,7 @@
 /*!
  * YOUR-CLIENT-NAME-WITHOUT-SPACES v1.0.0: Portal theme for YOUR-CLIENT-NAME
  * Copyright (c) 2017 TIBCO Software Inc. All Rights Reserved.
- * Built on the Sparrow Boilerplate v9.2.0
+ * Built on the Sparrow Boilerplate v9.3.0
  * BSD-type License
  * https://github.com/mashery/sparrow
  */
@@ -541,7 +541,7 @@ var removeCSS = function ( filename ) {
 /**
  * detectSVG.js
  * @description Adds .svg class to <html> element if SVGs are supported.
- * @version 1.1.0
+ * @version 1.2.0
  * @author Chris Ferdinandi
  * @license MIT
  */
@@ -552,14 +552,9 @@ var removeCSS = function ( filename ) {
 	// SVG feature detection
 	var supports = !!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect;
 
-	// Check against Opera Mini (throws a false positive)
-	var whitelist = navigator.userAgent.indexOf('Opera Mini') === -1;
-
 	// If SVG is supported, add `.svg` class to <html> element
-	if ( supports && whitelist ) {
-		document.documentElement.className += (document.documentElement.className ? ' ' : '') + 'svg';
-	}
-
+	if ( !supports ) return;
+	document.documentElement.className += (document.documentElement.className ? ' ' : '') + 'svg';
 
 })(window, document);
 /**
@@ -689,7 +684,7 @@ var wrapElem = function ( elem, wrap, innerHTML, cb) {
 
 		// Variables
 		var links = document.querySelectorAll( '.sub ul a' );
-		var url = window.location.href;
+		var url = location.protocol + '//' + location.host + location.pathname;
 		var isDocsLanding = document.documentElement.classList.contains( 'dom-docs' );
 
 		/**
@@ -715,7 +710,7 @@ var wrapElem = function ( elem, wrap, innerHTML, cb) {
 				return;
 			}
 
-			if ( href === url ) {
+			if ( href === url.replace(/#([^\\s]*)/g, '') ) {
 				activate( links[i] );
 				return;
 			}

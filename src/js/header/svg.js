@@ -1,7 +1,7 @@
 /**
  * detectSVG.js
  * @description Adds .svg class to <html> element if SVGs are supported.
- * @version 1.1.0
+ * @version 1.2.0
  * @author Chris Ferdinandi
  * @license MIT
  */
@@ -12,13 +12,8 @@
 	// SVG feature detection
 	var supports = !!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect;
 
-	// Check against Opera Mini (throws a false positive)
-	var whitelist = navigator.userAgent.indexOf('Opera Mini') === -1;
-
 	// If SVG is supported, add `.svg` class to <html> element
-	if ( supports && whitelist ) {
-		document.documentElement.className += (document.documentElement.className ? ' ' : '') + 'svg';
-	}
-
+	if ( !supports ) return;
+	document.documentElement.className += (document.documentElement.className ? ' ' : '') + 'svg';
 
 })(window, document);
