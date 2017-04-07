@@ -1,7 +1,7 @@
 /*!
  * YOUR-CLIENT-NAME-WITHOUT-SPACES v1.0.0: Portal theme for YOUR-CLIENT-NAME
  * Copyright (c) 2017 TIBCO Software Inc. All Rights Reserved.
- * Built on the Sparrow Boilerplate v9.2.0
+ * Built on the Sparrow Boilerplate v9.3.0
  * BSD-type License
  * https://github.com/mashery/sparrow
  */
@@ -2172,9 +2172,8 @@ var fullWidth = function ( hideH1 ) {
 }));
 /**
  * Houdini Subnav
- * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description  A Houdini expand-and-collapse functionality to documentation pages.
- * @version      1.0.1
+ * @version      1.0.2
  * @author       Chris Ferdinandi
  */
 
@@ -2297,7 +2296,10 @@ var fullWidth = function ( hideH1 ) {
 		toggle.innerHTML = '<span class="collapse-text-show">' + settings.iconShow + '</span><span class="collapse-text-hide">' + settings.iconHide + '</span>';
 		toggle.classList.add( 'collapse-toggle' );
 		toggle.setAttribute( 'data-collapse', true );
-		if ( isActive ) { toggle.classList.add( 'active' ); }
+		if ( isActive ) {
+			toggle.classList.add( 'active' );
+			navlink.parentNode.classList.add( 'active-parent' );
+		}
 		if ( settings.isAccordion ) { toggle.setAttribute( 'data-group', 'docs-subnav' ); }
 
 		// Add margin

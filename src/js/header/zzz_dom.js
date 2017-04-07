@@ -85,7 +85,7 @@
 
 		// Variables
 		var links = document.querySelectorAll( '.sub ul a' );
-		var url = window.location.href;
+		var url = location.protocol + '//' + location.host + location.pathname;
 		var isDocsLanding = document.documentElement.classList.contains( 'dom-docs' );
 
 		/**
@@ -111,7 +111,7 @@
 				return;
 			}
 
-			if ( href === url ) {
+			if ( href === url.replace(/#([^\\s]*)/g, '') ) {
 				activate( links[i] );
 				return;
 			}
