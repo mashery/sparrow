@@ -2306,7 +2306,7 @@ loadCSS('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700');
 
 // If the font is cached, automatically apply it
 // Otherwise, wait for it to load
-if ( docCookies.getItem( 'fontsLoaded' ) ) {
+if ( getCookie('fontsLoaded') ) {
 	document.documentElement.className += ' fonts-loaded';
 } else {
 	var font = new FontFaceObserver('Source Sans Pro');
