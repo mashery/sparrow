@@ -2,10 +2,12 @@
  * fullWidth.js
  * Copyright (c) 2017. TIBCO Software Inc. All Rights Reserved.
  * @description Make page full-width (no padding or centering)
- * @version 0.0.1
+ * @version 1.0.0
  * @author  Chris Ferdinandi
+ * @param {Boolean} hideH1  If true, hide the H1 header
+ * @param {Boolean} wide    If true, go wide instead of full width
  */
-var fullWidth = function ( hideH1 ) {
+var fullWidth = function ( hideH1, wide ) {
 
 	'use strict';
 
@@ -18,7 +20,11 @@ var fullWidth = function ( hideH1 ) {
 	var h1 = document.querySelector( 'h1.first' );
 
 	// Go full width
-	document.documentElement.classList.add( 'dom-full-width' );
+	if (wide) {
+		document.documentElement.classList.add( 'dom-wide' );
+	} else {
+		document.documentElement.classList.add( 'dom-full-width' );
+	}
 
 	// Wrap elements in container class
 	if ( meta ) {

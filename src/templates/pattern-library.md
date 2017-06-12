@@ -277,7 +277,9 @@ Create grids that vary in size based on screen width using the `.grid-dynamic` c
 
 ### Full Width Pages
 
-By default, the main body content on a page is wrapped in a `.container` class element, which provides left and right padding and centers it in the viewport. To unlock full manual control over the layout, with content bleeding to both edges, call the `fullWidth()` JavaScript method at the top of the page.
+By default, the main body content on a page is wrapped in a `.container` class element, which provides left and right padding and centers it in the viewport. It also is given a `.grid-two-thirds` class to keep line-length on content more readable.
+
+To unlock full manual control over the layout, with content bleeding to both edges, call the `fullWidth()` JavaScript method at the top of the page.
 
 ```markup
 <script>
@@ -293,6 +295,18 @@ To hide the `h1.first` element, the first header on the page, also pass in a `tr
 <script>
 portalReady(function () {
 	fullWidth( true );
+});
+</script>
+```
+
+If you want your page to be wide but still have some margins with the `.container`, you can pass in a second argument of `true`.
+
+
+```markup
+<script>
+portalReady(function () {
+	// Keep the H1 element, but make the content wide
+	fullWidth( false, true );
 });
 </script>
 ```
@@ -1039,6 +1053,25 @@ The Mashery Portal WYSIWYG generates tables that are missing the required `<thea
 portalReady(function () {
 	addTableHeaders();
 });
+```
+
+<hr>
+
+
+## Only show content to logged-in users
+
+The Mashery Portal provides high levels of custom access for pages and documentation based on whether or not a user is logged in, is a member of a particular role or group, and so on. However, these access levels apply to the entire page.
+
+You can selectively hide or show pieces content within a page or documentation only for logged-in users using the `.hide-logged-in` and `.hide-logged-out` classes.
+
+```markup
+<div class="hide-logged-in">
+	Logged out users will see this. Logged in users will NOT.
+</div>
+
+<div class="hide-logged-out">
+	Logged out users will NOT see this. Logged in users will.
+</div>
 ```
 
 <hr>

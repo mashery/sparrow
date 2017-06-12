@@ -274,6 +274,14 @@
 }
 
 /**
+ * Show different content for signed-in or signed-out users
+ */
+.is-logged-in .hide-logged-in,
+.is-logged-out .hide-logged-out {
+	@extend [hidden];
+}
+
+/**
  * @workaround
  * @affected IE 8/9/10
  * @link http://juicystudio.com/article/screen-readers-display-none.php
