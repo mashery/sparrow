@@ -1,7 +1,7 @@
 /*!
  * YOUR-CLIENT-NAME-WITHOUT-SPACES v1.0.0: Portal theme for YOUR-CLIENT-NAME
  * Copyright (c) 2017 TIBCO Software Inc. All Rights Reserved.
- * Built on the Sparrow Boilerplate v9.3.0
+ * Built on the Sparrow Boilerplate v9.3.1
  * BSD-type License
  * https://github.com/mashery/sparrow
  */
@@ -1327,17 +1327,23 @@ thead td {
 }
 
 /* line 34, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
+.page-search th, .page-search
+thead td {
+  font-weight: normal;
+}
+
+/* line 38, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
 .search-form th, .search-form
 thead td {
   vertical-align: top;
 }
 
-/* line 39, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
+/* line 43, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
 tbody tr {
   border-top: 1px solid #e5e5e5;
 }
 
-/* line 43, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
+/* line 47, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
 td {
   vertical-align: top;
 }
@@ -1345,7 +1351,7 @@ td {
 /**
  * Adds zebra striping
  */
-/* line 50, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
+/* line 54, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
 .table-striped tbody tr:nth-child(odd) {
   background-color: #f7f7f7;
 }
@@ -1353,7 +1359,7 @@ td {
 /**
  * Reduces padding on condensed tables
  */
-/* line 58, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
+/* line 62, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
 .table-condensed th,
 .table-condensed td {
   padding: 0.25em;
@@ -1365,24 +1371,24 @@ td {
  * @link https://techblog.livingsocial.com/blog/2015/04/06/responsive-tables-in-pure-css/
  */
 @media (max-width: 40em) {
-  /* line 72, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
+  /* line 76, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
   .table-responsive thead {
     display: none;
     visibility: hidden;
   }
-  /* line 77, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
+  /* line 81, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
   .table-responsive tr {
     border-top: 1px solid #ededed;
     display: block;
     padding: 0.5em;
   }
-  /* line 83, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
+  /* line 87, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
   .table-responsive td {
     border: 0;
     display: block;
     padding: 0.25em;
   }
-  /* line 88, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
+  /* line 92, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_tables.scss */
   .table-responsive td:before {
     content: attr(data-label);
     display: block;
