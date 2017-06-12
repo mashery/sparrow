@@ -33,6 +33,7 @@
 	@extend .grid-two-thirds;
 
 	.dom-full-width & {
+		@extend .grid-full;
 		@extend %dom-full-width;
 	}
 }
@@ -41,6 +42,7 @@
 	@extend .grid-third;
 
 	.dom-full-width & {
+		@extend .grid-full;
 		@extend %dom-full-width;
 	}
 }
@@ -71,6 +73,7 @@
 	}
 
 	.dom-full-width & {
+		@extend .grid-full;
 		@extend %dom-full-width;
 	}
 
@@ -142,14 +145,14 @@ h1 .edit {
  }
 
  // Extend all input[type="submit"] elements to look like buttons
- [type="submit"] {
+ input[type="submit"] {
  	@extend .btn;
  	@extend .input-inline;
  	@extend .float-left;
  }
 
- [type="submit"],
- [type="submit"]:last-child {
+ input[type="submit"],
+ input[type="submit"]:last-child {
  	margin-right: calc-em(5px);
  }
 
