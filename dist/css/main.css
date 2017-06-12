@@ -229,7 +229,7 @@ figure {
 .grid-fourth, .grid-third, .sub, .grid-half, .page-login div.signin, .page-login div.options, .grid-two-thirds, .main, .page-page .no_sub .main,
 .page-forum .no_sub .main,
 .page-blog .no_sub .main,
-.page-contact .no_sub .main, .grid-three-fourths, .grid-full, .no_sub .main, .dom-wide .no_sub .main, .grid-dynamic {
+.page-contact .no_sub .main, .grid-three-fourths, .grid-full, .dom-full-width .main, .dom-full-width .sub, .no_sub .main, .dom-full-width .no_sub .main, .dom-wide .no_sub .main, .grid-dynamic {
   float: left;
   padding-left: 1.4%;
   padding-right: 1.4%;
@@ -275,7 +275,7 @@ figure {
     width: 75%;
   }
   /* line 49, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_grid.scss */
-  .row-start-xsmall .grid-full, .row-start-xsmall .no_sub .main, .no_sub .row-start-xsmall .main {
+  .row-start-xsmall .grid-full, .row-start-xsmall .dom-full-width .main, .dom-full-width .row-start-xsmall .main, .row-start-xsmall .dom-full-width .sub, .dom-full-width .row-start-xsmall .sub, .row-start-xsmall .no_sub .main, .no_sub .row-start-xsmall .main {
     width: 100%;
   }
 }
@@ -308,7 +308,7 @@ figure {
     width: 75%;
   }
   /* line 49, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_grid.scss */
-  .row-start-small .grid-full, .row-start-small .no_sub .main, .no_sub .row-start-small .main {
+  .row-start-small .grid-full, .row-start-small .dom-full-width .main, .dom-full-width .row-start-small .main, .row-start-small .dom-full-width .sub, .dom-full-width .row-start-small .sub, .row-start-small .no_sub .main, .no_sub .row-start-small .main {
     width: 100%;
   }
 }
@@ -338,7 +338,7 @@ figure {
     width: 75%;
   }
   /* line 49, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_grid.scss */
-  .grid-full, .no_sub .main, .dom-wide .no_sub .main {
+  .grid-full, .dom-full-width .main, .dom-full-width .sub, .no_sub .main, .dom-full-width .no_sub .main, .dom-wide .no_sub .main {
     width: 100%;
   }
   /* line 55, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_grid.scss */
@@ -971,7 +971,7 @@ select:focus {
  * Inline inputs
  */
 /* line 138, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_forms.scss */
-.input-inline, [type="submit"], .search-input .search-box {
+.input-inline, input[type="submit"], .search-input .search-box {
   display: inline-block;
   vertical-align: middle;
   width: auto;
@@ -994,7 +994,7 @@ select:focus {
  * Primary buttons
  */
 /* line 10, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_buttons.scss */
-.btn, button, [type="submit"], .page-forum .create-new, .page-apps .section-menu .add-app.action, .page-apps .key-actions.actions ul a, .page-apps .key-actions.actions ul .link-block-styled, .page-apps .section-body table ul a, .page-apps .section-body table ul .link-block-styled, .page-apps .section-body .action.new-key, .page-apps .application-actions.actions ul .edit.action,
+.btn, button, input[type="submit"], .page-forum .create-new, .page-apps .section-menu .add-app.action, .page-apps .key-actions.actions ul a, .page-apps .key-actions.actions ul .link-block-styled, .page-apps .section-body table ul a, .page-apps .section-body table ul .link-block-styled, .page-apps .section-body .action.new-key, .page-apps .application-actions.actions ul .edit.action,
 .page-apps .application-actions.actions ul .delete-app.action, #detailTables_multicontainer .nav a, #detailTables_multicontainer .nav .link-block-styled, .page-logout .main li a, .page-logout .main li .link-block-styled {
   background-color: #0888cd;
   border: 1px solid #0888cd;
@@ -1011,11 +1011,11 @@ select:focus {
 }
 
 /* line 24, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_buttons.scss */
-.btn:hover, button:hover, [type="submit"]:hover, .page-forum .create-new:hover, .page-apps .section-menu .add-app.action:hover, .page-apps .key-actions.actions ul a:hover, .page-apps .key-actions.actions ul .link-block-styled:hover, .page-apps .key-actions.actions ul .link-block:hover .link-block-styled, .link-block:hover .page-apps .key-actions.actions ul .link-block-styled, .page-apps .section-body table ul a:hover, .page-apps .section-body table ul .link-block-styled:hover, .page-apps .section-body table ul .link-block:hover .link-block-styled, .link-block:hover .page-apps .section-body table ul .link-block-styled, .page-apps .section-body .action.new-key:hover, .page-apps .application-actions.actions ul .edit.action:hover,
+.btn:hover, button:hover, input[type="submit"]:hover, .page-forum .create-new:hover, .page-apps .section-menu .add-app.action:hover, .page-apps .key-actions.actions ul a:hover, .page-apps .key-actions.actions ul .link-block-styled:hover, .page-apps .key-actions.actions ul .link-block:hover .link-block-styled, .link-block:hover .page-apps .key-actions.actions ul .link-block-styled, .page-apps .section-body table ul a:hover, .page-apps .section-body table ul .link-block-styled:hover, .page-apps .section-body table ul .link-block:hover .link-block-styled, .link-block:hover .page-apps .section-body table ul .link-block-styled, .page-apps .section-body .action.new-key:hover, .page-apps .application-actions.actions ul .edit.action:hover,
 .page-apps .application-actions.actions ul .delete-app.action:hover, #detailTables_multicontainer .nav a:hover, #detailTables_multicontainer .nav .link-block-styled:hover, #detailTables_multicontainer .nav .link-block:hover .link-block-styled, .link-block:hover #detailTables_multicontainer .nav .link-block-styled, .page-logout .main li a:hover, .page-logout .main li .link-block-styled:hover, .page-logout .main li .link-block:hover .link-block-styled, .link-block:hover .page-logout .main li .link-block-styled,
 a .btn:hover, .link-block-styled .btn:hover,
 a button:hover, .link-block-styled button:hover,
-a [type="submit"]:hover, .link-block-styled [type="submit"]:hover,
+a input[type="submit"]:hover, .link-block-styled input[type="submit"]:hover,
 a .page-forum .create-new:hover, .page-forum
 a .create-new:hover, .link-block-styled .page-forum .create-new:hover, .page-forum .link-block-styled .create-new:hover,
 a .page-apps .section-menu .add-app.action:hover, .page-apps .section-menu
@@ -1061,11 +1061,11 @@ a .link-block-styled:hover, .link-block-styled .page-logout .main li .link-block
 a .page-logout .main li .link-block:hover .link-block-styled, .page-logout .main li .link-block:hover
 a .link-block-styled, .link-block-styled .page-logout .main li .link-block:hover .link-block-styled, .page-logout .main li .link-block:hover .link-block-styled .link-block-styled,
 a .link-block:hover .page-logout .main li .link-block-styled, .link-block:hover .page-logout .main li
-a .link-block-styled, .link-block-styled .link-block:hover .page-logout .main li .link-block-styled, .link-block:hover .page-logout .main li .link-block-styled .link-block-styled, .btn:focus, button:focus, [type="submit"]:focus, .page-forum .create-new:focus, .page-apps .section-menu .add-app.action:focus, .page-apps .key-actions.actions ul a:focus, .page-apps .key-actions.actions ul .link-block-styled:focus, .page-apps .section-body table ul a:focus, .page-apps .section-body table ul .link-block-styled:focus, .page-apps .section-body .action.new-key:focus, .page-apps .application-actions.actions ul .edit.action:focus,
+a .link-block-styled, .link-block-styled .link-block:hover .page-logout .main li .link-block-styled, .link-block:hover .page-logout .main li .link-block-styled .link-block-styled, .btn:focus, button:focus, input[type="submit"]:focus, .page-forum .create-new:focus, .page-apps .section-menu .add-app.action:focus, .page-apps .key-actions.actions ul a:focus, .page-apps .key-actions.actions ul .link-block-styled:focus, .page-apps .section-body table ul a:focus, .page-apps .section-body table ul .link-block-styled:focus, .page-apps .section-body .action.new-key:focus, .page-apps .application-actions.actions ul .edit.action:focus,
 .page-apps .application-actions.actions ul .delete-app.action:focus, #detailTables_multicontainer .nav a:focus, #detailTables_multicontainer .nav .link-block-styled:focus, .page-logout .main li a:focus, .page-logout .main li .link-block-styled:focus,
 a .btn:focus, .link-block-styled .btn:focus,
 a button:focus, .link-block-styled button:focus,
-a [type="submit"]:focus, .link-block-styled [type="submit"]:focus,
+a input[type="submit"]:focus, .link-block-styled input[type="submit"]:focus,
 a .page-forum .create-new:focus, .page-forum
 a .create-new:focus, .link-block-styled .page-forum .create-new:focus, .page-forum .link-block-styled .create-new:focus,
 a .page-apps .section-menu .add-app.action:focus, .page-apps .section-menu
@@ -1095,11 +1095,11 @@ a .link-block-styled:focus, .link-block-styled #detailTables_multicontainer .nav
 a .page-logout .main li a:focus, .page-logout .main li
 a a:focus, .link-block-styled .page-logout .main li a:focus, .page-logout .main li .link-block-styled a:focus,
 a .page-logout .main li .link-block-styled:focus, .page-logout .main li
-a .link-block-styled:focus, .link-block-styled .page-logout .main li .link-block-styled:focus, .page-logout .main li .link-block-styled .link-block-styled:focus, .btn:active, button:active, [type="submit"]:active, .page-forum .create-new:active, .page-apps .section-menu .add-app.action:active, .page-apps .key-actions.actions ul a:active, .page-apps .key-actions.actions ul .link-block-styled:active, .page-apps .section-body table ul a:active, .page-apps .section-body table ul .link-block-styled:active, .page-apps .section-body .action.new-key:active, .page-apps .application-actions.actions ul .edit.action:active,
+a .link-block-styled:focus, .link-block-styled .page-logout .main li .link-block-styled:focus, .page-logout .main li .link-block-styled .link-block-styled:focus, .btn:active, button:active, input[type="submit"]:active, .page-forum .create-new:active, .page-apps .section-menu .add-app.action:active, .page-apps .key-actions.actions ul a:active, .page-apps .key-actions.actions ul .link-block-styled:active, .page-apps .section-body table ul a:active, .page-apps .section-body table ul .link-block-styled:active, .page-apps .section-body .action.new-key:active, .page-apps .application-actions.actions ul .edit.action:active,
 .page-apps .application-actions.actions ul .delete-app.action:active, #detailTables_multicontainer .nav a:active, #detailTables_multicontainer .nav .link-block-styled:active, .page-logout .main li a:active, .page-logout .main li .link-block-styled:active,
 a .btn:active, .link-block-styled .btn:active,
 a button:active, .link-block-styled button:active,
-a [type="submit"]:active, .link-block-styled [type="submit"]:active,
+a input[type="submit"]:active, .link-block-styled input[type="submit"]:active,
 a .page-forum .create-new:active, .page-forum
 a .create-new:active, .link-block-styled .page-forum .create-new:active, .page-forum .link-block-styled .create-new:active,
 a .page-apps .section-menu .add-app.action:active, .page-apps .section-menu
@@ -1129,7 +1129,7 @@ a .link-block-styled:active, .link-block-styled #detailTables_multicontainer .na
 a .page-logout .main li a:active, .page-logout .main li
 a a:active, .link-block-styled .page-logout .main li a:active, .page-logout .main li .link-block-styled a:active,
 a .page-logout .main li .link-block-styled:active, .page-logout .main li
-a .link-block-styled:active, .link-block-styled .page-logout .main li .link-block-styled:active, .page-logout .main li .link-block-styled .link-block-styled:active, .btn.active, button.active, .active[type="submit"], .page-forum .active.create-new, .page-apps .section-menu .active.add-app.action, .page-apps .key-actions.actions ul a.active, .page-apps .key-actions.actions ul .active.link-block-styled, .page-apps .section-body table ul a.active, .page-apps .section-body table ul .active.link-block-styled, .page-apps .section-body .active.action.new-key, .page-apps .application-actions.actions ul .active.edit.action,
+a .link-block-styled:active, .link-block-styled .page-logout .main li .link-block-styled:active, .page-logout .main li .link-block-styled .link-block-styled:active, .btn.active, button.active, input.active[type="submit"], .page-forum .active.create-new, .page-apps .section-menu .active.add-app.action, .page-apps .key-actions.actions ul a.active, .page-apps .key-actions.actions ul .active.link-block-styled, .page-apps .section-body table ul a.active, .page-apps .section-body table ul .active.link-block-styled, .page-apps .section-body .active.action.new-key, .page-apps .application-actions.actions ul .active.edit.action,
 .page-apps .application-actions.actions ul .active.delete-app.action, #detailTables_multicontainer .nav a.active, #detailTables_multicontainer .nav .active.link-block-styled, #detailTables_multicontainer .nav li.active a, #detailTables_multicontainer .nav li.active .link-block-styled, .page-logout .main li a.active, .page-logout .main li .active.link-block-styled {
   background-color: #055783;
   border-color: #055783;
@@ -1181,11 +1181,11 @@ a .btn-tertiary:active, .link-block-styled .btn-tertiary:active, .btn-tertiary.a
  * Active state
  */
 /* line 86, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_buttons.scss */
-.btn:active, button:active, [type="submit"]:active, .page-forum .create-new:active, .page-apps .section-menu .add-app.action:active, .page-apps .key-actions.actions ul a:active, .page-apps .key-actions.actions ul .link-block-styled:active, .page-apps .section-body table ul a:active, .page-apps .section-body table ul .link-block-styled:active, .page-apps .section-body .action.new-key:active, .page-apps .application-actions.actions ul .edit.action:active,
+.btn:active, button:active, input[type="submit"]:active, .page-forum .create-new:active, .page-apps .section-menu .add-app.action:active, .page-apps .key-actions.actions ul a:active, .page-apps .key-actions.actions ul .link-block-styled:active, .page-apps .section-body table ul a:active, .page-apps .section-body table ul .link-block-styled:active, .page-apps .section-body .action.new-key:active, .page-apps .application-actions.actions ul .edit.action:active,
 .page-apps .application-actions.actions ul .delete-app.action:active, #detailTables_multicontainer .nav a:active, #detailTables_multicontainer .nav .link-block-styled:active, .page-logout .main li a:active, .page-logout .main li .link-block-styled:active,
 .btn.active,
 button.active,
-.active[type="submit"],
+input.active[type="submit"],
 .page-forum .active.create-new,
 .page-apps .section-menu .active.add-app.action,
 .page-apps .key-actions.actions ul a.active,
@@ -1209,11 +1209,11 @@ button.active,
  * Disabled state
  */
 /* line 96, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_buttons.scss */
-.btn.disabled, button.disabled, .disabled[type="submit"], .page-forum .disabled.create-new, .page-apps .section-menu .disabled.add-app.action, .page-apps .key-actions.actions ul a.disabled, .page-apps .key-actions.actions ul .disabled.link-block-styled, .page-apps .section-body table ul a.disabled, .page-apps .section-body table ul .disabled.link-block-styled, .page-apps .section-body .disabled.action.new-key, .page-apps .application-actions.actions ul .disabled.edit.action,
+.btn.disabled, button.disabled, input.disabled[type="submit"], .page-forum .disabled.create-new, .page-apps .section-menu .disabled.add-app.action, .page-apps .key-actions.actions ul a.disabled, .page-apps .key-actions.actions ul .disabled.link-block-styled, .page-apps .section-body table ul a.disabled, .page-apps .section-body table ul .disabled.link-block-styled, .page-apps .section-body .disabled.action.new-key, .page-apps .application-actions.actions ul .disabled.edit.action,
 .page-apps .application-actions.actions ul .disabled.delete-app.action, #detailTables_multicontainer .nav a.disabled, #detailTables_multicontainer .nav .disabled.link-block-styled, .page-logout .main li a.disabled, .page-logout .main li .disabled.link-block-styled,
 .btn[disabled],
 button[disabled],
-[disabled][type="submit"],
+input[disabled][type="submit"],
 .page-forum [disabled].create-new,
 .page-apps .section-menu [disabled].add-app.action,
 .page-apps .key-actions.actions ul a[disabled],
@@ -1262,7 +1262,7 @@ input[type="button"].btn-block {
  * General styles
  */
 /* line 133, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_buttons.scss */
-.btn, button, [type="submit"], .page-forum .create-new, .page-apps .section-menu .add-app.action, .page-apps .key-actions.actions ul a, .page-apps .key-actions.actions ul .link-block-styled, .page-apps .section-body table ul a, .page-apps .section-body table ul .link-block-styled, .page-apps .section-body .action.new-key, .page-apps .application-actions.actions ul .edit.action,
+.btn, button, input[type="submit"], .page-forum .create-new, .page-apps .section-menu .add-app.action, .page-apps .key-actions.actions ul a, .page-apps .key-actions.actions ul .link-block-styled, .page-apps .section-body table ul a, .page-apps .section-body table ul .link-block-styled, .page-apps .section-body .action.new-key, .page-apps .application-actions.actions ul .edit.action,
 .page-apps .application-actions.actions ul .delete-app.action, #detailTables_multicontainer .nav a, #detailTables_multicontainer .nav .link-block-styled, .page-logout .main li a, .page-logout .main li .link-block-styled,
 button,
 html input[type="button"],
@@ -1283,7 +1283,7 @@ input[type="submit"] {
  * Remove right margin on last element and inputs
  */
 /* line 155, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_buttons.scss */
-.btn:last-child, button:last-child, [type="submit"]:last-child, .page-forum .create-new:last-child, .page-apps .section-menu .add-app.action:last-child, .page-apps .key-actions.actions ul a:last-child, .page-apps .key-actions.actions ul .link-block-styled:last-child, .page-apps .section-body table ul a:last-child, .page-apps .section-body table ul .link-block-styled:last-child, .page-apps .section-body .action.new-key:last-child, .page-apps .application-actions.actions ul .edit.action:last-child,
+.btn:last-child, button:last-child, input[type="submit"]:last-child, .page-forum .create-new:last-child, .page-apps .section-menu .add-app.action:last-child, .page-apps .key-actions.actions ul a:last-child, .page-apps .key-actions.actions ul .link-block-styled:last-child, .page-apps .section-body table ul a:last-child, .page-apps .section-body table ul .link-block-styled:last-child, .page-apps .section-body .action.new-key:last-child, .page-apps .application-actions.actions ul .edit.action:last-child,
 .page-apps .application-actions.actions ul .delete-app.action:last-child, #detailTables_multicontainer .nav a:last-child, #detailTables_multicontainer .nav .link-block-styled:last-child, .page-logout .main li a:last-child, .page-logout .main li .link-block-styled:last-child,
 input.btn,
 input[type="submit"],
@@ -2148,7 +2148,7 @@ a:hover .icon-link, .link-block-styled:hover .icon-link, .link-block:hover .link
  * Floats
  */
 /* line 115, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
-.float-left, [type="submit"], ol.categories .category .subject, ol.categories .category .topic-count, ol.categories .category .last-comment, ol.categories .category .last-active, ol.categories .category .last-topic, ol.topics .topic .subject, ol.topics .topic .last-comment, ol.topics .topic .last-active {
+.float-left, input[type="submit"], ol.categories .category .subject, ol.categories .category .topic-count, ol.categories .category .last-comment, ol.categories .category .last-active, ol.categories .category .last-topic, ol.topics .topic .subject, ol.topics .topic .last-comment, ol.topics .topic .last-active {
   float: left;
 }
 
@@ -2410,7 +2410,7 @@ span.timezone-note:after,
 /**
  * Header edit links
  */
-/* line 94, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 97, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 h1 .edit, .page-login h2.signin .edit {
   font-size: 0.6875em;
 }
@@ -2418,26 +2418,26 @@ h1 .edit, .page-login h2.signin .edit {
 /**
  * Buttons
  */
-/* line 151, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
-[type="submit"],
-[type="submit"]:last-child {
+/* line 154, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+input[type="submit"],
+input[type="submit"]:last-child {
   margin-right: 0.3125em;
 }
 
 /**
  * Markdown Guide
  */
-/* line 160, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 163, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 #mashery-markdown-help {
   clear: left;
 }
 
-/* line 164, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 167, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 #mashery-markdown-help h2:first-child a, #mashery-markdown-help h2:first-child .link-block-styled {
   font-size: 0.75em;
 }
 
-/* line 168, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 171, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 #mashery-markdown-help h2:first-child a:before, #mashery-markdown-help h2:first-child .link-block-styled:before {
   content: "\A";
   white-space: pre;
@@ -2447,7 +2447,7 @@ h1 .edit, .page-login h2.signin .edit {
  * RSS Icon
  * Hide default. Icon added via JS.
  */
-/* line 186, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 189, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 .rss-icon {
   fill: #e06c33;
   height: 1em;
@@ -2457,12 +2457,12 @@ h1 .edit, .page-login h2.signin .edit {
 /**
  * Add indicator for required form fields
  */
-/* line 202, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 205, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 label.require:after {
   content: " *";
 }
 
-/* line 206, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 209, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 label.require:empty:after {
   content: "";
 }
@@ -2470,7 +2470,7 @@ label.require:empty:after {
 /**
  * Success message styling
  */
-/* line 219, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 222, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 form ul.success li {
   font-style: italic;
 }
@@ -2478,20 +2478,20 @@ form ul.success li {
 /**
  * Form error styling
  */
-/* line 229, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 232, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 input.failure,
 textarea.failure {
   border-color: #880e14;
   margin-bottom: 0;
 }
 
-/* line 234, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 237, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 input.failure:focus,
 textarea.failure:focus {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0.5em rgba(136, 14, 20, 0.6);
 }
 
-/* line 239, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
+/* line 242, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_mashery-overrides.scss */
 ul.failure,
 ul.error {
   color: #880e14;
