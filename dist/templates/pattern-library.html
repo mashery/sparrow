@@ -243,7 +243,8 @@ Small Screens
 &lt;/div&gt;
 </code></pre>
 <h3 id="full-width-pages">Full Width Pages</h3>
-<p>By default, the main body content on a page is wrapped in a <code>.container</code> class element, which provides left and right padding and centers it in the viewport. To unlock full manual control over the layout, with content bleeding to both edges, call the <code>fullWidth()</code> JavaScript method at the top of the page.</p>
+<p>By default, the main body content on a page is wrapped in a <code>.container</code> class element, which provides left and right padding and centers it in the viewport. It also is given a <code>.grid-two-thirds</code> class to keep line-length on content more readable.</p>
+<p>To unlock full manual control over the layout, with content bleeding to both edges, call the <code>fullWidth()</code> JavaScript method at the top of the page.</p>
 <pre><code class="lang-markup">&lt;script&gt;
 portalReady(function () {
     fullWidth();
@@ -254,6 +255,14 @@ portalReady(function () {
 <pre><code class="lang-markup">&lt;script&gt;
 portalReady(function () {
     fullWidth( true );
+});
+&lt;/script&gt;
+</code></pre>
+<p>If you want your page to be wide but still have some margins with the <code>.container</code>, you can pass in a second argument of <code>true</code>.</p>
+<pre><code class="lang-markup">&lt;script&gt;
+portalReady(function () {
+    // Keep the H1 element, but make the content wide
+    fullWidth( false, true );
 });
 &lt;/script&gt;
 </code></pre>
@@ -907,6 +916,20 @@ You can also include superscripts&lt;sup&gt;1&lt;/sup&gt; and subscripts&lt;sub&
 <pre><code class="lang-js">portalReady(function () {
     addTableHeaders();
 });
+</code></pre>
+<hr>
+
+
+<h2 id="only-show-content-to-logged-in-users">Only show content to logged-in users</h2>
+<p>The Mashery Portal provides high levels of custom access for pages and documentation based on whether or not a user is logged in, is a member of a particular role or group, and so on. However, these access levels apply to the entire page.</p>
+<p>You can selectively hide or show pieces content within a page or documentation only for logged-in users using the <code>.hide-logged-in</code> and <code>.hide-logged-out</code> classes.</p>
+<pre><code class="lang-markup">&lt;div class=&quot;hide-logged-in&quot;&gt;
+    Logged out users will see this. Logged in users will NOT.
+&lt;/div&gt;
+
+&lt;div class=&quot;hide-logged-out&quot;&gt;
+    Logged out users will NOT see this. Logged in users will.
+&lt;/div&gt;
 </code></pre>
 <hr>
 
