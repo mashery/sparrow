@@ -111,8 +111,8 @@
 		method.style.display = 'block';
 		methodParent.id = 'js-method-scrollto';
 		setTimeout(function() {
-			smoothScroll.animateScroll( '#js-method-scrollto', null, { updateURL: false } );
-		}, 264);
+			window.location.hash = 'js-method-scrollto';
+		}, 600);
 	};
 
 	/**

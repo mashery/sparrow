@@ -1,7 +1,7 @@
 /*!
  * YOUR-CLIENT-NAME-WITHOUT-SPACES v1.0.0: Portal theme for YOUR-CLIENT-NAME
  * Copyright (c) 2017 TIBCO Software Inc. All Rights Reserved.
- * Built on the Sparrow Boilerplate v9.4.0
+ * Built on the Sparrow Boilerplate v9.5.0
  * BSD-type License
  * https://github.com/mashery/sparrow
  */

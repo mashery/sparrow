@@ -26,6 +26,10 @@
 	background-color: $color-gray-light;
 }
 
+.bg-dark {
+	@extend %bg-dark;
+}
+
 .bg-primary {
 	@extend %bg-dark;
 	background-color: $color-primary;

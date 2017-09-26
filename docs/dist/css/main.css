@@ -1,7 +1,7 @@
 /*!
  * YOUR-CLIENT-NAME-WITHOUT-SPACES v1.0.0: Portal theme for YOUR-CLIENT-NAME
  * Copyright (c) 2017 TIBCO Software Inc. All Rights Reserved.
- * Built on the Sparrow Boilerplate v9.4.0
+ * Built on the Sparrow Boilerplate v9.5.0
  * BSD-type License
  * https://github.com/mashery/sparrow
  */
@@ -2030,18 +2030,18 @@ a:hover .icon-link, .link-block-styled:hover .icon-link, .link-block:hover .link
  * Background colors
  */
 /* line 11, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
-.bg-primary, #nav-user {
+.bg-dark, .bg-primary, #nav-user {
   background-color: #272727;
   color: #ffffff;
 }
 
 /* line 15, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
-.bg-primary a, #nav-user a, .bg-primary .link-block-styled, #nav-user .link-block-styled {
+.bg-dark a, .bg-primary a, #nav-user a, .bg-dark .link-block-styled, .bg-primary .link-block-styled, #nav-user .link-block-styled {
   color: #e5e5e5;
 }
 
 /* line 18, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
-.bg-primary a:hover, #nav-user a:hover, .bg-primary .link-block-styled:hover, #nav-user .link-block-styled:hover, .bg-primary .link-block:hover .link-block-styled, .link-block:hover .bg-primary .link-block-styled, #nav-user .link-block:hover .link-block-styled, .link-block:hover #nav-user .link-block-styled, .bg-primary a:active, #nav-user a:active, .bg-primary .link-block-styled:active, #nav-user .link-block-styled:active {
+.bg-dark a:hover, .bg-primary a:hover, #nav-user a:hover, .bg-dark .link-block-styled:hover, .bg-primary .link-block-styled:hover, #nav-user .link-block-styled:hover, .bg-dark .link-block:hover .link-block-styled, .link-block:hover .bg-dark .link-block-styled, .bg-primary .link-block:hover .link-block-styled, .link-block:hover .bg-primary .link-block-styled, #nav-user .link-block:hover .link-block-styled, .link-block:hover #nav-user .link-block-styled, .bg-dark a:active, .bg-primary a:active, #nav-user a:active, .bg-dark .link-block-styled:active, .bg-primary .link-block-styled:active, #nav-user .link-block-styled:active {
   color: #ffffff;
 }
 
@@ -2050,22 +2050,22 @@ a:hover .icon-link, .link-block-styled:hover .icon-link, .link-block:hover .link
   background-color: #e5e5e5;
 }
 
-/* line 29, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 33, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .bg-primary, #nav-user {
   background-color: #0888cd;
 }
 
-/* line 34, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 38, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .bg-secondary {
   background-color: #ffdd2f;
 }
 
-/* line 38, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 42, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .bg-tertiary {
   background-color: #b4d253;
 }
 
-/* line 42, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 46, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .bg-hero {
   background-position: center;
   background-size: cover;
@@ -2075,32 +2075,32 @@ a:hover .icon-link, .link-block-styled:hover .icon-link, .link-block:hover .link
 /**
  * Text sizes
  */
-/* line 52, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 56, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .text-small, .section-meta, .paging, ol.categories .category .edit-category, ol.categories .category .no-topics, ol.categories .category .topic-count, ol.categories .category .comment-count, ol.categories .category .last-comment, ol.categories .category .last-active, ol.categories .category .last-topic, ol.topics .topic .edit-topic, ol.topics .topic .moniker, ol.topics .topic .comment-count, ol.topics .topic .last-comment, ol.topics .topic .last-active, .page-forum ol.comments .edit-topic, .page-forum ol.comments .edit-timestamp {
   font-size: 0.9375em;
 }
 
-/* line 56, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 60, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .text-large {
   font-size: 1.1875em;
   line-height: 1.4;
 }
 
 @media (min-width: 40em) {
-  /* line 56, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+  /* line 60, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
   .text-large {
     font-size: 1.3125em;
   }
 }
 
-/* line 65, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 69, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .text-hero {
   font-size: 1.75em;
   line-height: 1.4;
 }
 
 @media (min-width: 40em) {
-  /* line 65, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+  /* line 69, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
   .text-hero {
     font-size: 2em;
   }
@@ -2109,12 +2109,12 @@ a:hover .icon-link, .link-block-styled:hover .icon-link, .link-block:hover .link
 /**
  * Text colors
  */
-/* line 79, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 83, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .text-muted, .section-meta, .paging, ol.categories .category .no-topics, ol.categories .category .topic-count, ol.categories .category .comment-count, ol.categories .category .last-comment, ol.categories .category .last-active, ol.categories .category .last-topic, ol.topics .topic .moniker, ol.topics .topic .comment-count, ol.topics .topic .last-comment, ol.topics .topic .last-active, .page-forum ol.comments .edit-timestamp, .page-blog ol.comments .comment-meta, .page-wiki ol.comments .comment-meta, span.timezone-note {
   color: #808080;
 }
 
-/* line 83, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 87, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .text-white {
   color: #ffffff;
 }
@@ -2122,23 +2122,23 @@ a:hover .icon-link, .link-block-styled:hover .icon-link, .link-block:hover .link
 /**
  * Text alignment
  */
-/* line 92, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 96, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .text-center {
   text-align: center;
 }
 
-/* line 96, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 100, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .text-right, .method .title .description, ol.categories .category .edit-category, ol.topics .topic .edit-topic {
   text-align: right;
 }
 
-/* line 100, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 104, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .text-left {
   text-align: left;
 }
 
 @media (min-width: 40em) {
-  /* line 105, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+  /* line 109, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
   .text-right-large {
     text-align: right;
   }
@@ -2147,12 +2147,12 @@ a:hover .icon-link, .link-block-styled:hover .icon-link, .link-block:hover .link
 /**
  * Floats
  */
-/* line 115, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 119, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .float-left, input[type="submit"], ol.categories .category .subject, ol.categories .category .topic-count, ol.categories .category .last-comment, ol.categories .category .last-active, ol.categories .category .last-topic, ol.topics .topic .subject, ol.topics .topic .last-comment, ol.topics .topic .last-active {
   float: left;
 }
 
-/* line 119, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 123, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .float-center, .page-page .no_sub .main,
 .page-forum .no_sub .main,
 .page-blog .no_sub .main,
@@ -2162,28 +2162,28 @@ a:hover .icon-link, .link-block-styled:hover .icon-link, .link-block:hover .link
   margin-right: auto;
 }
 
-/* line 125, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 129, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .float-right, h1 .edit, .page-login h2.signin .edit, .section-menu .edit, .endpoint > .title .actions, .method .title .description {
   float: right;
 }
 
-/* line 129, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 133, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .float-middle-wrap {
   display: table;
 }
 
-/* line 133, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 137, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .float-middle {
   display: table-cell;
   vertical-align: middle;
 }
 
-/* line 138, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 142, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .float-bottom-wrap {
   position: relative;
 }
 
-/* line 142, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 146, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .float-bottom {
   position: absolute;
   bottom: 0;
@@ -2193,52 +2193,52 @@ a:hover .icon-link, .link-block-styled:hover .icon-link, .link-block:hover .link
 /**
  * Margins
  */
-/* line 153, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 157, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .no-margin-top {
   margin-top: 0;
 }
 
-/* line 157, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 161, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .no-margin-bottom, .descr p {
   margin-bottom: 0;
 }
 
-/* line 161, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 165, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .margin-top {
   margin-top: 1.5625em;
 }
 
-/* line 165, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 169, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .margin-bottom, .paging, .method {
   margin-bottom: 1.5625em;
 }
 
-/* line 169, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 173, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .margin-bottom-small, .servicesIodocs, .page-login h2.signin {
   margin-bottom: 0.5em;
 }
 
-/* line 173, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 177, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .margin-bottom-large {
   margin-bottom: 2em;
 }
 
-/* line 177, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 181, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .margin-left {
   margin-left: 1.5625em;
 }
 
-/* line 181, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 185, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .margin-left-small {
   margin-left: 0.5em;
 }
 
-/* line 185, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 189, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .margin-right {
   margin-right: 1.5625em;
 }
 
-/* line 189, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 193, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .margin-right-small {
   margin-right: 0.5em;
 }
@@ -2246,52 +2246,52 @@ a:hover .icon-link, .link-block-styled:hover .icon-link, .link-block:hover .link
 /**
  * Padding
  */
-/* line 198, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 202, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .no-padding-top {
   padding-top: 0;
 }
 
-/* line 202, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 206, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .no-padding-bottom {
   padding-bottom: 0;
 }
 
-/* line 206, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 210, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .padding-top, .page-blog ol.comments .comment, .page-wiki ol.comments .comment {
   padding-top: 1.5625em;
 }
 
-/* line 210, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 214, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .padding-top-small, .page-login h2.signin {
   padding-top: 0.5em;
 }
 
-/* line 214, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 218, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .padding-top-large, .page-login .signin_member_mashery {
   padding-top: 2em;
 }
 
-/* line 218, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 222, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .padding-bottom {
   padding-bottom: 1.5625em;
 }
 
-/* line 222, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 226, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .padding-bottom-small {
   padding-bottom: 0.5em;
 }
 
-/* line 226, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 230, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .padding-bottom-large {
   padding-bottom: 2em;
 }
 
-/* line 230, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 234, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .padding-left {
   padding-left: 1.5625em;
 }
 
-/* line 234, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 238, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .padding-right {
   padding-right: 1.5625em;
 }
@@ -2304,7 +2304,7 @@ a:hover .icon-link, .link-block-styled:hover .icon-link, .link-block:hover .link
  * @link https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css
  * @link http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
  */
-/* line 248, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 252, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .screen-reader, .svg .icon-fallback-text, .js-houdini .collapse {
   border: 0;
   clip: rect(0 0 0 0);
@@ -2322,7 +2322,7 @@ a:hover .icon-link, .link-block-styled:hover .icon-link, .link-block:hover .link
  * @link https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css
  * @link https://www.drupal.org/node/897638
  */
-/* line 265, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 269, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .screen-reader-focusable:active, .js-houdini .collapse.active,
 .screen-reader-focusable:focus {
   clip: auto;
@@ -2342,7 +2342,7 @@ a:hover .icon-link, .link-block-styled:hover .icon-link, .link-block:hover .link
  * @affected IE 8/9/10
  * @link http://juicystudio.com/article/screen-readers-display-none.php
  */
-/* line 289, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 293, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 [hidden], template, .is-logged-in .hide-logged-in,
 .is-logged-out .hide-logged-out, #user-menu, .pun-nav, a.rss, .rss.link-block-styled, #nav-user .status, .dom-forum .breadcrumbs, .page-forum .section-menu ul, .search-input .search-button, #detailTables_container.loading #detailTables div {
   display: none;
@@ -2354,7 +2354,7 @@ a:hover .icon-link, .link-block-styled:hover .icon-link, .link-block:hover .link
  * The space content is one way to avoid an Opera bug when the `contenteditable` attribute is included anywhere else in the document.
  * @link https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css
  */
-/* line 301, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 305, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .clearfix:before, .container:before, .page:before,
 .row:before, .content:before, .page-login .signin_member_mashery:before, form:before, .section-menu ul:before, .method .title:before, ol.categories .category ul:before, ol.topics .topic > ul:before, .page-wiki .section-tags:before, span.timezone-note:before, #quotaInfo:before, #detailTables_container:before,
 .clearfix:after,
@@ -2378,7 +2378,7 @@ span.timezone-note:after,
   display: table;
 }
 
-/* line 307, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
+/* line 311, /Users/cferdinandi/Sites/mashery/sparrow/src/sass/components/_overrides.scss */
 .clearfix:after, .container:after, .page:after,
 .row:after, .content:after, .page-login .signin_member_mashery:after, form:after, .section-menu ul:after, .method .title:after, .method a.clear-results:after, .method .clear-results.link-block-styled:after, ol.categories .category ul:after, ol.topics .topic > ul:after, .page-wiki .section-tags:after, span.timezone-note:after, #quotaInfo:after, #detailTables_container:after {
   clear: both;

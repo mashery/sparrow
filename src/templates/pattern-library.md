@@ -1,3 +1,5 @@
+# Pattern Library
+
 The Pattern Library is living documentation for your Portal theme. If you would like to update your theme, [click here to download the source files](/files/portal-theme.zip).
 
 ## Brand Elements

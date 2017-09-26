@@ -139,22 +139,22 @@ h1 .edit {
  * Buttons
  */
 
- // Extend all <button> elements to look like buttons
- button {
- 	@extend .btn;
- }
+// Extend all <button> elements to look like buttons
+button {
+	@extend .btn;
+}
 
- // Extend all input[type="submit"] elements to look like buttons
- input[type="submit"] {
- 	@extend .btn;
- 	@extend .input-inline;
- 	@extend .float-left;
- }
+// Extend all input[type="submit"] elements to look like buttons
+input[type="submit"] {
+	@extend .btn;
+	@extend .input-inline;
+	@extend .float-left;
+}
 
- input[type="submit"],
- input[type="submit"]:last-child {
- 	margin-right: calc-em(5px);
- }
+input[type="submit"],
+input[type="submit"]:last-child {
+	margin-right: calc-em(5px);
+}
 
 
 /**
