@@ -8,21 +8,6 @@ It looks great out-of-the-box, and includes features that make customization eas
 
 <hr>
 
-## Mashery portals built with Sparrow
-
-In case you need a little inspiration...
-
-- [CNN](https://developer.cnn.com)
-- [Monotch](https://developer.monotch.com)
-- [GTA Travel](https://developer.gta-travel.com)
-- [Domain Group](https://developer.domain.com.au)
-- [Autodata](https://developer.autodata-group.com)
-- [LATAM Airlines](https://developer.latam.com)
-- [IEEE](https://developer.ieee.org)
-- [Sportradar](https://developer.sportradar.com)
-
-<hr>
-
 
 ## The Sparrow Approach
 
